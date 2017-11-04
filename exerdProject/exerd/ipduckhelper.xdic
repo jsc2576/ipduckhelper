@@ -40,4 +40,11 @@
   <term name="대표" description="대표" physicalName="REP" physicalDescription="REPRESENTATIVE"/>
   <term name="데뷔" description="데뷔" physicalName="DBT" physicalDescription="DEBUT"/>
   <term name="유형" description="유형" physicalName="TYP" physicalDescription="TYPE"/>
+  <term name="이름" description="이름" physicalName="NM" physicalDescription="NAME"/>
+  <term name="내용" description="내용" physicalName="CON" physicalDescription="CONTENT"/>
+  <term name="사이트" description="사이트" physicalName="SITE" physicalDescription="SITE"/>
+  <term name="팬클럽" description="팬클럽" physicalName="CLB" physicalDescription="FANCLUB, CLUB"/>
+  <term name="테이블" description="테이블" physicalName="TBL" physicalDescription="TABLE"/>
+  <term name="선호" description="선호" physicalName="LIKE" physicalDescription="LIKE"/>
+  <term name="추천" description="추천" physicalName="RECM" physicalDescription="RECOMMENDATION"/>
 </tm:TermDictionary>
