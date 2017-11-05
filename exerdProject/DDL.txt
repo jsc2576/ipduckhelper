@@ -42,7 +42,7 @@ CREATE TABLE MEM_TBL (
 	MEM_NICK VARCHAR(50)                    NOT NULL, -- 회원닉네임
 	MEM_NM   VARCHAR(50)                    NOT NULL, -- 회원이름
 	MEM_STAT ENUM('미인증','회원','관리자') NOT NULL, -- 회원상태
-	ACVT     BOOLEAN                        NOT NULL, -- 활성
+	ACVT     BOOLEAN                        NOT NULL DEFAULT 0, -- 활성
 	FILE_IDX INTEGER                        NULL      -- 파일인덱스
 );
 
