@@ -47,4 +47,6 @@
   <term name="테이블" description="테이블" physicalName="TBL" physicalDescription="TABLE"/>
   <term name="선호" description="선호" physicalName="LIKE" physicalDescription="LIKE"/>
   <term name="추천" description="추천" physicalName="RECM" physicalDescription="RECOMMENDATION"/>
+  <term name="활성" description="활성" physicalName="ACVT" physicalDescription="ACTIVATED"/>
+  <term name="상태" description="상태" physicalName="STAT" physicalDescription="STATUS"/>
 </tm:TermDictionary>
