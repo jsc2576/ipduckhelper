@@ -15,9 +15,9 @@ ALTER TABLE "CMPY_TBL"
 
 -- 그룹
 CREATE TABLE "GRP_TBL" (
-	"GRP_IDX"  INTEGER      NOT NULL, -- 그룹인덱스
+	"GRP_IDX"  INTEGER      NOT NULL AUTO_INCREMENT, -- 그룹인덱스
 	"STAR_IDX" INTEGER      NOT NULL, -- 연예인인덱스
-	"CLB_SITE" VARCHAR(255) NOT NULL  -- 팬클럽사이트
+	"CLB_SITE" VARCHAR(255) NOT NULL DEFAULT ''  -- 팬클럽사이트
 );
 
 -- 그룹
@@ -30,7 +30,7 @@ ALTER TABLE "GRP_TBL"
 
 -- 연예인멤버
 CREATE TABLE "STAR_MEM_TBL" (
-	"STAR_MEM_IDX"   INTEGER                NOT NULL, -- 연예인멤버인덱스
+	"STAR_MEM_IDX"   INTEGER                NOT NULL AUTO_INCREMENT, -- 연예인멤버인덱스
 	"STAR_MEM_HGHT"  INTEGER                NOT NULL, -- 연예인멤버키
 	"STAR_MEM_AGE"   INTEGER                NOT NULL, -- 연예인멤버나이
 	"STAR_MEM_BLD"   ENUM('A','AB','B','O') NOT NULL, -- 연예인멤버혈액형
@@ -55,7 +55,7 @@ CREATE TABLE "MEM_TBL" (
 	"MEM_NICK" VARCHAR(50)                    NOT NULL, -- 회원닉네임
 	"MEM_NM"   VARCHAR(50)                    NOT NULL, -- 회원이름
 	"MEM_STAT" ENUM('미인증','회원','관리자') NOT NULL, -- 회원상태
-	"ACVT"     BOOLEAN                        NOT NULL, -- 활성
+	"ACVT"     BOOLEAN                        NOT NULL DEFAULT TRUE, -- 활성
 	"FILE_IDX" INTEGER                        NULL      -- 파일인덱스
 );
 
@@ -69,12 +69,12 @@ ALTER TABLE "MEM_TBL"
 
 -- 게시글
 CREATE TABLE "POST_TBL" (
-	"POST_IDX"     INTEGER      NOT NULL, -- 게시글인덱스
+	"POST_IDX"     INTEGER      NOT NULL AUTO_INCREMENT, -- 게시글인덱스
 	"MEM_ID"       VARCHAR(320) NOT NULL, -- 회원아이디
 	"STAR_IDX"     INTEGER      NOT NULL, -- 연예인인덱스
-	"POST_TTL"     VARCHAR(50)  NOT NULL, -- 게시글제목
+	"POST_TTL"     VARCHAR(50)  NOT NULL DEFAULT '', -- 게시글제목
 	"POST_DATE"    DATE         NOT NULL, -- 게시글날짜
-	"POST_CON"     TEXT         NOT NULL, -- 게시글내용
+	"POST_CON"     TEXT         NOT NULL DEFAULT '', -- 게시글내용
 	"POST_HIT_CNT" INTEGER      NOT NULL  -- 게시글조회수
 );
 
@@ -88,8 +88,8 @@ ALTER TABLE "POST_TBL"
 
 -- 댓글
 CREATE TABLE "CMNT_TBL" (
-	"CMNT_IDX"      INTEGER      NOT NULL, -- 댓글인덱스
-	"CMNT_CON"      TEXT         NOT NULL, -- 댓글내용
+	"CMNT_IDX"      INTEGER      NOT NULL AUTO_INCREMENT, -- 댓글인덱스
+	"CMNT_CON"      TEXT         NOT NULL DEFAULT '', -- 댓글내용
 	"CMNT_DATE"     DATE         NOT NULL, -- 댓글날짜
 	"POST_IDX"      INTEGER      NOT NULL, -- 게시글인덱스
 	"MEM_ID"        VARCHAR(320) NOT NULL, -- 회원아이디
@@ -134,9 +134,9 @@ CREATE TABLE "LIKE_STAR_TBL" (
 
 -- 연예인
 CREATE TABLE "STAR_TBL" (
-	"STAR_IDX"      INTEGER            NOT NULL, -- 연예인인덱스
+	"STAR_IDX"      INTEGER            NOT NULL AUTO_INCREMENT, -- 연예인인덱스
 	"STAR_NM"       VARCHAR(50)        NOT NULL, -- 연예인이름
-	"STAR_TYP"      ENUM('GRP','STAR') NOT NULL, -- 연예인유형
+	"STAR_TYP"      ENUM('GRP','STAR') NOT NULL DEFAULT 'STAR', -- 연예인유형
 	"STAR_DBT_DATE" DATE               NOT NULL, -- 연예인데뷔날짜
 	"CMPY_NM"       VARCHAR(50)        NOT NULL, -- 기획사이름
 	"FILE_IDX"      INTEGER            NULL      -- 파일인덱스
@@ -152,7 +152,7 @@ ALTER TABLE "STAR_TBL"
 
 -- 파일
 CREATE TABLE "FILE_TBL" (
-	"FILE_IDX"      INTEGER      NOT NULL, -- 파일인덱스
+	"FILE_IDX"      INTEGER      NOT NULL AUTO_INCREMENT, -- 파일인덱스
 	"FILE_NM"       VARCHAR(50)  NOT NULL, -- 파일이름
 	"FILE_PATH"     VARCHAR(255) NOT NULL, -- 파일경로
 	"FILE_CRT_DATE" DATE         NOT NULL  -- 파일생성날짜
@@ -174,7 +174,7 @@ CREATE TABLE "POST_FILE_TBL" (
 
 -- 밈
 CREATE TABLE "MM_TBL" (
-	"MM_IDX"     INTEGER      NOT NULL, -- 밈인덱스
+	"MM_IDX"     INTEGER      NOT NULL AUTO_INCREMENT, -- 밈인덱스
 	"MM_HIT_CNT" INTEGER      NOT NULL, -- 밈조회수
 	"FILE_IDX"   INTEGER      NOT NULL, -- 파일인덱스
 	"MEM_ID"     VARCHAR(320) NOT NULL  -- 회원아이디
