@@ -1,0 +1,549 @@
+-- 기획사
+CREATE TABLE "CMPY_TBL" (
+	"CMPY_NM"  VARCHAR(50) NOT NULL, -- 기획사이름
+	"CMPY_REP" VARCHAR(50) NOT NULL, -- 기획사대표
+	"FILE_IDX" INTEGER     NULL      -- 파일인덱스
+);
+
+-- 기획사
+ALTER TABLE "CMPY_TBL"
+	ADD
+		CONSTRAINT "PK_CMPY_TBL" -- 기획사 기본키
+		PRIMARY KEY (
+			"CMPY_NM" -- 기획사이름
+		);
+
+-- 그룹
+CREATE TABLE "GRP_TBL" (
+	"GRP_IDX"  INTEGER      NOT NULL, -- 그룹인덱스
+	"STAR_IDX" INTEGER      NOT NULL, -- 연예인인덱스
+	"CLB_SITE" VARCHAR(255) NOT NULL  -- 팬클럽사이트
+);
+
+-- 그룹
+ALTER TABLE "GRP_TBL"
+	ADD
+		CONSTRAINT "PK_GRP_TBL" -- 그룹 기본키
+		PRIMARY KEY (
+			"GRP_IDX" -- 그룹인덱스
+		);
+
+-- 연예인멤버
+CREATE TABLE "STAR_MEM_TBL" (
+	"STAR_MEM_IDX"   INTEGER                NOT NULL, -- 연예인멤버인덱스
+	"STAR_MEM_HGHT"  INTEGER                NOT NULL, -- 연예인멤버키
+	"STAR_MEM_AGE"   INTEGER                NOT NULL, -- 연예인멤버나이
+	"STAR_MEM_BLD"   ENUM('A','AB','B','O') NOT NULL, -- 연예인멤버혈액형
+	"STAR_MEM_WGHT"  INTEGER                NOT NULL, -- 연예인멤버몸무게
+	"STAR_MEM_BIRTH" DATE                   NOT NULL, -- 연예인멤버출생
+	"STAR_IDX"       INTEGER                NOT NULL, -- 연예인인덱스
+	"GRP_IDX"        INTEGER                NOT NULL  -- 그룹인덱스
+);
+
+-- 연예인멤버
+ALTER TABLE "STAR_MEM_TBL"
+	ADD
+		CONSTRAINT "PK_STAR_MEM_TBL" -- 연예인멤버 기본키
+		PRIMARY KEY (
+			"STAR_MEM_IDX" -- 연예인멤버인덱스
+		);
+
+-- 회원
+CREATE TABLE "MEM_TBL" (
+	"MEM_ID"   VARCHAR(320)                   NOT NULL, -- 회원아이디
+	"MEM_PWD"  VARCHAR(100)                   NOT NULL, -- 회원비밀번호
+	"MEM_NICK" VARCHAR(50)                    NOT NULL, -- 회원닉네임
+	"MEM_NM"   VARCHAR(50)                    NOT NULL, -- 회원이름
+	"MEM_STAT" ENUM('미인증','회원','관리자') NOT NULL, -- 회원상태
+	"ACVT"     BOOLEAN                        NOT NULL, -- 활성
+	"FILE_IDX" INTEGER                        NULL      -- 파일인덱스
+);
+
+-- 회원
+ALTER TABLE "MEM_TBL"
+	ADD
+		CONSTRAINT "PK_MEM_TBL" -- 회원 기본키
+		PRIMARY KEY (
+			"MEM_ID" -- 회원아이디
+		);
+
+-- 게시글
+CREATE TABLE "POST_TBL" (
+	"POST_IDX"     INTEGER      NOT NULL, -- 게시글인덱스
+	"MEM_ID"       VARCHAR(320) NOT NULL, -- 회원아이디
+	"STAR_IDX"     INTEGER      NOT NULL, -- 연예인인덱스
+	"POST_TTL"     VARCHAR(50)  NOT NULL, -- 게시글제목
+	"POST_DATE"    DATE         NOT NULL, -- 게시글날짜
+	"POST_CON"     TEXT         NOT NULL, -- 게시글내용
+	"POST_HIT_CNT" INTEGER      NOT NULL  -- 게시글조회수
+);
+
+-- 게시글
+ALTER TABLE "POST_TBL"
+	ADD
+		CONSTRAINT "PK_POST_TBL" -- 게시글 기본키
+		PRIMARY KEY (
+			"POST_IDX" -- 게시글인덱스
+		);
+
+-- 댓글
+CREATE TABLE "CMNT_TBL" (
+	"CMNT_IDX"      INTEGER      NOT NULL, -- 댓글인덱스
+	"CMNT_CON"      TEXT         NOT NULL, -- 댓글내용
+	"CMNT_DATE"     DATE         NOT NULL, -- 댓글날짜
+	"POST_IDX"      INTEGER      NOT NULL, -- 게시글인덱스
+	"MEM_ID"        VARCHAR(320) NOT NULL, -- 회원아이디
+	"HIGH_CMNT_IDX" INTEGER      NULL      -- 상위댓글인덱스
+);
+
+-- 댓글
+ALTER TABLE "CMNT_TBL"
+	ADD
+		CONSTRAINT "PK_CMNT_TBL" -- 댓글 기본키
+		PRIMARY KEY (
+			"CMNT_IDX" -- 댓글인덱스
+		);
+
+-- 스케쥴
+CREATE TABLE "SCHE_TBL" (
+	"SCHE_NM"   VARCHAR(50)  NOT NULL, -- 스케쥴이름
+	"SCHE_DATE" DATE         NOT NULL, -- 스케쥴날짜
+	"SCHE_TRM"  INTEGER      NOT NULL, -- 스케쥴기간
+	"STAR_IDX"  INTEGER      NOT NULL, -- 연예인인덱스
+	"MEM_ID"    VARCHAR(320) NOT NULL  -- 회원아이디
+);
+
+-- 태그
+CREATE TABLE "TAG_TBL" (
+	"TAG_NM" VARCHAR(50) NOT NULL -- 태그이름
+);
+
+-- 태그
+ALTER TABLE "TAG_TBL"
+	ADD
+		CONSTRAINT "PK_TAG_TBL" -- 태그 기본키
+		PRIMARY KEY (
+			"TAG_NM" -- 태그이름
+		);
+
+-- 선호연예인
+CREATE TABLE "LIKE_STAR_TBL" (
+	"STAR_IDX" INTEGER      NOT NULL, -- 연예인인덱스
+	"MEM_ID"   VARCHAR(320) NOT NULL  -- 회원아이디
+);
+
+-- 연예인
+CREATE TABLE "STAR_TBL" (
+	"STAR_IDX"      INTEGER            NOT NULL, -- 연예인인덱스
+	"STAR_NM"       VARCHAR(50)        NOT NULL, -- 연예인이름
+	"STAR_TYP"      ENUM('GRP','STAR') NOT NULL, -- 연예인유형
+	"STAR_DBT_DATE" DATE               NOT NULL, -- 연예인데뷔날짜
+	"CMPY_NM"       VARCHAR(50)        NOT NULL, -- 기획사이름
+	"FILE_IDX"      INTEGER            NULL      -- 파일인덱스
+);
+
+-- 연예인
+ALTER TABLE "STAR_TBL"
+	ADD
+		CONSTRAINT "PK_STAR_TBL" -- 연예인 기본키
+		PRIMARY KEY (
+			"STAR_IDX" -- 연예인인덱스
+		);
+
+-- 파일
+CREATE TABLE "FILE_TBL" (
+	"FILE_IDX"      INTEGER      NOT NULL, -- 파일인덱스
+	"FILE_NM"       VARCHAR(50)  NOT NULL, -- 파일이름
+	"FILE_PATH"     VARCHAR(255) NOT NULL, -- 파일경로
+	"FILE_CRT_DATE" DATE         NOT NULL  -- 파일생성날짜
+);
+
+-- 파일
+ALTER TABLE "FILE_TBL"
+	ADD
+		CONSTRAINT "PK_FILE_TBL" -- 파일 기본키
+		PRIMARY KEY (
+			"FILE_IDX" -- 파일인덱스
+		);
+
+-- 게시글파일
+CREATE TABLE "POST_FILE_TBL" (
+	"POST_IDX" INTEGER NOT NULL, -- 게시글인덱스
+	"FILE_IDX" INTEGER NOT NULL  -- 파일인덱스
+);
+
+-- 밈
+CREATE TABLE "MM_TBL" (
+	"MM_IDX"     INTEGER      NOT NULL, -- 밈인덱스
+	"MM_HIT_CNT" INTEGER      NOT NULL, -- 밈조회수
+	"FILE_IDX"   INTEGER      NOT NULL, -- 파일인덱스
+	"MEM_ID"     VARCHAR(320) NOT NULL  -- 회원아이디
+);
+
+-- 밈
+ALTER TABLE "MM_TBL"
+	ADD
+		CONSTRAINT "PK_MM_TBL" -- 밈 기본키
+		PRIMARY KEY (
+			"MM_IDX" -- 밈인덱스
+		);
+
+-- 연예인태그
+CREATE TABLE "STAR_TAG_TBL" (
+	"STAR_IDX" INTEGER     NOT NULL, -- 연예인인덱스
+	"TAG_NM"   VARCHAR(50) NOT NULL  -- 태그이름
+);
+
+-- 밈태그
+CREATE TABLE "MM_TAG_TBL" (
+	"TAG_NM" VARCHAR(50) NOT NULL, -- 태그이름
+	"MM_IDX" INTEGER     NOT NULL  -- 밈인덱스
+);
+
+-- 추천
+CREATE TABLE "RECM_TBL" (
+	"POST_IDX" INTEGER      NOT NULL, -- 게시글인덱스
+	"MEM_ID"   VARCHAR(320) NOT NULL  -- 회원아이디
+);
+
+-- 게시글태그
+CREATE TABLE "POST_TAG_TBL" (
+	"POST_IDX" INTEGER     NOT NULL, -- 게시글인덱스
+	"TAG_NM"   VARCHAR(50) NOT NULL  -- 태그이름
+);
+
+-- 연예인밈
+CREATE TABLE "STAR_MM_TBL" (
+	"STAR_IDX" INTEGER NOT NULL, -- 연예인인덱스
+	"MM_IDX"   INTEGER NOT NULL  -- 밈인덱스
+);
+
+-- 기획사
+ALTER TABLE "CMPY_TBL"
+	ADD
+		CONSTRAINT "FK_FILE_TBL_TO_CMPY_TBL" -- 파일 -> 기획사
+		FOREIGN KEY (
+			"FILE_IDX" -- 파일인덱스
+		)
+		REFERENCES "FILE_TBL" ( -- 파일
+			"FILE_IDX" -- 파일인덱스
+		);
+
+-- 그룹
+ALTER TABLE "GRP_TBL"
+	ADD
+		CONSTRAINT "FK_STAR_TBL_TO_GRP_TBL" -- 연예인 -> 그룹
+		FOREIGN KEY (
+			"STAR_IDX" -- 연예인인덱스
+		)
+		REFERENCES "STAR_TBL" ( -- 연예인
+			"STAR_IDX" -- 연예인인덱스
+		) ON DELETE CASCADE;
+
+-- 연예인멤버
+ALTER TABLE "STAR_MEM_TBL"
+	ADD
+		CONSTRAINT "FK_STAR_TBL_TO_STAR_MEM_TBL" -- 연예인 -> 연예인멤버
+		FOREIGN KEY (
+			"STAR_IDX" -- 연예인인덱스
+		)
+		REFERENCES "STAR_TBL" ( -- 연예인
+			"STAR_IDX" -- 연예인인덱스
+		) ON DELETE CASCADE;
+
+-- 연예인멤버
+ALTER TABLE "STAR_MEM_TBL"
+	ADD
+		CONSTRAINT "FK_GRP_TBL_TO_STAR_MEM_TBL" -- 그룹 -> 연예인멤버
+		FOREIGN KEY (
+			"GRP_IDX" -- 그룹인덱스
+		)
+		REFERENCES "GRP_TBL" ( -- 그룹
+			"GRP_IDX" -- 그룹인덱스
+		);
+
+-- 회원
+ALTER TABLE "MEM_TBL"
+	ADD
+		CONSTRAINT "FK_FILE_TBL_TO_MEM_TBL" -- 파일 -> 회원
+		FOREIGN KEY (
+			"FILE_IDX" -- 파일인덱스
+		)
+		REFERENCES "FILE_TBL" ( -- 파일
+			"FILE_IDX" -- 파일인덱스
+		);
+
+-- 게시글
+ALTER TABLE "POST_TBL"
+	ADD
+		CONSTRAINT "FK_STAR_TBL_TO_POST_TBL" -- 연예인 -> 게시글
+		FOREIGN KEY (
+			"STAR_IDX" -- 연예인인덱스
+		)
+		REFERENCES "STAR_TBL" ( -- 연예인
+			"STAR_IDX" -- 연예인인덱스
+		) ON DELETE CASCADE;
+
+-- 게시글
+ALTER TABLE "POST_TBL"
+	ADD
+		CONSTRAINT "FK_MEM_TBL_TO_POST_TBL" -- 회원 -> 게시글
+		FOREIGN KEY (
+			"MEM_ID" -- 회원아이디
+		)
+		REFERENCES "MEM_TBL" ( -- 회원
+			"MEM_ID" -- 회원아이디
+		) ON DELETE CASCADE;
+
+-- 댓글
+ALTER TABLE "CMNT_TBL"
+	ADD
+		CONSTRAINT "FK_POST_TBL_TO_CMNT_TBL" -- 게시글 -> 댓글
+		FOREIGN KEY (
+			"POST_IDX" -- 게시글인덱스
+		)
+		REFERENCES "POST_TBL" ( -- 게시글
+			"POST_IDX" -- 게시글인덱스
+		) ON DELETE CASCADE;
+
+-- 댓글
+ALTER TABLE "CMNT_TBL"
+	ADD
+		CONSTRAINT "FK_MEM_TBL_TO_CMNT_TBL" -- 회원 -> 댓글
+		FOREIGN KEY (
+			"MEM_ID" -- 회원아이디
+		)
+		REFERENCES "MEM_TBL" ( -- 회원
+			"MEM_ID" -- 회원아이디
+		);
+
+-- 댓글
+ALTER TABLE "CMNT_TBL"
+	ADD
+		CONSTRAINT "FK_CMNT_TBL_TO_CMNT_TBL" -- 댓글 -> 댓글
+		FOREIGN KEY (
+			"HIGH_CMNT_IDX" -- 상위댓글인덱스
+		)
+		REFERENCES "CMNT_TBL" ( -- 댓글
+			"CMNT_IDX" -- 댓글인덱스
+		) ON DELETE CASCADE;
+
+-- 스케쥴
+ALTER TABLE "SCHE_TBL"
+	ADD
+		CONSTRAINT "FK_STAR_TBL_TO_SCHE_TBL" -- 연예인 -> 스케쥴
+		FOREIGN KEY (
+			"STAR_IDX" -- 연예인인덱스
+		)
+		REFERENCES "STAR_TBL" ( -- 연예인
+			"STAR_IDX" -- 연예인인덱스
+		) ON DELETE CASCADE;
+
+-- 스케쥴
+ALTER TABLE "SCHE_TBL"
+	ADD
+		CONSTRAINT "FK_MEM_TBL_TO_SCHE_TBL" -- 회원 -> 스케쥴
+		FOREIGN KEY (
+			"MEM_ID" -- 회원아이디
+		)
+		REFERENCES "MEM_TBL" ( -- 회원
+			"MEM_ID" -- 회원아이디
+		);
+
+-- 선호연예인
+ALTER TABLE "LIKE_STAR_TBL"
+	ADD
+		CONSTRAINT "FK_MEM_TBL_TO_LIKE_STAR_TBL" -- 회원 -> 선호연예인
+		FOREIGN KEY (
+			"MEM_ID" -- 회원아이디
+		)
+		REFERENCES "MEM_TBL" ( -- 회원
+			"MEM_ID" -- 회원아이디
+		) ON DELETE CASCADE;
+
+-- 선호연예인
+ALTER TABLE "LIKE_STAR_TBL"
+	ADD
+		CONSTRAINT "FK_STAR_TBL_TO_LIKE_STAR_TBL" -- 연예인 -> 선호연예인
+		FOREIGN KEY (
+			"STAR_IDX" -- 연예인인덱스
+		)
+		REFERENCES "STAR_TBL" ( -- 연예인
+			"STAR_IDX" -- 연예인인덱스
+		) ON DELETE CASCADE;
+
+-- 연예인
+ALTER TABLE "STAR_TBL"
+	ADD
+		CONSTRAINT "FK_CMPY_TBL_TO_STAR_TBL" -- 기획사 -> 연예인
+		FOREIGN KEY (
+			"CMPY_NM" -- 기획사이름
+		)
+		REFERENCES "CMPY_TBL" ( -- 기획사
+			"CMPY_NM" -- 기획사이름
+		);
+
+-- 연예인
+ALTER TABLE "STAR_TBL"
+	ADD
+		CONSTRAINT "FK_FILE_TBL_TO_STAR_TBL" -- 파일 -> 연예인
+		FOREIGN KEY (
+			"FILE_IDX" -- 파일인덱스
+		)
+		REFERENCES "FILE_TBL" ( -- 파일
+			"FILE_IDX" -- 파일인덱스
+		);
+
+-- 게시글파일
+ALTER TABLE "POST_FILE_TBL"
+	ADD
+		CONSTRAINT "FK_POST_TBL_TO_POST_FILE_TBL" -- 게시글 -> 게시글파일
+		FOREIGN KEY (
+			"POST_IDX" -- 게시글인덱스
+		)
+		REFERENCES "POST_TBL" ( -- 게시글
+			"POST_IDX" -- 게시글인덱스
+		) ON DELETE CASCADE;
+
+-- 게시글파일
+ALTER TABLE "POST_FILE_TBL"
+	ADD
+		CONSTRAINT "FK_FILE_TBL_TO_POST_FILE_TBL" -- 파일 -> 게시글파일
+		FOREIGN KEY (
+			"FILE_IDX" -- 파일인덱스
+		)
+		REFERENCES "FILE_TBL" ( -- 파일
+			"FILE_IDX" -- 파일인덱스
+		) ON DELETE CASCADE;
+
+-- 밈
+ALTER TABLE "MM_TBL"
+	ADD
+		CONSTRAINT "FK_FILE_TBL_TO_MM_TBL" -- 파일 -> 밈
+		FOREIGN KEY (
+			"FILE_IDX" -- 파일인덱스
+		)
+		REFERENCES "FILE_TBL" ( -- 파일
+			"FILE_IDX" -- 파일인덱스
+		) ON DELETE CASCADE;
+
+-- 밈
+ALTER TABLE "MM_TBL"
+	ADD
+		CONSTRAINT "FK_MEM_TBL_TO_MM_TBL" -- 회원 -> 밈
+		FOREIGN KEY (
+			"MEM_ID" -- 회원아이디
+		)
+		REFERENCES "MEM_TBL" ( -- 회원
+			"MEM_ID" -- 회원아이디
+		) ON DELETE CASCADE;
+
+-- 연예인태그
+ALTER TABLE "STAR_TAG_TBL"
+	ADD
+		CONSTRAINT "FK_STAR_TBL_TO_STAR_TAG_TBL" -- 연예인 -> 연예인태그
+		FOREIGN KEY (
+			"STAR_IDX" -- 연예인인덱스
+		)
+		REFERENCES "STAR_TBL" ( -- 연예인
+			"STAR_IDX" -- 연예인인덱스
+		) ON DELETE CASCADE;
+
+-- 연예인태그
+ALTER TABLE "STAR_TAG_TBL"
+	ADD
+		CONSTRAINT "FK_TAG_TBL_TO_STAR_TAG_TBL" -- 태그 -> 연예인태그
+		FOREIGN KEY (
+			"TAG_NM" -- 태그이름
+		)
+		REFERENCES "TAG_TBL" ( -- 태그
+			"TAG_NM" -- 태그이름
+		);
+
+-- 밈태그
+ALTER TABLE "MM_TAG_TBL"
+	ADD
+		CONSTRAINT "FK_TAG_TBL_TO_MM_TAG_TBL" -- 태그 -> 밈태그
+		FOREIGN KEY (
+			"TAG_NM" -- 태그이름
+		)
+		REFERENCES "TAG_TBL" ( -- 태그
+			"TAG_NM" -- 태그이름
+		);
+
+-- 밈태그
+ALTER TABLE "MM_TAG_TBL"
+	ADD
+		CONSTRAINT "FK_MM_TBL_TO_MM_TAG_TBL" -- 밈 -> 밈태그
+		FOREIGN KEY (
+			"MM_IDX" -- 밈인덱스
+		)
+		REFERENCES "MM_TBL" ( -- 밈
+			"MM_IDX" -- 밈인덱스
+		) ON DELETE CASCADE;
+
+-- 추천
+ALTER TABLE "RECM_TBL"
+	ADD
+		CONSTRAINT "FK_POST_TBL_TO_RECM_TBL" -- 게시글 -> 추천
+		FOREIGN KEY (
+			"POST_IDX" -- 게시글인덱스
+		)
+		REFERENCES "POST_TBL" ( -- 게시글
+			"POST_IDX" -- 게시글인덱스
+		) ON DELETE CASCADE;
+
+-- 추천
+ALTER TABLE "RECM_TBL"
+	ADD
+		CONSTRAINT "FK_MEM_TBL_TO_RECM_TBL" -- 회원 -> 추천
+		FOREIGN KEY (
+			"MEM_ID" -- 회원아이디
+		)
+		REFERENCES "MEM_TBL" ( -- 회원
+			"MEM_ID" -- 회원아이디
+		) ON DELETE CASCADE;
+
+-- 게시글태그
+ALTER TABLE "POST_TAG_TBL"
+	ADD
+		CONSTRAINT "FK_POST_TBL_TO_POST_TAG_TBL" -- 게시글 -> 게시글태그
+		FOREIGN KEY (
+			"POST_IDX" -- 게시글인덱스
+		)
+		REFERENCES "POST_TBL" ( -- 게시글
+			"POST_IDX" -- 게시글인덱스
+		) ON DELETE CASCADE;
+
+-- 게시글태그
+ALTER TABLE "POST_TAG_TBL"
+	ADD
+		CONSTRAINT "FK_TAG_TBL_TO_POST_TAG_TBL" -- 태그 -> 게시글태그
+		FOREIGN KEY (
+			"TAG_NM" -- 태그이름
+		)
+		REFERENCES "TAG_TBL" ( -- 태그
+			"TAG_NM" -- 태그이름
+		);
+
+-- 연예인밈
+ALTER TABLE "STAR_MM_TBL"
+	ADD
+		CONSTRAINT "FK_STAR_TBL_TO_STAR_MM_TBL" -- 연예인 -> 연예인밈
+		FOREIGN KEY (
+			"STAR_IDX" -- 연예인인덱스
+		)
+		REFERENCES "STAR_TBL" ( -- 연예인
+			"STAR_IDX" -- 연예인인덱스
+		);
+
+-- 연예인밈
+ALTER TABLE "STAR_MM_TBL"
+	ADD
+		CONSTRAINT "FK_MM_TBL_TO_STAR_MM_TBL" -- 밈 -> 연예인밈
+		FOREIGN KEY (
+			"MM_IDX" -- 밈인덱스
+		)
+		REFERENCES "MM_TBL" ( -- 밈
+			"MM_IDX" -- 밈인덱스
+		) ON DELETE CASCADE;
