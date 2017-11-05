@@ -27,7 +27,7 @@ CREATE TABLE STAR_MEM_TBL (
 	STAR_MEM_WGHT  INTEGER                NOT NULL, -- 연예인멤버몸무게
 	STAR_MEM_BIRTH DATETIME                   NOT NULL, -- 연예인멤버출생
 	STAR_IDX       INTEGER                NOT NULL, -- 연예인인덱스
-	GRP_IDX        INTEGER                NOT NULL  -- 그룹인덱스
+	GRP_IDX        INTEGER                NOT NULL DEFAULT 0  -- 그룹인덱스
 );
 
 -- 연예인멤버
