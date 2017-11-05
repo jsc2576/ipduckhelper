@@ -50,12 +50,12 @@ CREATE TABLE MEM_TBL (
 ALTER TABLE MEM_TBL ADD CONSTRAINT PK_MEM_TBL PRIMARY KEY (MEM_ID);
 
 -- 게시글
-CREATE TABLE D (
+CREATE TABLE POST_TBL (
 	POST_IDX     INTEGER      NOT NULL, -- 게시글인덱스
 	MEM_ID       VARCHAR(320) NOT NULL, -- 회원아이디
 	STAR_IDX     INTEGER      NOT NULL, -- 연예인인덱스
 	POST_TTL     VARCHAR(50)  NOT NULL DEFAULT '', -- 게시글제목
-	POST_DATE    DATETIME         NOT NULL, -- 게시글날짜
+	POST_DATE    DATETIME     NOT NULL, -- 게시글날짜
 	POST_CON     TEXT         NOT NULL, -- 게시글내용
 	POST_HIT_CNT INTEGER      NOT NULL  -- 게시글조회수
 );
@@ -67,7 +67,7 @@ ALTER TABLE POST_TBL AUTO_INCREMENT=1;
 -- 댓글
 CREATE TABLE CMNT_TBL (
 	CMNT_IDX      INTEGER      NOT NULL, -- 댓글인덱스
-	CMNT_CON      TEXT         NOT NULL DEFAULT '', -- 댓글내용
+	CMNT_CON      TEXT         NOT NULL, -- 댓글내용
 	CMNT_DATE     DATETIME         NOT NULL, -- 댓글날짜
 	POST_IDX      INTEGER      NOT NULL, -- 게시글인덱스
 	MEM_ID        VARCHAR(320) NOT NULL, -- 회원아이디
