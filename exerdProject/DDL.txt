@@ -23,7 +23,6 @@ ALTER TABLE GRP_TBL AUTO_INCREMENT=1;
 CREATE TABLE STAR_MEM_TBL (
 	STAR_MEM_IDX   INTEGER                NOT NULL, -- 연예인멤버인덱스
 	STAR_MEM_HGHT  INTEGER                NOT NULL, -- 연예인멤버키
-	STAR_MEM_AGE   INTEGER                NOT NULL, -- 연예인멤버나이
 	STAR_MEM_BLD   ENUM('A','AB','B','O') NOT NULL, -- 연예인멤버혈액형
 	STAR_MEM_WGHT  INTEGER                NOT NULL, -- 연예인멤버몸무게
 	STAR_MEM_BIRTH DATETIME                   NOT NULL, -- 연예인멤버출생
