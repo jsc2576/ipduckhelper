@@ -1,0 +1,166 @@
+use ipduck_04;
+
+#1
+/*
+insert into FILE_TBL(FILE_NM, FILE_PATH, FILE_CRT_DATE) values ('프로필사진', 'test/path/file.png', SYSDATE());
+select * from FILE_TBL;
+#*/
+
+#2
+/*
+insert into MEM_TBL (MEM_ID, MEM_PWD, MEM_NICK, MEM_NM, FILE_IDX) values ('test@test.com', hex(aes_encrypt('1','암호화키')), 'user01', '유저z', 8);
+select * from MEM_TBL;
+#*/
+
+#3
+/*
+select MEM_ID, MEM_NICK, MEM_NM from MEM_TBL limit 2 offset 0;
+#*/
+
+#4
+/*
+select M.MEM_ID, M.MEM_NICK, M.MEM_NM, M.MEM_STAT, M.ACVT from MEM_TBL M inner join FILE_TBL F on M.FILE_IDX = F.FILE_IDX where M.MEM_ID = 'test@test.com';
+#*/
+
+#5
+/*
+update MEM_TBL M LEFT OUTER JOIN FILE_TBL F ON M.FILE_IDX = F.FILE_IDX SET M.MEM_PWD = hex(aes_encrypt('1','암호화키')),
+M.MEM_NICK = '박유저z', M.MEM_NM='박유저z', F.FILE_PATH='/testpath/file.png' where M.MEM_ID = 'test@test.com';
+select * from MEM_TBL M, FILE_TBL F where M.FILE_IDX = F.FILE_IDX and M.MEM_ID = 'test@test.com';
+#*/
+
+#6
+/*
+update MEM_TBL set ACVT = 1 where MEM_ID = 'test@test.com';
+select * from MEM_TBL where MEM_ID='test@test.com';
+#*/
+
+#7
+/*
+select M.MEM_ID, M.MEM_NICK, M.MEM_NM, M.MEM_STAT, F.FILE_PATH from MEM_TBL M inner join FILE_TBL F on M.FILE_IDX = F.FILE_IDX 
+where M.MEM_ID = 'test@test.com' and M.ACVT = TRUE and M.MEM_PWD = hex(aes_encrypt('1','암호화키'));
+#*/
+
+#8
+/*
+insert into FILE_TBL(FILE_NM, FILE_PATH, FILE_CRT_DATE) values ('새로운연예인사진1', '새로운연예인사진1의경로',SYSDATE());
+insert into STAR_TBL(STAR_NM, STAR_TYP, STAR_DBT_DATE, CMPY_NM, FILE_IDX) values ('새로운연예인', 'STAR', SYSDATE(), '드림팩토리',LAST_INSERT_ID());
+select * from STAR_TBL where STAR_IDX = LAST_INSERT_ID();
+#*/
+
+#9
+/*
+insert into STAR_MEM_TBL(STAR_MEM_HGHT, STAR_MEM_BLD, STAR_MEM_WGHT, STAR_MEM_BIRTH, STAR_IDX, GRP_IDX) values(160, 'A', '45', '19950505', 18, 1);
+select * from STAR_MEM_TBL where STAR_MEM_IDX = LAST_INSERT_ID();
+#*/
+
+#10
+/*
+insert into FILE_TBL(FILE_NM, FILE_PATH, FILE_CRT_DATE) values ('새로운그룹1사진', '새로운그룹1의경로',SYSDATE());
+insert into STAR_TBL(STAR_NM, STAR_TYP, STAR_DBT_DATE, CMPY_NM, FILE_IDX) values ('새로운그룹1', 'GRP', SYSDATE(), '드림팩토리',LAST_INSERT_ID());
+
+insert into GRP_TBL(STAR_IDX, CLB_SITE) values(LAST_INSERT_ID(), 'http://groupunit.net');
+
+select * from GRP_TBL where GRP_IDX = LAST_INSERT_ID();
+#*/
+
+#11
+/*
+select S.STAR_IDX, S.STAR_NM, S.STAR_TYP, S.STAR_DBT_DATE, S.CMPY_NM, F.FILE_PATH 
+from STAR_TBL S inner join FILE_TBL F on S.FILE_IDX = F.FILE_IDX limit 10 offset 0;
+#*/
+
+#12
+/*
+select S.STAR_MEM_IDX, S.STAR_MEM_HGHT, S.STAR_MEM_BLD, S.STAR_MEM_BIRTH, GS.STAR_NM, GS.STAR_TYP 
+from STAR_MEM_TBL S right outer join GRP_TBL G on S.GRP_IDX = G.GRP_IDX right outer join STAR_TBL GS 
+on G.STAR_IDX = GS.STAR_IDX where S.STAR_IDX = 18 and GS.STAR_TYP='GRP';
+#*/
+
+#13
+/*
+select G.GRP_IDX, G.CLB_SITE, S.STAR_NM from GRP_TBL G inner join STAR_TBL S on G.STAR_IDX = S.STAR_IDX;
+#*/
+
+#14
+/*
+update STAR_MEM_TBL SM inner join STAR_TBL SI on SM.STAR_IDX = SI.STAR_IDX inner join FILE_TBL FT 
+on SI.FILE_IDX = FT.FILE_IDX set SM.STAR_MEM_HGHT = '162', SM.STAR_MEM_BLD = 'A', SM.STAR_MEM_WGHT = '41', 
+SM.STAR_MEM_BIRTH = '19950505', SI.STAR_DBT_DATE = SYSDATE(), FT.FILE_PATH = '/test/new/image.png', 
+SM.GRP_IDX = (select * from (select G.GRP_IDX from GRP_TBL G inner join STAR_TBL S on G.STAR_IDX = S.STAR_IDX 
+									where S.STAR_NM = '솔로' and S.STAR_TYP = 'GRP')T) 
+						where SM.STAR_MEM_IDX = '17' and SI.STAR_TYP = 'STAR';
+select * from STAR_MEM_TBL where STAR_MEM_IDX = '17';  
+#*/
+
+#15
+/*
+update GRP_TBL GT inner join STAR_TBL ST on GT.STAR_IDX = ST.STAR_IDX inner join FILE_TBL FT 
+on ST.FILE_IDX = FT.FILE_IDX set CLB_SITE = 'http://newsite.net', ST.STAR_DBT_DATE = SYSDATE(), 
+FT.FILE_PATH = 'newfile.png' where GT.GRP_IDX = '3';
+select * from GRP_TBL where GRP_IDX = 3;
+#*/
+#16
+/*
+delete ST, SMT, FT from STAR_TBL ST inner join STAR_MEM_TBL SMT on ST.STAR_IDX = SMT.STAR_IDX 
+inner join FILE_TBL FT on ST.FILE_IDX = FT.FILE_IDX where ST.STAR_IDX = 18;
+select * from STAR_TBL where STAR_IDX = 18;
+#select * from FILE_TBL;
+#*/
+
+#17
+/*
+delete ST, GT, FT from STAR_TBL ST inner join GRP_TBL GT on ST.STAR_IDX = GT.STAR_IDX 
+inner join FILE_TBL FT on ST.FILE_IDX = FT.FILE_IDX where GT.GRP_IDX = 3;
+select * from GRP_TBL where GRP_IDX = 3;
+#*/
+
+#18
+/*
+insert into LIKE_STAR_TBL(STAR_IDX, MEM_ID) values ('7', 'test@test.com');
+select * from LIKE_STAR_TBL;
+#*/
+
+#19
+/*
+insert into FILE_TBL (FILE_NM, FILE_PATH, FILE_CRT_DATE ) values ( "새로운기획사이미지", "기본경로7", SYSDATE());
+insert into CMPY_TBL ( CMPY_NM , CMPY_REP , FILE_IDX ) values ( '새로운기획사', '정수찬대표님', LAST_INSERT_ID() );
+select * from CMPY_TBL;
+#*/
+#20
+/*
+select C.CMPY_NM, C.CMPY_REP, F.FILE_PATH from CMPY_TBL C inner join FILE_TBL F on C.FILE_IDX = F.FILE_IDX LIMIT 10 OFFSET 0;
+#*/
+
+#21
+/*
+select C.CMPY_NM, C.CMPY_REP, F.FILE_PATH from CMPY_TBL C inner join FILE_TBL F 
+on C.FILE_IDX = F.FILE_IDX where CMPY_NM='새로운기획사' and CMPY_REP = '정수찬대표님';
+#*/
+
+#22
+/*
+update CMPY_TBL C LEFT OUTER JOIN FILE_TBL F ON C.FILE_IDX = F.FILE_IDX SET 
+C.CMPY_REP = '기획사 대표이사', F.FILE_PATH = '새로운기획사로고' WHERE CMPY_NM = '새로운기획사';
+select * from CMPY_TBL where CMPY_NM='새로운기획사';
+#*/
+
+#23
+/*
+delete from CMPY_TBL WHERE CMPY_NM = '새로운기획사';
+select * from CMPY_TBL;
+#*/
+
+#24
+/*
+insert into FILE_TBL (FILE_NM, FILE_PATH, FILE_CRT_DATE ) values ( "짤방1", "짤방경로1", SYSDATE());
+insert into MM_TBL(FILE_IDX, MEM_ID) values (LAST_INSERT_ID(), 'test@test.com'); 
+select * from MM_TBL;
+#*/
+
+#25
+/*
+insert into STAR_MM_TBL(STAR_IDX, MM_IDX) values ((select STAR_IDX 
+		from STAR_TBL where STAR_NM='트와이스' and STAR_TYP='GRP' and CMPY_NM='JYP 엔터테인먼트'),1);
+select * from STAR_MM_TBL;
+#*/

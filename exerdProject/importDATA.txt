@@ -1,0 +1,99 @@
+#파일
+/*
+insert into FILE_TBL (FILE_NM, FILE_PATH, FILE_CRT_DATE ) values ( "기획사로고1", "기본경로1", SYSDATE());
+insert into FILE_TBL (FILE_NM, FILE_PATH, FILE_CRT_DATE ) values ( "기획사로고2", "기본경로2", SYSDATE());
+insert into FILE_TBL (FILE_NM, FILE_PATH, FILE_CRT_DATE ) values ( "기획사로고3", "기본경로3", SYSDATE());
+insert into FILE_TBL (FILE_NM, FILE_PATH, FILE_CRT_DATE ) values ( "기획사로고4", "기본경로4", SYSDATE());
+insert into FILE_TBL (FILE_NM, FILE_PATH, FILE_CRT_DATE ) values ( "기획사로고5", "기본경로5", SYSDATE());
+insert into FILE_TBL (FILE_NM, FILE_PATH, FILE_CRT_DATE ) values ( "기획사로고6", "기본경로6", SYSDATE());
+SELECT * FROM file_tbl;
+#*/
+#기획사
+/*
+insert into cmpy_tbl (CMPY_NM, CMPY_REP, FILE_IDX) values ( '솔로그룹', '없음', 1 );
+insert into cmpy_tbl (CMPY_NM, CMPY_REP, FILE_IDX) values ( '나무엑터스', '김동식',2);
+insert into cmpy_tbl (CMPY_NM, CMPY_REP, FILE_IDX) values ( 'JYP 엔터테인먼트', '박진영', 3);
+insert into cmpy_tbl (CMPY_NM, CMPY_REP, FILE_IDX) values ( '더좋은 이엔티', '히윤재', 4);
+insert into cmpy_tbl (CMPY_NM, CMPY_REP, FILE_IDX) values ( '데이드림엔터테인먼트','송정우',5);
+insert into cmpy_tbl (CMPY_NM, CMPY_REP, FILE_IDX) values ( '드림팩토리', '이승환',6);
+SELECT * FROM cmpy_tbl;
+#*/
+#스타
+/*
+insert into FILE_TBL (FILE_NM, FILE_PATH, FILE_CRT_DATE ) values ( "솔로기본이미지", "기본경로7", SYSDATE());
+insert into star_tbl (STAR_NM, STAR_TYP, STAR_DBT_DATE, CMPY_NM, FILE_IDX) values ('솔로','GRP','20000000','솔로그룹', LAST_INSERT_ID());
+insert into FILE_TBL (FILE_NM, FILE_PATH, FILE_CRT_DATE ) values ( "문근영기본이미지", "연예인대표사진경로", SYSDATE());
+insert into star_tbl (STAR_NM, STAR_TYP, STAR_DBT_DATE, CMPY_NM, FILE_IDX) values ('문근영','STAR','19990100','나무엑터스', LAST_INSERT_ID());
+insert into FILE_TBL (FILE_NM, FILE_PATH, FILE_CRT_DATE ) values ( "송승헌기본이미지", "연예인대표사진경로", SYSDATE());
+insert into star_tbl (STAR_NM, STAR_TYP, STAR_DBT_DATE, CMPY_NM, FILE_IDX) values ('송승헌','STAR','19950000','더좋은 이엔티', LAST_INSERT_ID());
+insert into FILE_TBL (FILE_NM, FILE_PATH, FILE_CRT_DATE ) values ( "마동석기본이미지", "연예인대표사진경로", SYSDATE());
+insert into star_tbl (STAR_NM, STAR_TYP, STAR_DBT_DATE, CMPY_NM, FILE_IDX) values ('마동석','STAR','19940000','데이드림엔터테인먼트', LAST_INSERT_ID());
+insert into FILE_TBL (FILE_NM, FILE_PATH, FILE_CRT_DATE ) values ( "이승환기본이미지", "연예인대표사진경로", SYSDATE());
+insert into star_tbl (STAR_NM, STAR_TYP, STAR_DBT_DATE, CMPY_NM, FILE_IDX) values ('이승환','GRP','19890000','드림팩토리', LAST_INSERT_ID());
+insert into FILE_TBL (FILE_NM, FILE_PATH, FILE_CRT_DATE ) values ( "박신혜기본이미지", "연예인대표사진경로", SYSDATE());
+insert into star_tbl (STAR_NM, STAR_TYP, STAR_DBT_DATE, CMPY_NM, FILE_IDX) values ('박신혜','STAR','20030000','드림팩토리', LAST_INSERT_ID());
+insert into FILE_TBL (FILE_NM, FILE_PATH, FILE_CRT_DATE ) values ( "트와이스기본이미지", "연예인대표사진경로", SYSDATE());
+insert into star_tbl (STAR_NM, STAR_TYP, STAR_DBT_DATE, CMPY_NM, FILE_IDX) values ('트와이스','GRP','20151020','JYP 엔터테인먼트', LAST_INSERT_ID());
+insert into FILE_TBL (FILE_NM, FILE_PATH, FILE_CRT_DATE ) values ( "나연기본이미지", "연예인대표사진경로", SYSDATE());
+insert into star_tbl (STAR_NM, STAR_TYP, STAR_DBT_DATE, CMPY_NM, FILE_IDX) values ('나연','STAR','20151020','JYP 엔터테인먼트', LAST_INSERT_ID());
+insert into FILE_TBL (FILE_NM, FILE_PATH, FILE_CRT_DATE ) values ( "정연기본이미지", "연예인대표사진경로", SYSDATE());
+insert into star_tbl (STAR_NM, STAR_TYP, STAR_DBT_DATE, CMPY_NM, FILE_IDX) values ('정연','STAR','20151020','JYP 엔터테인먼트', LAST_INSERT_ID());
+insert into FILE_TBL (FILE_NM, FILE_PATH, FILE_CRT_DATE ) values ( "모모기본이미지", "연예인대표사진경로", SYSDATE());
+insert into star_tbl (STAR_NM, STAR_TYP, STAR_DBT_DATE, CMPY_NM, FILE_IDX) values ('모모','STAR','20151020','JYP 엔터테인먼트', LAST_INSERT_ID());
+insert into FILE_TBL (FILE_NM, FILE_PATH, FILE_CRT_DATE ) values ( "사나기본이미지", "연예인대표사진경로", SYSDATE());
+insert into star_tbl (STAR_NM, STAR_TYP, STAR_DBT_DATE, CMPY_NM, FILE_IDX) values ('사나','STAR','20151020','JYP 엔터테인먼트', LAST_INSERT_ID());
+insert into FILE_TBL (FILE_NM, FILE_PATH, FILE_CRT_DATE ) values ( "지효기본이미지", "연예인대표사진경로", SYSDATE());
+insert into star_tbl (STAR_NM, STAR_TYP, STAR_DBT_DATE, CMPY_NM, FILE_IDX) values ('지효','STAR','20151020','JYP 엔터테인먼트', LAST_INSERT_ID());
+insert into FILE_TBL (FILE_NM, FILE_PATH, FILE_CRT_DATE ) values ( "미나기본이미지", "연예인대표사진경로", SYSDATE());
+insert into star_tbl (STAR_NM, STAR_TYP, STAR_DBT_DATE, CMPY_NM, FILE_IDX) values ('미나','STAR','20151020','JYP 엔터테인먼트', LAST_INSERT_ID());
+insert into FILE_TBL (FILE_NM, FILE_PATH, FILE_CRT_DATE ) values ( "다현기본이미지", "연예인대표사진경로", SYSDATE());
+insert into star_tbl (STAR_NM, STAR_TYP, STAR_DBT_DATE, CMPY_NM, FILE_IDX) values ('다현','STAR','20151020','JYP 엔터테인먼트', LAST_INSERT_ID());
+insert into FILE_TBL (FILE_NM, FILE_PATH, FILE_CRT_DATE ) values ( "채영기본이미지", "연예인대표사진경로", SYSDATE());
+insert into star_tbl (STAR_NM, STAR_TYP, STAR_DBT_DATE, CMPY_NM, FILE_IDX) values ('채영','STAR','20151020','JYP 엔터테인먼트', LAST_INSERT_ID());
+insert into FILE_TBL (FILE_NM, FILE_PATH, FILE_CRT_DATE ) values ( "쯔위기본이미지", "연예인대표사진경로", SYSDATE());
+insert into star_tbl (STAR_NM, STAR_TYP, STAR_DBT_DATE, CMPY_NM, FILE_IDX) values ('쯔위','STAR','20151020','JYP 엔터테인먼트', LAST_INSERT_ID());
+insert into FILE_TBL (FILE_NM, FILE_PATH, FILE_CRT_DATE ) values ( "박진영기본이미지", "연예인대표사진경로", SYSDATE());
+insert into star_tbl (STAR_NM, STAR_TYP, STAR_DBT_DATE, CMPY_NM, FILE_IDX) values ('박진영','STAR','19940900','JYP 엔터테인먼트', LAST_INSERT_ID());
+select * from star_tbl;
+#*/
+
+#그룹
+/*
+insert into grp_tbl (STAR_IDX, CLB_SITE) values (1,"");
+insert into grp_tbl (STAR_IDX, CLB_SITE) values (7,"http://cafe.naver.com/ucc7777");
+select * from grp_tbl;
+#*/
+
+#스타멤버
+/*
+insert into star_mem_tbl (STAR_MEM_HGHT, STAR_MEM_BLD, STAR_MEM_WGHT, STAR_MEM_BIRTH, STAR_IDX, GRP_IDX) values ( 165,'B',45,19870506,2,1);
+insert into star_mem_tbl (STAR_MEM_HGHT, STAR_MEM_BLD, STAR_MEM_WGHT, STAR_MEM_BIRTH, STAR_IDX, GRP_IDX) values ( 180,'B',70,19761005,3,1);
+insert into star_mem_tbl (STAR_MEM_HGHT, STAR_MEM_BLD, STAR_MEM_WGHT, STAR_MEM_BIRTH, STAR_IDX, GRP_IDX) values ( 170,'O',100,19710301,4,1);
+insert into star_mem_tbl (STAR_MEM_HGHT, STAR_MEM_BLD, STAR_MEM_WGHT, STAR_MEM_BIRTH, STAR_IDX, GRP_IDX) values ( 167,'B',63,19651213,5,1);
+insert into star_mem_tbl (STAR_MEM_HGHT, STAR_MEM_BLD, STAR_MEM_WGHT, STAR_MEM_BIRTH, STAR_IDX, GRP_IDX) values ( 168,'A',45,19900218,6,1);
+insert into star_mem_tbl (STAR_MEM_HGHT, STAR_MEM_BLD, STAR_MEM_WGHT, STAR_MEM_BIRTH, STAR_IDX, GRP_IDX) values ( 163,'A',48,19950922,8,2);
+insert into star_mem_tbl (STAR_MEM_HGHT, STAR_MEM_BLD, STAR_MEM_WGHT, STAR_MEM_BIRTH, STAR_IDX, GRP_IDX) values ( 167,'O',49,19961101,9,2);
+insert into star_mem_tbl (STAR_MEM_HGHT, STAR_MEM_BLD, STAR_MEM_WGHT, STAR_MEM_BIRTH, STAR_IDX, GRP_IDX) values ( 162,'A',44,19961109,10,2);
+insert into star_mem_tbl (STAR_MEM_HGHT, STAR_MEM_BLD, STAR_MEM_WGHT, STAR_MEM_BIRTH, STAR_IDX, GRP_IDX) values ( 163,'B',48,19961229,11,2);
+insert into star_mem_tbl (STAR_MEM_HGHT, STAR_MEM_BLD, STAR_MEM_WGHT, STAR_MEM_BIRTH, STAR_IDX, GRP_IDX) values ( 160,'O',48,19970201,12,2);
+insert into star_mem_tbl (STAR_MEM_HGHT, STAR_MEM_BLD, STAR_MEM_WGHT, STAR_MEM_BIRTH, STAR_IDX, GRP_IDX) values ( 163,'A',46,19970324,13,2);
+insert into star_mem_tbl (STAR_MEM_HGHT, STAR_MEM_BLD, STAR_MEM_WGHT, STAR_MEM_BIRTH, STAR_IDX, GRP_IDX) values ( 159,'O',49,19980528,14,2);
+insert into star_mem_tbl (STAR_MEM_HGHT, STAR_MEM_BLD, STAR_MEM_WGHT, STAR_MEM_BIRTH, STAR_IDX, GRP_IDX) values ( 159,'B',48,19990423,15,2);
+insert into star_mem_tbl (STAR_MEM_HGHT, STAR_MEM_BLD, STAR_MEM_WGHT, STAR_MEM_BIRTH, STAR_IDX, GRP_IDX) values ( 170,'A',52,19990614,16,2);
+insert into star_mem_tbl (STAR_MEM_HGHT, STAR_MEM_BLD, STAR_MEM_WGHT, STAR_MEM_BIRTH, STAR_IDX, GRP_IDX) values ( 182,'AB',73,19711213,17,1);
+select * from star_mem_tbl;
+#*/
+
+#회원
+/*
+insert into FILE_TBL(FILE_NM, FILE_PATH, FILE_CRT_DATE) values ('프로필사진1', '프로필사진1의경로',SYSDATE());
+insert into MEM_TBL ( MEM_ID, MEM_PWD, MEM_NICK, MEM_NM, FILE_IDX, ACVT) values ('user01@ipduckhelper.xyz', hex(aes_encrypt('password', 'ipduck')), '미인증회원', '정석호', LAST_INSERT_ID(), 1);
+insert into FILE_TBL(FILE_NM, FILE_PATH, FILE_CRT_DATE) values ('프로필사진2', '프로필사진2의경로',SYSDATE());
+insert into MEM_TBL ( MEM_ID, MEM_PWD, MEM_NICK, MEM_NM, FILE_IDX, MEM_STAT, ACVT) values ('user02@ipduckhelper.xyz', hex(aes_encrypt('password', 'ipduck')), '관리자', '관리자', LAST_INSERT_ID(), 2, 1);
+insert into FILE_TBL(FILE_NM, FILE_PATH, FILE_CRT_DATE) values ('프로필사진3', '프로필사진3의경로',SYSDATE());
+insert into MEM_TBL ( MEM_ID, MEM_PWD, MEM_NICK, MEM_NM, FILE_IDX, MEM_STAT, ACVT) values ('user03@ipduckhelper.xyz', hex(aes_encrypt('password', 'ipduck')), '회원01', '회원01', LAST_INSERT_ID(), 1, 1);
+select * from MEM_TBL;
+#*/
+
+
+
