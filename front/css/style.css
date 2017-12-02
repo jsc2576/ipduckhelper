@@ -15,25 +15,21 @@ h1.menu{
     font-size: 20px;
     color:#bebebe;
     width:700px;
+    height: 21px;
     padding:6px 0px 6px 15px;
-    border-radius: 20px 0px 0px 20px;
-    border-bottom: 1px solid #d1d1d1;
-    border-left: 1px solid #d1d1d1;
-    border-top: 1px solid #d1d1d1;
+    border-radius: 5px;
+    border: 1px solid #d1d1d1;
     box-shadow:0 1px 3px rgba(0,0,0,0.15) inset;
 }
 
 .search_submit{
-	background: url(./img/search.png) no-repeat 10px 10px;
-    /*padding:6px 15px 6px 15px;*/
-    border-radius: 0px 20px 20px 0px;
-    border-bottom: 1px solid #d1d1d1;
-    border-right: 1px solid #d1d1d1;
-    border-top: 1px solid #d1d1d1;
-    border-left: none;
+	background: url(./img/search.png) no-repeat 10px 3px;
+    background-size: 30px 30px;
+    border-radius: 5px;
+    border: 1px solid #d1d1d1;
     width: 50px;
     height: 35px;
-    box-shadow:0 1px 3px rgba(0,0,0,0.15) inset;
+    box-shadow:0 1px 3px rgba(0,0,0,0.15);
 }
 
 button{
@@ -46,4 +42,17 @@ button{
 	height: 50px;
     border-radius:10px;
     border: none;
+}
+
+p.login{
+    font-family: "AmeL";
+    font-size: 20px;
+    text-align: right;
+    vertical-align: middle;
+}
+
+button.login{
+    font-size: 20px;
+    width:70px;
+    height: 30px;
 }
