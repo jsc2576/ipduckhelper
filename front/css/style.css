@@ -13,7 +13,7 @@ h1.menu{
 .search{
     font-family: "SineL", Sans-serif;
     font-size: 20px;
-    color:#bebebe;
+    color:#a6a6a6;
     width:700px;
     height: 21px;
     padding:6px 0px 6px 15px;
@@ -55,4 +55,62 @@ button.login{
     font-size: 20px;
     width:70px;
     height: 30px;
+}
+
+/*------------------------navigation bar------------------------*/
+.navbar{
+    background: #4d4d4d;
+    margin-left: -8px;
+    margin-top: -8px;
+    padding: 0px;
+    list-style: none;
+    position: fixed;
+    width: 100%;
+    font-size: 0;
+}
+
+.navbar>li {
+    float: left;
+    padding: 9px;
+}
+
+.navbar>li.right{
+    float: right;
+}
+
+.navbar>li>a {
+    text-decoration: none;
+    padding: 10px 20px;
+    color: white;
+    font-family: "PGL";
+    font-size: 20px;
+    float:none;
+}
+
+.navbar>li>a.right:hover{
+    background: #999999;
+}
+
+/*end nav bar*/
+
+pre.search_main{
+    font-family: "PGL";
+    font-size: 25px;
+    text-align: center;
+}
+
+h1.search_main{
+    font-family: "AmeL";
+    font-size: 40px;
+    margin-top: 150px;
+    margin-bottom: -10px;
+}
+.submenu{
+ position: absolute;
+height: 0px;
+overflow: hidden;
+transition: height .2s;
+-webkit-transition: height .2s;
+-moz-transition: height .2s;
+-o-transition: height .2s;
 }
