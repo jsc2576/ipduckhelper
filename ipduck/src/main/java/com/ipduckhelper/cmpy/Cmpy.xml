@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ipduckhelper.user.User">
+
+	<insert id="crt_cmpy" parameterType="com.ipduckhelper.user.Cmpy">
+		insert into FILE_TBL(FILE_NM, 
+							 FILE_PATH, 
+							 FILE_CRT_DATE) 
+			values (#{file_nm}, #{file_path}, SYSDATE()); 
+		insert into CMPY_TBL ( CMPY_NM , 
+							   CMPY_REP , 
+							   FILE_IDX ) 
+			values ( #{cmpy_nm}, #{cmpy_rep}, LAST_INSERT_ID());
+	</insert>
+	
+	<select id="srch_cmpy_list" parameterType="com.ipduckhelper.user.Cmpy" resultType="com.ipduckhelper.user.Cmpy">
+		select C.CMPY_NM as cmpy_nm, 
+			   C.CMPY_REP as cmpy_rep, 
+			   F.FILE_PATH  as file_path
+			from CMPY_TBL C 
+				inner join FILE_TBL F 
+					on C.FILE_IDX = F.FILE_IDX 
+			LIMIT 10 
+			OFFSET #{offset};
+	</select>
+	
+	<select id="srch_cmpy" parameterType="com.ipduckhelper.user.Cmpy" resultType="com.ipduckhelper.user.Cmpy">
+		select C.CMPY_NM as cmpy_nm, 
+			   C.CMPY_REP as cmpy_rep, 
+			   F.FILE_PATH  as file_path
+			from CMPY_TBL C 
+				inner join FILE_TBL F 
+					on C.FILE_IDX = F.FILE_IDX 
+					where CMPY_NM= #{cmpy_nm} 
+						and CMPY_REP = #{cmpy_rep};
+	</select>
+	
+	<update id="fix_cmpy" parameterType="com.ipduckhelper.user.Cmpy">
+		update CMPY_TBL C 
+			LEFT OUTER JOIN FILE_TBL F 
+				ON C.FILE_IDX = F.FILE_IDX 
+			SET C.CMPY_REP = #{cmpy_rep}, 
+				F.FILE_PATH = #{file_path} 
+			WHERE CMPY_NM = #{cmpy_nm};
+	</update>
+	
+	<delete id="del_cmpy" parameterType="com.ipduckhelper.user.Cmpy">
+		delete from CMPY_TBL 
+			where CMPY_NM = #{cmpy_nm};
+	</delete>
+	
+	 	
+</mapper>

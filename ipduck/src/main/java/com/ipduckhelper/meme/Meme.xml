@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ipduckhelper.user.Meme">
+	<insert id="crt_mm" parameterType="">
+		insert into FILE_TBL(FILE_NM, 
+							 FILE_PATH, 
+							 FILE_CRT_DATE) 
+			values (#{file_nm}, #{file_path}, SYSDATE());
+			 
+		insert into MM_TBL(FILE_IDX, 
+						   MEM_ID) 
+			values (LAST_INSERT_ID(), 
+					#{mem_id});
+					 
+		insert into STAR_MM_TBL(STAR_IDX, 
+								MM_IDX) 
+			values 
+				<foreach collection="star_idx_list" item="star_idx" open="(" close=")" separator=",">
+					#{star_idx.value}, LAST_INSERT_ID()
+				</foreach>
+	</insert>
+
+	<select id="srch_mm_star_list" parameterType="com.ipduckhelper.user.Meme" resultType="com.ipduckhelper.user.Meme">
+		select MMT.MM_IDX as mm_idx, 
+			   MMT.MM_HIT_CNT as mm_hit_cnt, 
+			   FT.FILE_NM as file_nm, 
+			   FT.FILE_PATH as file_path, 
+			   FT.FILE_CRT_DATE as file_crt_date
+			from MM_TBL MMT 
+				inner join FILE_TBL FT 
+					on MMT.FILE_IDX = FT.FILE_IDX 
+			where MMT.MM_IDX in 
+				(select SMT.MM_IDX 
+					from STAR_MM_TBL SMT 
+						inner join STAR_TBL ST 
+							on SMT.STAR_IDX = ST.STAR_IDX 
+					where ST.STAR_NM = #{star_nm}) 
+			limit #{offset}, 10;
+	</select>
+	
+	<select id="srch_mm_tag_list" parameterType="com.ipduckhelper.user.Meme" resultType="com.ipduckhelper.user.Meme">
+		select MMT.MM_IDX as mm_idx, 
+			   MMT.MM_HIT_CNT as mm_hit_cnt, 
+			   FT.FILE_NM as file_nm, 
+			   FT.FILE_PATH as file_path, 
+			   FT.FILE_CRT_DATE as file_crt_date
+			from MM_TBL MMT 
+				inner join FILE_TBL FT 
+					on MMT.FILE_IDX = FT.FILE_IDX 
+			where MMT.MM_IDX in 
+				(select MM_IDX 
+					from MM_TAG_TBL 
+					where TAG_NM = #{tag_nm}) 
+			limit #{offset}, 10;
+	</select>
+	
+	<update id="fix_mm" parameterType="com.ipduckhelper.user.Meme">
+		update from FILE_TBL 
+			set FILE_NM = #{file_nm}, 
+				FILE_PATH = #{file_path} 
+			where FILE_IDX in 
+				(select FILE_IDX 
+					from MM_TBL 
+					where MM_IDX = #{mm_idx});
+	</update>
+	
+	<delete id="del_mm" parameterType="com.ipduckhelper.user.Meme">
+		delete FT, 
+			   MMT 
+			from MM_TBL MMT 
+				inner join FILE_TBL FT 
+					on MMT.FILE_IDX = FT.FILE_IDX 
+			where MMT.MM_IDX = #{mm_idx};
+	</delete>
+		
+	<insert id="add_tag_mm" parameterType="com.ipduckhelper.user.Meme">
+		insert into MM_TAG_TBL (TAG_NM, 
+								MM_IDX) 
+			values (#{tag_nm}, #{mm_idx});
+	</insert>
+</mapper>

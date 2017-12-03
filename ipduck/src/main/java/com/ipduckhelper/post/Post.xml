@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ipduckhelper.user.Post">
+	<insert id="crt_post" parameterType="com.ipduckhelper.user.Post">
+		insert into POST_TBL(MEM_ID, 
+							 STAR_IDX, 
+							 POST_TTL, 
+							 POST_DATE, 
+							 POST_CON) 
+			values (#{mem_id}, 
+					#{star_idx}, 
+					#{post_ttl}, 
+					SYSDATE(), 
+					#{post_con}); 
+		
+		insert into POST_TAG_TBL(POST_IDX, 
+								 TAG_NM) 
+			values 
+				<foreach collection="tag_nm_list" item="tag_nm" open="(" close=")" separator=",">
+					LAST_INSERT_ID(), #{tag_nm.value}
+				</foreach>
+	</insert>
+	
+	<insert id="crt_file" parameterType="com.ipduckhelper.user.Post">
+		insert into FILE_TBL(FILE_NM, 
+							 FILE_PATH, 
+						 	FILE_CRT_DATE) 
+			values (#{file_nm}, 
+					#{file_path}, 
+					SYSDATE()); 
+		insert INTO POST_FILE_TBL (POST_IDX, 
+								   FILE_IDX) 
+			values (#{post_idx}, 
+					LAST_INSERT_ID());
+	</insert>
+	
+	<select id="srch_post_ttl_list" parameterType="com.ipduckhelper.user.Post" resultType="com.ipduckhelper.user.Post">
+		select POST_IDX, 
+			   MEM_ID, 
+			   POST_TTL, 
+			   POST_DATE, 
+			   POST_HIT_CNT 
+			from POST_TBL 
+			where POST_TTL 
+				like CONCAT('%', #{post_ttl}, '%') 
+			limit #{offset}, 10;
+	</select>
+</mapper>

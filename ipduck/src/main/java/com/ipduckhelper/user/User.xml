@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ipduckhelper.user.User">
+	<insert id="crt_mem" parameterType="com.ipduckhelper.user.User">
+		insert into FILE_TBL(FILE_NM, 
+							 FILE_PATH, 
+							 FILE_CRT_DATE) 
+			values (#{file_nm}, 
+					#{file_path}, 
+					SYSDATE()); 
+		
+		insert into MEM_TBL (MEM_ID, 
+							 MEM_PWD, 
+							 MEM_NICK, 
+							 MEM_NM, 
+							 FILE_IDX) 
+			values (#{mem_id}, 
+					hex(aes_encrypt(#{mem_pwd}, #{pwd_key})), 
+					#{mem_nick}, 
+					#{mem_nm}, 
+					LAST_INSERT_ID());
+	</insert>
+
+	<select id="srch_mem_list" parameterType="com.ipduckhelper.user.User" resultType="com.ipduckhelper.user.User">
+		select MEM_ID, MEM_NICK, MEM_NM 
+		from MEM_TBL 
+		limit 10 
+		offset #{offset};
+	</select>
+	
+	<select id="srch_mem" parameterType="com.ipduckhelper.user.User" resultType="com.ipduckhelper.user.User">
+		select M.MEM_ID as mem_id, 
+			   M.MEM_NICK as mem_nick, 
+			   M.MEM_NM as mem_nm, 
+			   M.MEM_STAT as mem_stat, 
+			   M.ACVT as acvt, 
+			   F.FILE_PATH as file_path 
+			from MEM_TBL M 
+				inner join FILE_TBL F 
+					on M.FILE_IDX = F.FILE_IDX 
+			where M.MEM_ID = #{mem_id};
+		
+	</select>
+	
+	<update id="fix_mem" parameterType="com.ipduckhelper.user.User">
+		update MEM_TBL M 
+			LEFT OUTER JOIN FILE_TBL F 
+				ON M.FILE_IDX = F.FILE_IDX 
+			SET M.MEM_PWD = hex(aes_encrypt(#{mem_pwd}, #{pwd_key})), 
+				M.MEM_NICK = #{mem_nick}, 
+				M.MEM_NM = #{mem_nm}, 
+				F.FILE_PATH = #{file_path} 
+			where M.MEM_ID = #{mem_id};
+	</update>
+	
+	<update id="del_mem" parameterType="com.ipduckhelper.user.User">
+		update MEM_TBL 
+			set ACVT = 0 
+			where MEM_ID = #{mem_id};
+	</update>
+	
+	<update id="acvt_mem" parameterType="com.ipduckhelper.user.User">
+		update MEM_TBL 
+			set MEM_STAT = #{mem_stat} 
+			where MEM_ID = #{mem_id};
+	</update>
+	
+	<select id="login_mem" parameterType="com.ipduckhelper.user.User" resultType="com.ipduckhelper.user.User">
+		select M.MEM_ID as mem_id, 
+			   M.MEM_NICK as mem_nick, 
+			   M.MEM_NM as mem_nm, 
+			   M.MEM_STAT as mem_stat, 
+			   F.FILE_PATH as file_path 
+			from MEM_TBL M 
+				inner join FILE_TBL F 
+					on M.FILE_IDX = F.FILE_IDX 
+			where M.MEM_ID = #{mem_id} 
+				and M.ACVT = 1 
+				and M.MEM_PWD = hex(aes_encrypt(#{mem_pwd}, #{pwd_key}));
+	</select>
+</mapper>

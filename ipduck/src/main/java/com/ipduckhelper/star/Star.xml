@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ipduckhelper.user.Star">
+	<insert id="crt_star" parameterType="com.ipduckhelper.user.Star">
+		insert into FILE_TBL(FILE_NM, 
+							 FILE_PATH, 
+							 FILE_CRT_DATE) 
+			values (#{file_nm}, 
+					#{file_path}, 
+					SYSDATE());
+					 
+		insert into STAR_TBL(STAR_NM, 
+							 STAR_TYP, 
+							 STAR_DBT_DATE, 
+							 CMPY_NM, 
+							 FILE_IDX) 
+			values (#{star_nm}, 
+					1, 
+					SYSDATE(), 
+					#{cmpy_nm}, 
+					LAST_INSERT_ID());
+					 
+		insert into STAR_MEM_TBL(STAR_MEM_HGHT, 
+								 STAR_MEM_BLD, 
+								 STAR_MEM_WGHT, 
+								 STAR_MEM_BIRTH, 
+								 STAR_IDX, 
+								 GRP_IDX) 
+			values (#{star_mem_hght}, 
+					#{star_mem_bld}, 
+					#{star_mem_wght}, 
+					#{star_mem_birth}, 
+					LAST_INSERT_ID(), 
+					#{grp_idx});
+	</insert>
+	
+	<insert id="crt_grp" parameterType="com.ipduckhelper.user.Star">
+		insert into FILE_TBL(FILE_NM, 
+							 FILE_PATH, 
+							 FILE_CRT_DATE) 
+			values (#{file_nm}, 
+					#{file_path}, 
+					SYSDATE()); 
+					
+		insert into STAR_TBL(STAR_NM, 
+							 STAR_TYP, 
+							 STAR_DBT_DATE, 
+							 CMPY_NM, 
+							 FILE_IDX) 
+			values (#{star_nm}, 
+					0, 
+					SYSDATE(), 
+					#{cmpy_nm}, 
+					LAST_INSERT_ID());
+					 
+		insert into GRP_TBL(STAR_IDX, 
+							CLB_SITE) 
+			values (LAST_INSERT_ID(), 
+					#{clb_site});
+	</insert>
+	
+	<select id="srch_star_list" parameterType="com.ipduckhelper.user.Star" resultType="com.ipduckhelper.user.Star">
+		select S.STAR_IDX as star_idx, 
+			   S.STAR_NM as star_nm, 
+			   S.STAR_TYP as star_typ, 
+			   S.STAR_DBT_DATE as star_dbt_date, 
+			   S.CMPY_NM as cmpy_nm, 
+			   F.FILE_PATH as file_path 
+			FROM STAR_TBL S 
+				inner join FILE_TBL F 
+					on S.FILE_IDX = F.FILE_IDX 
+			limit 10 
+			offset #{offset};
+	</select>
+	
+	<select id="srch_star" parameterType="com.ipduckhelper.user.Star" resultType="com.ipduckhelper.user.Star">
+		select S.STAR_MEM_IDX as star_mem_idx, 
+			   S.STAR_MEM_HGHT as star_mem_hght, 
+			   S.STAR_MEM_BLD as star_mem_bld, 
+			   S.STAR_MEM_WGHT as star_mem_wght, 
+			   S.STAR_MEM_BIRTH as star_mem_birth, 
+			   GS.STAR_NM as star_nm, 
+			   GS.STAR_TYP as star_typ 
+			from STAR_MEM_TBL S 
+				right outer join GRP_TBL G 
+					on S.GRP_IDX = G.GRP_IDX 
+				right outer join STAR_TBL GS 
+					on G.STAR_IDX = GS.STAR_IDX 
+			where S.STAR_IDX = #{star_idx} 
+		    	and GS.STAR_TYP=0;
+	</select>
+	
+	<select id="srch_grp" parameterType="com.ipduckhelper.user.Star" resultType="com.ipduckhelper.user.Star">
+		select G.GRP_IDX as grp_idx, 
+			   G.CLB_SITE as clb_site 
+			from GRP_TBL G 
+				inner join STAR_TBL S 
+					on G.STAR_IDX = S.STAR_IDX 
+			where G.STAR_IDX = #{star_idx};
+	</select>
+	
+	<update id="fix_star" parameterType="com.ipduckhelper.user.Star">
+		update STAR_MEM_TBL SM 
+			inner join STAR_TBL SI 
+				on SM.STAR_IDX = SI.STAR_IDX 
+			inner join FILE_TBL FT 
+				on SM.FILE_IDX = FT.FILE_IDX 
+			set SM.STAR_MEM_HGHT = #{star_mem_hght}, 
+				SM.STAR_MEM_BLD = #{star_mem_bld}, 
+				SM.STAR_MEM_WGHT = #{star_mem_wght}, 
+				SM.STAR_MEM_BIRTH = #{star_mem_birth}, 
+				SI.STAR_DBT_DATE = #{star_dbt_date}, 
+				FT.FILE_PATH = #{file_path}, 
+				SM.GRP_IDX = 
+					(select * from 
+						(select G.GRP_IDX 
+							from GRP_TBL G 
+								inner join STAR_TBL S 
+									on G.STAR_IDX = S.STAR_IDX 
+							where S.STAR_NM = #{star_nm} 
+								and S.STAR_TYP = 'GRP')T) 
+			where SM.STAR_MEM_IDX = #{star_mem_idx} 
+				and SI.STAR_TYP = 'STAR';
+	</update>
+	
+	<update id="fix_grp" parameterType="com.ipduckhelper.user.Star">
+		update GRP_TBL GT 
+			inner join STAR_TBL ST 
+				on GT.STAR_IDX = ST.STAR_IDX 
+			inner join FILE_TBL FT 
+				on ST.FILE_IDX = FT.FILE_IDX 
+			set CLB_SITE = #{clb_site}, 
+				ST.STAR_DBT_DATE = #{star_dbt_date}, 
+				FT.FILE_PATH = #{file_path} 
+			where GT.GRP_IDX = #{grp_idx};
+	</update>
+	
+	<delete id="del_star" parameterType="com.ipduckhelper.user.Star">
+		delete ST, 
+			   SMT, 
+			   FT 
+			from STAR_TBL ST 
+				inner join STAR_MEM_TBL SMT 
+					on ST.STAR_IDX = SMT.STAR_IDX 
+				inner join FILE_TBL FT 
+					on ST.FILE_IDX = FT.FILE_IDX 
+				where ST.STAR_IDX = #{star_idx};
+	</delete>
+	
+	<delete id="del_grp" parameterType="com.ipduckhelper.user.Star">
+		delete ST, 
+			   GT, 
+			   FT 
+			from STAR_TBL ST 
+				inner join GRP_TBL GT 
+					on ST.STAR_IDX = GT.SRP_IDX 
+				inner join FILE_TBL FT 
+					on ST.FILE_IDX = FT.FILE_IDX 
+				where ST.GRP_IDX = #{grp_idx};
+	</delete>
+	
+	<insert id="like_star" parameterType="com.ipduckhelper.user.Star">
+		insert into LIKE_STAR_TBL(STAR_IDX, 
+								  MEM_ID) 
+			values (#{star_idx}, #{mem_id});
+	</insert>
+	
+	<insert id="add_tag_star" parameterType="com.ipduckhelper.user.Star">
+		insert into STAR_TAG_TBL(STAR_IDX, 
+								 TAG_NM) 
+			values (#{star_idx}, #{tag_nm});
+	</insert>
+</mapper>
