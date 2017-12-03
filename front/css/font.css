@@ -1,9 +1,4 @@
 @font-face{
-	font-family: 'AmeB';
-	src: url('./font/AmericanoB.ttf');
-}
-
-@font-face{
 	font-family: 'AmeL';
 	src: url('./font/AmericanoL.ttf');
 }
@@ -64,8 +59,8 @@
 }
 
 @font-face{
-	font-family: 'PGB';
-	src: url('./font/PenGothicB.ttf');
+	font-family: 'PGM';
+	src: url('./font/PenGothicM.ttf');
 }
 
 @font-face{
@@ -76,11 +71,6 @@
 @font-face{
 	font-family: 'PGB';
 	src: url('./font/PenGothicB.ttf');
-}
-
-@font-face{
-	font-family: 'SineB';
-	src: url('./font/SinemaB.ttf');
 }
 
 @font-face{

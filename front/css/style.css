@@ -6,8 +6,13 @@ body.main{
     font-size: 20px;
 }
 
+h1{
+    font-family: "AmeL";
+    font-size: 30px;
+    margin-top: 100px;
+}
+
 h1.menu{
-	font-family: "AmeL", Sans-serif;
 	font-size: 80px;
 	margin-top: 150px;
 }
@@ -60,6 +65,7 @@ button{
 
 a{
     text-decoration: none;
+    color: #808080;
 }
 
 p.login{
