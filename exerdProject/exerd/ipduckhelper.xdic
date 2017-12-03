@@ -49,4 +49,13 @@
   <term name="추천" description="추천" physicalName="RECM" physicalDescription="RECOMMENDATION"/>
   <term name="활성" description="활성" physicalName="ACVT" physicalDescription="ACTIVATED"/>
   <term name="상태" description="상태" physicalName="STAT" physicalDescription="STATUS"/>
+  <term name="검색" description="검색" physicalName="SRCH" physicalDescription="SEARCH"/>
+  <term name="수정" description="수정" physicalName="FIX" physicalDescription="FIX"/>
+  <term name="삭제" description="삭제, 제거" physicalName="DEL" physicalDescription="DELETE">
+    <synonyms>제거</synonyms>
+  </term>
+  <term name="로그인" description="로그인" physicalName="LOGIN" physicalDescription="LOGIN"/>
+  <term name="추가" description="추가" physicalName="ADD" physicalDescription="ADD">
+    <synonyms>더하기</synonyms>
+  </term>
 </tm:TermDictionary>
