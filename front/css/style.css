@@ -44,6 +44,22 @@ button{
     border: none;
 }
 
+.submit_button{
+    font-family: "PGL", Sans-serif;
+    font-size:25px;
+    background-color:#bfbfbf;
+    padding: 6px;
+    color:#ffffff;
+    width: 180px;
+    height: 50px;
+    border-radius:10px;
+    border: none;
+}
+
+a{
+    text-decoration: none;
+}
+
 p.login{
     font-family: "AmeL";
     font-size: 20px;
@@ -105,12 +121,38 @@ h1.search_main{
     margin-top: 150px;
     margin-bottom: -10px;
 }
-.submenu{
- position: absolute;
-height: 0px;
-overflow: hidden;
-transition: height .2s;
--webkit-transition: height .2s;
--moz-transition: height .2s;
--o-transition: height .2s;
+
+div.search_result{
+    font-family: "PGL";
+    font-size: 28px;
+    margin-top: 80px;
+    margin-left: 60px;
+}
+
+div>h1.search_result{
+    font-family: "AmeL";
+    display: inline;
+    font-size: 40px;
+}
+
+div.title{
+    margin-top: 20px;
+    margin-left: 20px;
+    font-family: "AmeL";
+    clear: both
+}
+
+div.content{
+    margin-top: 10px;
+    margin-left: 20px;
+    font-family: "PGL";
+    font-size: 23px;
+}
+
+div.star_result{
+    width: 200px;
+    height: 200px;
+    float: left;
+    display: inline-block;
+    align-content: center;
 }
