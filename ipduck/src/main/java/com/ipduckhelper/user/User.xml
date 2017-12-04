@@ -2,6 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ipduckhelper.user">
 	<insert id="crt_mem" parameterType="com.ipduckhelper.user.User">
+		start transaction;
 		insert into FILE_TBL(FILE_NM, 
 							 FILE_PATH, 
 							 FILE_CRT_DATE) 
@@ -19,15 +20,17 @@
 					#{mem_nick}, 
 					#{mem_nm}, 
 					LAST_INSERT_ID());
+					
+		commit;
 	</insert>
 
 	<select id="srch_mem_list" parameterType="com.ipduckhelper.user.User" resultType="com.ipduckhelper.user.User">
 		select M.MEM_ID, 
 			   M.MEM_NICK, 
 			   M.MEM_NM 
-		from MEM_TBL M
-		limit 10 
-		offset #{offset};
+			from MEM_TBL M
+			limit 10 
+			offset #{offset};
 	</select>
 	
 	<select id="srch_mem" parameterType="com.ipduckhelper.user.User" resultType="com.ipduckhelper.user.User">

@@ -2,6 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ipduckhelper.meme">
 	<insert id="crt_mm" parameterType="com.ipduckhelper.meme.Meme">
+		start transaction;
 		insert into FILE_TBL(FILE_NM, 
 							 FILE_PATH, 
 							 FILE_CRT_DATE) 
@@ -18,6 +19,8 @@
 				<foreach collection="star_idx_list" item="star_idx" open="(" close=")" separator=",">
 					#{star_idx.value}, LAST_INSERT_ID()
 				</foreach>
+				
+		commit;
 	</insert>
 
 	<select id="srch_mm_star_list" parameterType="com.ipduckhelper.meme.Meme" resultType="com.ipduckhelper.meme.Meme">

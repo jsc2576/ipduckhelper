@@ -3,6 +3,7 @@
 <mapper namespace="com.ipduckhelper.cmpy">
 
 	<insert id="crt_cmpy" parameterType="com.ipduckhelper.cmpy.Cmpy">
+		start transaction;
 		insert into FILE_TBL(FILE_NM, 
 							 FILE_PATH, 
 							 FILE_CRT_DATE) 
@@ -11,6 +12,7 @@
 							   CMPY_REP , 
 							   FILE_IDX ) 
 			values ( #{cmpy_nm}, #{cmpy_rep}, LAST_INSERT_ID());
+		commit;
 	</insert>
 	
 	<select id="srch_cmpy_list" parameterType="com.ipduckhelper.cmpy.Cmpy" resultType="com.ipduckhelper.cmpy.Cmpy">

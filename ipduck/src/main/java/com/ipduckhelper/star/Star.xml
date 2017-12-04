@@ -2,6 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ipduckhelper.star">
 	<insert id="crt_star" parameterType="com.ipduckhelper.star.Star">
+		start transaction;
 		insert into FILE_TBL(FILE_NM, 
 							 FILE_PATH, 
 							 FILE_CRT_DATE) 
@@ -32,9 +33,12 @@
 					#{star_mem_birth}, 
 					LAST_INSERT_ID(), 
 					#{grp_idx});
+					
+		commit;
 	</insert>
 	
 	<insert id="crt_grp" parameterType="com.ipduckhelper.star.Star">
+		start transaction;
 		insert into FILE_TBL(FILE_NM, 
 							 FILE_PATH, 
 							 FILE_CRT_DATE) 
@@ -57,6 +61,7 @@
 							CLB_SITE) 
 			values (LAST_INSERT_ID(), 
 					#{clb_site});
+		commit;
 	</insert>
 	
 	<select id="srch_star_list" parameterType="com.ipduckhelper.star.Star" resultType="com.ipduckhelper.star.Star">
