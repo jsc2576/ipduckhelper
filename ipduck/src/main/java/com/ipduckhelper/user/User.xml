@@ -65,7 +65,7 @@
 	
 	<update id="acvt_mem" parameterType="com.ipduckhelper.user.User">
 		update MEM_TBL 
-			set MEM_STAT = #{mem_stat} 
+			set MEM_STAT = 1 
 			where MEM_ID = #{mem_id};
 	</update>
 	
