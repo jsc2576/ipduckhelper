@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.ipduckhelper.user.Post">
-	<insert id="crt_post" parameterType="com.ipduckhelper.user.Post">
+<mapper namespace="com.ipduckhelper.post">
+	<insert id="crt_post" parameterType="com.ipduckhelper.post.Post">
 		insert into POST_TBL(MEM_ID, 
 							 STAR_IDX, 
 							 POST_TTL, 
@@ -21,7 +21,7 @@
 				</foreach>
 	</insert>
 	
-	<insert id="crt_file" parameterType="com.ipduckhelper.user.Post">
+	<insert id="crt_file" parameterType="com.ipduckhelper.post.Post">
 		insert into FILE_TBL(FILE_NM, 
 							 FILE_PATH, 
 						 	FILE_CRT_DATE) 
@@ -34,7 +34,7 @@
 					LAST_INSERT_ID());
 	</insert>
 	
-	<select id="srch_post_ttl_list" parameterType="com.ipduckhelper.user.Post" resultType="com.ipduckhelper.user.Post">
+	<select id="srch_post_ttl_list" parameterType="com.ipduckhelper.post.Post" resultType="com.ipduckhelper.post.Post">
 		select POST_IDX, 
 			   MEM_ID, 
 			   POST_TTL, 
@@ -44,5 +44,11 @@
 			where POST_TTL 
 				like CONCAT('%', #{post_ttl}, '%') 
 			limit #{offset}, 10;
+	</select>
+	
+	<select id="srch_post_tag_list" parameterType="com.ipduckhelper.post.Post" resultType="com.ipduckhelper.post.Post">
+		select PT.POST_IDX, 
+		PT.MEM_ID, PT.POST_TTL, PT.POST_DATE, PT.POST_HIT_CNT from POST_TBL PT inner join POST_TAG_TBL PTT on PT.POST_IDX = PTT.POST_IDX where PTT.TAG_NM = '태그이름' limit N, 10;
+		
 	</select>
 </mapper>

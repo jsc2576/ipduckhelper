@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.ipduckhelper.user.Meme">
-	<insert id="crt_mm" parameterType="">
+<mapper namespace="com.ipduckhelper.meme">
+	<insert id="crt_mm" parameterType="com.ipduckhelper.meme.Meme">
 		insert into FILE_TBL(FILE_NM, 
 							 FILE_PATH, 
 							 FILE_CRT_DATE) 
@@ -20,12 +20,12 @@
 				</foreach>
 	</insert>
 
-	<select id="srch_mm_star_list" parameterType="com.ipduckhelper.user.Meme" resultType="com.ipduckhelper.user.Meme">
-		select MMT.MM_IDX as mm_idx, 
-			   MMT.MM_HIT_CNT as mm_hit_cnt, 
-			   FT.FILE_NM as file_nm, 
-			   FT.FILE_PATH as file_path, 
-			   FT.FILE_CRT_DATE as file_crt_date
+	<select id="srch_mm_star_list" parameterType="com.ipduckhelper.meme.Meme" resultType="com.ipduckhelper.meme.Meme">
+		select MMT.MM_IDX, 
+			   MMT.MM_HIT_CNT, 
+			   FT.FILE_NM, 
+			   FT.FILE_PATH, 
+			   FT.FILE_CRT_DATE
 			from MM_TBL MMT 
 				inner join FILE_TBL FT 
 					on MMT.FILE_IDX = FT.FILE_IDX 
@@ -38,12 +38,12 @@
 			limit #{offset}, 10;
 	</select>
 	
-	<select id="srch_mm_tag_list" parameterType="com.ipduckhelper.user.Meme" resultType="com.ipduckhelper.user.Meme">
-		select MMT.MM_IDX as mm_idx, 
-			   MMT.MM_HIT_CNT as mm_hit_cnt, 
-			   FT.FILE_NM as file_nm, 
-			   FT.FILE_PATH as file_path, 
-			   FT.FILE_CRT_DATE as file_crt_date
+	<select id="srch_mm_tag_list" parameterType="com.ipduckhelper.meme.Meme" resultType="com.ipduckhelper.meme.Meme">
+		select MMT.MM_IDX, 
+			   MMT.MM_HIT_CNT, 
+			   FT.FILE_NM, 
+			   FT.FILE_PATH, 
+			   FT.FILE_CRT_DATE
 			from MM_TBL MMT 
 				inner join FILE_TBL FT 
 					on MMT.FILE_IDX = FT.FILE_IDX 
@@ -54,7 +54,7 @@
 			limit #{offset}, 10;
 	</select>
 	
-	<update id="fix_mm" parameterType="com.ipduckhelper.user.Meme">
+	<update id="fix_mm" parameterType="com.ipduckhelper.meme.Meme">
 		update from FILE_TBL 
 			set FILE_NM = #{file_nm}, 
 				FILE_PATH = #{file_path} 
@@ -64,7 +64,7 @@
 					where MM_IDX = #{mm_idx});
 	</update>
 	
-	<delete id="del_mm" parameterType="com.ipduckhelper.user.Meme">
+	<delete id="del_mm" parameterType="com.ipduckhelper.meme.Meme">
 		delete FT, 
 			   MMT 
 			from MM_TBL MMT 
@@ -73,7 +73,7 @@
 			where MMT.MM_IDX = #{mm_idx};
 	</delete>
 		
-	<insert id="add_tag_mm" parameterType="com.ipduckhelper.user.Meme">
+	<insert id="add_tag_mm" parameterType="com.ipduckhelper.meme.Meme">
 		insert into MM_TAG_TBL (TAG_NM, 
 								MM_IDX) 
 			values (#{tag_nm}, #{mm_idx});

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.ipduckhelper.user.User">
+<mapper namespace="com.ipduckhelper.user">
 	<insert id="crt_mem" parameterType="com.ipduckhelper.user.User">
 		insert into FILE_TBL(FILE_NM, 
 							 FILE_PATH, 
@@ -22,19 +22,21 @@
 	</insert>
 
 	<select id="srch_mem_list" parameterType="com.ipduckhelper.user.User" resultType="com.ipduckhelper.user.User">
-		select MEM_ID, MEM_NICK, MEM_NM 
-		from MEM_TBL 
+		select M.MEM_ID, 
+			   M.MEM_NICK, 
+			   M.MEM_NM 
+		from MEM_TBL M
 		limit 10 
 		offset #{offset};
 	</select>
 	
 	<select id="srch_mem" parameterType="com.ipduckhelper.user.User" resultType="com.ipduckhelper.user.User">
-		select M.MEM_ID as mem_id, 
-			   M.MEM_NICK as mem_nick, 
-			   M.MEM_NM as mem_nm, 
-			   M.MEM_STAT as mem_stat, 
-			   M.ACVT as acvt, 
-			   F.FILE_PATH as file_path 
+		select M.MEM_ID, 
+			   M.MEM_NICK, 
+			   M.MEM_NM, 
+			   M.MEM_STAT, 
+			   M.ACVT, 
+			   F.FILE_PATH 
 			from MEM_TBL M 
 				inner join FILE_TBL F 
 					on M.FILE_IDX = F.FILE_IDX 
@@ -66,11 +68,11 @@
 	</update>
 	
 	<select id="login_mem" parameterType="com.ipduckhelper.user.User" resultType="com.ipduckhelper.user.User">
-		select M.MEM_ID as mem_id, 
-			   M.MEM_NICK as mem_nick, 
-			   M.MEM_NM as mem_nm, 
-			   M.MEM_STAT as mem_stat, 
-			   F.FILE_PATH as file_path 
+		select M.MEM_ID, 
+			   M.MEM_NICK, 
+			   M.MEM_NM, 
+			   M.MEM_STAT, 
+			   F.FILE_PATH 
 			from MEM_TBL M 
 				inner join FILE_TBL F 
 					on M.FILE_IDX = F.FILE_IDX 

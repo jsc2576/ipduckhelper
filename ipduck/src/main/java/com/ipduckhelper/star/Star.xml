@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.ipduckhelper.user.Star">
-	<insert id="crt_star" parameterType="com.ipduckhelper.user.Star">
+<mapper namespace="com.ipduckhelper.star">
+	<insert id="crt_star" parameterType="com.ipduckhelper.star.Star">
 		insert into FILE_TBL(FILE_NM, 
 							 FILE_PATH, 
 							 FILE_CRT_DATE) 
@@ -34,7 +34,7 @@
 					#{grp_idx});
 	</insert>
 	
-	<insert id="crt_grp" parameterType="com.ipduckhelper.user.Star">
+	<insert id="crt_grp" parameterType="com.ipduckhelper.star.Star">
 		insert into FILE_TBL(FILE_NM, 
 							 FILE_PATH, 
 							 FILE_CRT_DATE) 
@@ -59,13 +59,13 @@
 					#{clb_site});
 	</insert>
 	
-	<select id="srch_star_list" parameterType="com.ipduckhelper.user.Star" resultType="com.ipduckhelper.user.Star">
-		select S.STAR_IDX as star_idx, 
-			   S.STAR_NM as star_nm, 
-			   S.STAR_TYP as star_typ, 
-			   S.STAR_DBT_DATE as star_dbt_date, 
-			   S.CMPY_NM as cmpy_nm, 
-			   F.FILE_PATH as file_path 
+	<select id="srch_star_list" parameterType="com.ipduckhelper.star.Star" resultType="com.ipduckhelper.star.Star">
+		select S.STAR_IDX, 
+			   S.STAR_NM, 
+			   S.STAR_TYP, 
+			   S.STAR_DBT_DATE, 
+			   S.CMPY_NM, 
+			   F.FILE_PATH 
 			FROM STAR_TBL S 
 				inner join FILE_TBL F 
 					on S.FILE_IDX = F.FILE_IDX 
@@ -73,14 +73,14 @@
 			offset #{offset};
 	</select>
 	
-	<select id="srch_star" parameterType="com.ipduckhelper.user.Star" resultType="com.ipduckhelper.user.Star">
-		select S.STAR_MEM_IDX as star_mem_idx, 
-			   S.STAR_MEM_HGHT as star_mem_hght, 
-			   S.STAR_MEM_BLD as star_mem_bld, 
-			   S.STAR_MEM_WGHT as star_mem_wght, 
-			   S.STAR_MEM_BIRTH as star_mem_birth, 
-			   GS.STAR_NM as star_nm, 
-			   GS.STAR_TYP as star_typ 
+	<select id="srch_star" parameterType="com.ipduckhelper.star.Star" resultType="com.ipduckhelper.star.Star">
+		select S.STAR_MEM_IDX, 
+			   S.STAR_MEM_HGHT, 
+			   S.STAR_MEM_BLD, 
+			   S.STAR_MEM_WGHT, 
+			   S.STAR_MEM_BIRTH, 
+			   GS.STAR_NM, 
+			   GS.STAR_TYP 
 			from STAR_MEM_TBL S 
 				right outer join GRP_TBL G 
 					on S.GRP_IDX = G.GRP_IDX 
@@ -90,16 +90,16 @@
 		    	and GS.STAR_TYP=0;
 	</select>
 	
-	<select id="srch_grp" parameterType="com.ipduckhelper.user.Star" resultType="com.ipduckhelper.user.Star">
-		select G.GRP_IDX as grp_idx, 
-			   G.CLB_SITE as clb_site 
+	<select id="srch_grp" parameterType="com.ipduckhelper.star.Star" resultType="com.ipduckhelper.star.Star">
+		select G.GRP_IDX, 
+			   G.CLB_SITE 
 			from GRP_TBL G 
 				inner join STAR_TBL S 
 					on G.STAR_IDX = S.STAR_IDX 
 			where G.STAR_IDX = #{star_idx};
 	</select>
 	
-	<update id="fix_star" parameterType="com.ipduckhelper.user.Star">
+	<update id="fix_star" parameterType="com.ipduckhelper.star.Star">
 		update STAR_MEM_TBL SM 
 			inner join STAR_TBL SI 
 				on SM.STAR_IDX = SI.STAR_IDX 
@@ -123,7 +123,7 @@
 				and SI.STAR_TYP = 'STAR';
 	</update>
 	
-	<update id="fix_grp" parameterType="com.ipduckhelper.user.Star">
+	<update id="fix_grp" parameterType="com.ipduckhelper.star.Star">
 		update GRP_TBL GT 
 			inner join STAR_TBL ST 
 				on GT.STAR_IDX = ST.STAR_IDX 
@@ -135,7 +135,7 @@
 			where GT.GRP_IDX = #{grp_idx};
 	</update>
 	
-	<delete id="del_star" parameterType="com.ipduckhelper.user.Star">
+	<delete id="del_star" parameterType="com.ipduckhelper.star.Star">
 		delete ST, 
 			   SMT, 
 			   FT 
@@ -147,7 +147,7 @@
 				where ST.STAR_IDX = #{star_idx};
 	</delete>
 	
-	<delete id="del_grp" parameterType="com.ipduckhelper.user.Star">
+	<delete id="del_grp" parameterType="com.ipduckhelper.star.Star">
 		delete ST, 
 			   GT, 
 			   FT 
@@ -159,13 +159,13 @@
 				where ST.GRP_IDX = #{grp_idx};
 	</delete>
 	
-	<insert id="like_star" parameterType="com.ipduckhelper.user.Star">
+	<insert id="like_star" parameterType="com.ipduckhelper.star.Star">
 		insert into LIKE_STAR_TBL(STAR_IDX, 
 								  MEM_ID) 
 			values (#{star_idx}, #{mem_id});
 	</insert>
 	
-	<insert id="add_tag_star" parameterType="com.ipduckhelper.user.Star">
+	<insert id="add_tag_star" parameterType="com.ipduckhelper.star.Star">
 		insert into STAR_TAG_TBL(STAR_IDX, 
 								 TAG_NM) 
 			values (#{star_idx}, #{tag_nm});

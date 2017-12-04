@@ -1,4 +1,4 @@
-﻿use ipduck_04;
+﻿use ipduck;
 
 #1
 /*
@@ -8,7 +8,7 @@ select * from FILE_TBL;
 
 #2
 /*
-insert into MEM_TBL (MEM_ID, MEM_PWD, MEM_NICK, MEM_NM, FILE_IDX) values ('test@test.com', hex(aes_encrypt('1','암호화키')), 'user01', '유저z', 8);
+insert into MEM_TBL (MEM_ID, MEM_PWD, MEM_NICK, MEM_NM, FILE_IDX) values ('test@test.com', hex(aes_encrypt('1','암호화키')), 'user01', '유저z', 1);
 select * from MEM_TBL;
 #*/
 
@@ -44,20 +44,20 @@ where M.MEM_ID = 'test@test.com' and M.ACVT = TRUE and M.MEM_PWD = hex(aes_encry
 #8
 /*
 insert into FILE_TBL(FILE_NM, FILE_PATH, FILE_CRT_DATE) values ('새로운연예인사진1', '새로운연예인사진1의경로',SYSDATE());
-insert into STAR_TBL(STAR_NM, STAR_TYP, STAR_DBT_DATE, CMPY_NM, FILE_IDX) values ('새로운연예인', 'STAR', SYSDATE(), '드림팩토리',LAST_INSERT_ID());
+insert into STAR_TBL(STAR_NM, STAR_TYP, STAR_DBT_DATE, CMPY_NM, FILE_IDX) values ('새로운연예인', 1, SYSDATE(), '드림팩토리',LAST_INSERT_ID());
 select * from STAR_TBL where STAR_IDX = LAST_INSERT_ID();
 #*/
 
 #9
 /*
-insert into STAR_MEM_TBL(STAR_MEM_HGHT, STAR_MEM_BLD, STAR_MEM_WGHT, STAR_MEM_BIRTH, STAR_IDX, GRP_IDX) values(160, 'A', '45', '19950505', 18, 1);
+insert into STAR_MEM_TBL(STAR_MEM_HGHT, STAR_MEM_BLD, STAR_MEM_WGHT, STAR_MEM_BIRTH, STAR_IDX, GRP_IDX) values(160, 1, '45', '19950505', 18, 1);
 select * from STAR_MEM_TBL where STAR_MEM_IDX = LAST_INSERT_ID();
 #*/
 
 #10
 /*
 insert into FILE_TBL(FILE_NM, FILE_PATH, FILE_CRT_DATE) values ('새로운그룹1사진', '새로운그룹1의경로',SYSDATE());
-insert into STAR_TBL(STAR_NM, STAR_TYP, STAR_DBT_DATE, CMPY_NM, FILE_IDX) values ('새로운그룹1', 'GRP', SYSDATE(), '드림팩토리',LAST_INSERT_ID());
+insert into STAR_TBL(STAR_NM, STAR_TYP, STAR_DBT_DATE, CMPY_NM, FILE_IDX) values ('새로운그룹1', 0, SYSDATE(), '드림팩토리',LAST_INSERT_ID());
 
 insert into GRP_TBL(STAR_IDX, CLB_SITE) values(LAST_INSERT_ID(), 'http://groupunit.net');
 
@@ -74,7 +74,7 @@ from STAR_TBL S inner join FILE_TBL F on S.FILE_IDX = F.FILE_IDX limit 10 offset
 /*
 select S.STAR_MEM_IDX, S.STAR_MEM_HGHT, S.STAR_MEM_BLD, S.STAR_MEM_BIRTH, GS.STAR_NM, GS.STAR_TYP 
 from STAR_MEM_TBL S right outer join GRP_TBL G on S.GRP_IDX = G.GRP_IDX right outer join STAR_TBL GS 
-on G.STAR_IDX = GS.STAR_IDX where S.STAR_IDX = 18 and GS.STAR_TYP='GRP';
+on G.STAR_IDX = GS.STAR_IDX where S.STAR_IDX = 18 and GS.STAR_TYP=0;
 #*/
 
 #13
@@ -85,11 +85,11 @@ select G.GRP_IDX, G.CLB_SITE, S.STAR_NM from GRP_TBL G inner join STAR_TBL S on 
 #14
 /*
 update STAR_MEM_TBL SM inner join STAR_TBL SI on SM.STAR_IDX = SI.STAR_IDX inner join FILE_TBL FT 
-on SI.FILE_IDX = FT.FILE_IDX set SM.STAR_MEM_HGHT = '162', SM.STAR_MEM_BLD = 'A', SM.STAR_MEM_WGHT = '41', 
+on SI.FILE_IDX = FT.FILE_IDX set SM.STAR_MEM_HGHT = '162', SM.STAR_MEM_BLD = 1, SM.STAR_MEM_WGHT = '41', 
 SM.STAR_MEM_BIRTH = '19950505', SI.STAR_DBT_DATE = SYSDATE(), FT.FILE_PATH = '/test/new/image.png', 
 SM.GRP_IDX = (select * from (select G.GRP_IDX from GRP_TBL G inner join STAR_TBL S on G.STAR_IDX = S.STAR_IDX 
-									where S.STAR_NM = '솔로' and S.STAR_TYP = 'GRP')T) 
-						where SM.STAR_MEM_IDX = '17' and SI.STAR_TYP = 'STAR';
+									where S.STAR_NM = '솔로' and S.STAR_TYP = 0)T) 
+						where SM.STAR_MEM_IDX = '17' and SI.STAR_TYP = 1;
 select * from STAR_MEM_TBL where STAR_MEM_IDX = '17';  
 #*/
 
@@ -161,6 +161,6 @@ select * from MM_TBL;
 #25
 /*
 insert into STAR_MM_TBL(STAR_IDX, MM_IDX) values ((select STAR_IDX 
-		from STAR_TBL where STAR_NM='트와이스' and STAR_TYP='GRP' and CMPY_NM='JYP 엔터테인먼트'),1);
+		from STAR_TBL where STAR_NM='트와이스' and STAR_TYP=0	 and CMPY_NM='JYP 엔터테인먼트'),1);
 select * from STAR_MM_TBL;
 #*/
