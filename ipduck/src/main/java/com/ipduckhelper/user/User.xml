@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ipduckhelper.user">
-	<insert id="crt_mem" parameterType="com.ipduckhelper.user.User">
-		start transaction;
+	<insert id="crt_mem_first" parameterType="com.ipduckhelper.user.User">
 		insert into FILE_TBL(FILE_NM, 
 							 FILE_PATH, 
 							 FILE_CRT_DATE) 
 			values (#{file_nm}, 
 					#{file_path}, 
 					SYSDATE()); 
-		
+	</insert>
+	
+	<insert id="crt_mem_second" parameterType="com.ipduckhelper.user.User">
 		insert into MEM_TBL (MEM_ID, 
 							 MEM_PWD, 
 							 MEM_NICK, 
@@ -20,10 +21,8 @@
 					#{mem_nick}, 
 					#{mem_nm}, 
 					LAST_INSERT_ID());
-					
-		commit;
 	</insert>
-
+	
 	<select id="srch_mem_list" parameterType="com.ipduckhelper.user.User" resultType="com.ipduckhelper.user.User">
 		select M.MEM_ID, 
 			   M.MEM_NICK, 

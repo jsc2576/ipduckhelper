@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ipduckhelper.meme">
-	<insert id="crt_mm" parameterType="com.ipduckhelper.meme.Meme">
-		start transaction;
+	<insert id="crt_mm_first" parameterType="com.ipduckhelper.meme.Meme">
 		insert into FILE_TBL(FILE_NM, 
 							 FILE_PATH, 
 							 FILE_CRT_DATE) 
@@ -12,17 +11,18 @@
 						   MEM_ID) 
 			values (LAST_INSERT_ID(), 
 					#{mem_id});
-					 
+	</insert>
+	
+	<insert id="crt_mm_second" parameterType="com.ipduckhelper.meme.Meme">
 		insert into STAR_MM_TBL(STAR_IDX, 
 								MM_IDX) 
 			values 
 				<foreach collection="star_idx_list" item="star_idx" open="(" close=")" separator=",">
 					#{star_idx.value}, LAST_INSERT_ID()
-				</foreach>
-				
-		commit;
+				</foreach>	
 	</insert>
-
+	
+	
 	<select id="srch_mm_star_list" parameterType="com.ipduckhelper.meme.Meme" resultType="com.ipduckhelper.meme.Meme">
 		select MMT.MM_IDX, 
 			   MMT.MM_HIT_CNT, 

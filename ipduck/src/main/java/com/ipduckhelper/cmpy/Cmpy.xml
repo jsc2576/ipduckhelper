@@ -2,17 +2,18 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ipduckhelper.cmpy">
 
-	<insert id="crt_cmpy" parameterType="com.ipduckhelper.cmpy.Cmpy">
-		start transaction;
+	<insert id="crt_cmpy_first" parameterType="com.ipduckhelper.cmpy.Cmpy">
 		insert into FILE_TBL(FILE_NM, 
 							 FILE_PATH, 
 							 FILE_CRT_DATE) 
 			values (#{file_nm}, #{file_path}, SYSDATE()); 
+	</insert>
+	
+	<insert id="crt_cmpy_second" parameterType="com.ipduckhelper.cmpy.Cmpy">
 		insert into CMPY_TBL ( CMPY_NM , 
 							   CMPY_REP , 
 							   FILE_IDX ) 
 			values ( #{cmpy_nm}, #{cmpy_rep}, LAST_INSERT_ID());
-		commit;
 	</insert>
 	
 	<select id="srch_cmpy_list" parameterType="com.ipduckhelper.cmpy.Cmpy" resultType="com.ipduckhelper.cmpy.Cmpy">

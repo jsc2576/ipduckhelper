@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ipduckhelper.sche">
+	<insert id="crt_sche" parameterType="com.ipduckhelper.sche.Sche">
+		insert into SCHE_TBL(SCHE_NM, 
+							 SCHE_DATE, 
+						 	SCHE_TRM, 
+						 	STAR_IDX, 
+						 	MEM_ID) 
+				values (#{sche_nm}, 
+						#{sche_date}, 
+						#{sche_trm}, 
+						#{star_idx}, 
+						#{mem_id});
+	</insert>
+	
+	<select id="srch_sche_list" parameterType="com.ipduckhelper.sche.Sche">
+		select * from SCHE_TBL 
+			where STAR_IDX = #{star_idx} 
+				and SCHE_DATE >= DATE_FORMAT(#{SCHE_DATE}, '%Y/%m/01') 
+				and SCHE_DATE < DATE_FORMAT(#{SCHE_DATE} + INTERVAL 1 MONTH, '%Y/%m/01');
+	</select>
+	
+	<update id="fix_sche" parameterType="com.ipduckhelper.sche.Sche">
+		update from SCHE_TBL 
+			set SCHE_NM = #{sche_nm}, 
+				SCHE_DATE = #{sche_date}, 
+				SCHE_TRM = #{sche_trm} 
+			where SCHE_IDX = #{sche_idx};
+	</update>
+	
+	<delete id="del_sche" parameterType="com.ipduckhelper.sche.Sche">
+		delete from SCHE_TBL 
+			where SCHE_IDX = #{sche_idx};
+	</delete>
+</mapper>

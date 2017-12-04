@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ipduckhelper.star">
-	<insert id="crt_star" parameterType="com.ipduckhelper.star.Star">
-		start transaction;
+	<insert id="crt_star_first" parameterType="com.ipduckhelper.star.Star">
 		insert into FILE_TBL(FILE_NM, 
 							 FILE_PATH, 
 							 FILE_CRT_DATE) 
 			values (#{file_nm}, 
 					#{file_path}, 
 					SYSDATE());
-					 
+	</insert>
+	
+	<insert id="crt_star_second" parameterType="com.ipduckhelper.star.Star">
 		insert into STAR_TBL(STAR_NM, 
 							 STAR_TYP, 
 							 STAR_DBT_DATE, 
@@ -20,7 +21,9 @@
 					SYSDATE(), 
 					#{cmpy_nm}, 
 					LAST_INSERT_ID());
-					 
+	</insert>
+	
+	<insert id="crt_star_third" parameterType="com.ipduckhelper.star.Star">
 		insert into STAR_MEM_TBL(STAR_MEM_HGHT, 
 								 STAR_MEM_BLD, 
 								 STAR_MEM_WGHT, 
@@ -33,19 +36,17 @@
 					#{star_mem_birth}, 
 					LAST_INSERT_ID(), 
 					#{grp_idx});
-					
-		commit;
 	</insert>
 	
-	<insert id="crt_grp" parameterType="com.ipduckhelper.star.Star">
-		start transaction;
+	<insert id="crt_grp_first" parameterType="com.ipduckhelper.star.Star">
 		insert into FILE_TBL(FILE_NM, 
 							 FILE_PATH, 
 							 FILE_CRT_DATE) 
 			values (#{file_nm}, 
 					#{file_path}, 
 					SYSDATE()); 
-					
+	</insert>
+	<insert id="crt_grp_second" parameterType="com.ipduckhelper.star.Star">
 		insert into STAR_TBL(STAR_NM, 
 							 STAR_TYP, 
 							 STAR_DBT_DATE, 
@@ -56,13 +57,15 @@
 					SYSDATE(), 
 					#{cmpy_nm}, 
 					LAST_INSERT_ID());
-					 
+	</insert>
+	
+	<insert id="crt_grp_third" parameterType="com.ipduckhelper.star.Star">
 		insert into GRP_TBL(STAR_IDX, 
 							CLB_SITE) 
 			values (LAST_INSERT_ID(), 
 					#{clb_site});
-		commit;
 	</insert>
+	
 	
 	<select id="srch_star_list" parameterType="com.ipduckhelper.star.Star" resultType="com.ipduckhelper.star.Star">
 		select S.STAR_IDX, 

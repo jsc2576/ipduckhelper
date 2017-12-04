@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ipduckhelper.cmnt">
+	<insert id="crt_cmnt" parameterType="com.ipduckhelper.cmnt.Cmnt">
+		insert into CMNT_TBL (CMNT_CON, 
+							  CMNT_DATE, 
+							  POST_IDX, 
+							  MEM_ID, 
+							  HIGH_CMNT_IDX) 
+			values (#{cmnt_con}, 
+					SYSDATE(), 
+					#{post_idx}, 
+					#{mem_id}, 
+					#{high_cmnt_idx});
+	</insert>
+	
+	<select id="srch_cmnt_list" parameterType="com.ipduckhelper.cmnt.Cmnt" resultType="com.ipduckhelper.cmnt.Cmnt">
+		select * 
+			from CMNT_TBL 
+			where POST_IDX = #{post_idx} 
+			limit #{offset}, 10;
+	</select>
+	
+	<update id="fix_cmnt" parameterType="com.ipduckhelper.cmnt.Cmnt">
+		update from CMNT_TBL 
+			set CMNT_CON = #{cmnt_con}, 
+				CMNT_DATE = SYSDATE() 
+			where CMNT_IDX = #{cmnt_idx};
+	</update>
+	
+	<delete id="del_cmnt" parameterType="com.ipduckhelper.cmnt.Cmnt">
+		delete from CMNT_TBL 
+			where CMNT_IDX = #{cmnt_idx} 
+				or HIGH_CMNT_IDX = #{high_cmnt_idx};
+	</delete>
+</mapper>

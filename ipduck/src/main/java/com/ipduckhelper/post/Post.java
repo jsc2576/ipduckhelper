@@ -22,7 +22,30 @@ public class Post implements Serializable{
 	private Integer post_hit_cnt;
 	
 	private List<String> tag_nm_list;
+	private String tag_nm;
 	
+	private String file_nm;
+	private String file_path;
+	private String file_crt_date;
+	
+	public String getFile_nm() {
+		return file_nm;
+	}
+	public void setFile_nm(String file_nm) {
+		this.file_nm = file_nm;
+	}
+	public String getFile_path() {
+		return file_path;
+	}
+	public void setFile_path(String file_path) {
+		this.file_path = file_path;
+	}
+	public String getFile_crt_date() {
+		return file_crt_date;
+	}
+	public void setFile_crt_date(String file_crt_date) {
+		this.file_crt_date = file_crt_date;
+	}
 	private Integer offset;
 	
 	public Integer getPost_idx() {
@@ -81,5 +104,11 @@ public class Post implements Serializable{
 	}
 	public void setOffset(Integer offset) {
 		this.offset = offset;
+	}
+	public String getTag_nm() {
+		return tag_nm;
+	}
+	public void setTag_nm(String tag_nm) {
+		this.tag_nm = tag_nm;
 	}
 }
