@@ -3,8 +3,10 @@ package com.ipduckhelper;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.handler.HandlerInterceptorAdapter;
 
+@Component
 public class SessionInterCeptor extends HandlerInterceptorAdapter{
 	
 	@Override
@@ -14,7 +16,7 @@ public class SessionInterCeptor extends HandlerInterceptorAdapter{
 		
 		try {
 			if(request.getAttribute("SessionSuccess") == null) {
-				response.sendRedirect("/login.goi");
+				response.sendRedirect("/login/view");
 				return false;
 			} 
 		} catch (Exception e) {

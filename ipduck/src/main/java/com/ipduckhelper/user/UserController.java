@@ -1,5 +1,7 @@
 package com.ipduckhelper.user;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -32,7 +34,7 @@ public class UserController {
 	 */
 	@RequestMapping("/login/view")
 	public String Login_View() {
-		return "";
+		return "index";
 	}
 	
 	/**
@@ -46,7 +48,7 @@ public class UserController {
 	 * @return
 	 * @throws Exception
 	 */
-	@RequestMapping(value = "/signup.go", method=RequestMethod.POST)
+	@RequestMapping(value = "/signup/do", method=RequestMethod.POST)
 	@ResponseBody
 	public Integer SignUp(@RequestParam("profile_img") MultipartFile profile_img, 
 						  @RequestParam("mem_id") String mem_id, 
@@ -71,7 +73,7 @@ public class UserController {
 	 * @return
 	 * @throws Exception
 	 */
-	@RequestMapping(value = "/login.go", method=RequestMethod.POST)
+	@RequestMapping(value = "/login/do", method=RequestMethod.POST)
 	@ResponseBody
 	public User Login(HttpServletRequest request, User entity) throws Exception{
 		User userInfo = userService.Login_Mem(entity);
@@ -84,4 +86,17 @@ public class UserController {
 	}
 	
 	
+	
+	/**
+	 * need value : offset
+	 * @param request
+	 * @param entity
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping(value = "/srch/mem/do", method=RequestMethod.POST)
+	@ResponseBody
+	public List<User> Srch_Mem_List(HttpServletRequest request, User entity) throws Exception{
+		return userService.Srch_Mem_List(entity);
+	}
 }

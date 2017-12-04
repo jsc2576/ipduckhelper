@@ -15,6 +15,6 @@ public class SessionConfig extends WebMvcConfigurerAdapter{
 	public void addInterceptors(InterceptorRegistry registry) {
 		// TODO Auto-generated method stub
 		registry.addInterceptor(sessionInterCeptor)
-		.addPathPatterns("/**/*.do");
+		.addPathPatterns("/**/*.go");
 	}
 }
