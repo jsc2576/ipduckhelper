@@ -1,0 +1,166 @@
+@import url("./font.css");
+
+body.main{
+	text-align: center;
+    font-family: "PGL";
+    font-size: 20px;
+}
+
+h1{
+    font-family: "AmeL";
+    font-size: 30px;
+    margin-top: 100px;
+}
+
+h1.menu{
+	font-size: 80px;
+	margin-top: 150px;
+}
+
+.search{
+    font-family: "SineL", Sans-serif;
+    font-size: 20px;
+    color:#a6a6a6;
+    width:700px;
+    height: 21px;
+    padding:6px 0px 6px 15px;
+    border-radius: 5px;
+    border: 1px solid #d1d1d1;
+    box-shadow:0 1px 3px rgba(0,0,0,0.15) inset;
+}
+
+.search_submit{
+	background: url(./img/search.png) no-repeat 10px 3px;
+    background-size: 30px 30px;
+    border-radius: 5px;
+    border: 1px solid #d1d1d1;
+    width: 50px;
+    height: 35px;
+    box-shadow:0 1px 3px rgba(0,0,0,0.15);
+}
+
+button{
+	font-family: "PGL", Sans-serif;
+	font-size:25px;
+	background-color:#bfbfbf;
+	padding: 6px;
+	color:#ffffff;
+	width: 180px;
+	height: 50px;
+    border-radius:10px;
+    border: none;
+}
+
+.submit_button{
+    font-family: "PGL", Sans-serif;
+    font-size:25px;
+    background-color:#bfbfbf;
+    padding: 6px;
+    color:#ffffff;
+    width: 180px;
+    height: 50px;
+    border-radius:10px;
+    border: none;
+}
+
+a{
+    text-decoration: none;
+    color: #808080;
+}
+
+p.login{
+    font-family: "AmeL";
+    font-size: 20px;
+    text-align: right;
+    vertical-align: middle;
+}
+
+button.login{
+    font-size: 20px;
+    width:70px;
+    height: 30px;
+}
+
+/*------------------------navigation bar------------------------*/
+.navbar{
+    background: #4d4d4d;
+    margin-left: -8px;
+    margin-top: -8px;
+    padding: 0px;
+    list-style: none;
+    position: fixed;
+    width: 100%;
+    font-size: 0;
+}
+
+.navbar>li {
+    float: left;
+    padding: 9px;
+}
+
+.navbar>li.right{
+    float: right;
+}
+
+.navbar>li>a {
+    text-decoration: none;
+    padding: 10px 20px;
+    color: white;
+    font-family: "PGL";
+    font-size: 20px;
+    float:none;
+}
+
+.navbar>li>a.right:hover{
+    background: #999999;
+}
+
+/*end nav bar*/
+
+pre.search_main{
+    font-family: "PGL";
+    font-size: 25px;
+    text-align: center;
+}
+
+h1.search_main{
+    font-family: "AmeL";
+    font-size: 40px;
+    margin-top: 150px;
+    margin-bottom: -10px;
+}
+
+div.search_result{
+    font-family: "PGL";
+    font-size: 28px;
+    margin-top: 80px;
+    margin-left: 60px;
+}
+
+div>h1.search_result{
+    font-family: "AmeL";
+    display: inline;
+    font-size: 40px;
+}
+
+div.title{
+    margin-top: 20px;
+    margin-left: 20px;
+    font-family: "AmeL";
+    clear: both
+}
+
+div.content{
+    margin-top: 10px;
+    margin-left: 20px;
+    font-family: "PGL";
+    font-size: 23px;
+}
+
+div.star_result{
+    width: 200px;
+    height: 200px;
+    float: left;
+    display: inline-block;
+    align-content: center;
+}
