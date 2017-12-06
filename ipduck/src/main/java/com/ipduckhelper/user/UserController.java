@@ -78,6 +78,27 @@ public class UserController {
 	}
 	
 	
+	/**
+	 * 로그아웃
+	 * @param request
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping(value = "/logout/do", method=RequestMethod.POST)
+	@ResponseBody
+	public Integer Logout(HttpServletRequest request) throws Exception{
+		
+		try {
+			request.getSession().removeAttribute("mem_id");
+			request.getSession().removeAttribute("SessionSuccess");
+			request.getSession().removeAttribute("mem_stat");
+			return 1;
+		}catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			return 0;
+		}
+	}
 	
 	/**
 	 * need value : offset
@@ -91,6 +112,4 @@ public class UserController {
 	public List<User> Srch_Mem_List(HttpServletRequest request, User entity) throws Exception{
 		return userService.Srch_Mem_List(entity);
 	}
-	
-	
 }
