@@ -26,7 +26,7 @@ public class StarController {
 	 * @return
 	 * @throws Exception
 	 */
-	@RequestMapping(value = "/crt/star.admin", method=RequestMethod.POST)
+	@RequestMapping(value = "/crt/star/do.admin", method=RequestMethod.POST)
 	@ResponseBody
 	public Integer Crt_Star(HttpServletRequest request, @ModelAttribute Star entity) throws Exception{
 		return starService.Crt_Star_and_Grp(entity, true);
@@ -44,7 +44,7 @@ public class StarController {
 	 * @return
 	 * @throws Exception
 	 */
-	@RequestMapping(value = "/crt/grp.admin", method=RequestMethod.POST)
+	@RequestMapping(value = "/crt/grp/do.admin", method=RequestMethod.POST)
 	@ResponseBody
 	public Integer Crt_Grp(HttpServletRequest request, @ModelAttribute Star entity) throws Exception{
 		return starService.Crt_Star_and_Grp(entity, false);
@@ -58,7 +58,7 @@ public class StarController {
 	 * @return
 	 * @throws Exception
 	 */
-	@RequestMapping(value = "/srch/list/star.go", method=RequestMethod.POST)
+	@RequestMapping(value = "/srch/list/star/do.go", method=RequestMethod.POST)
 	@ResponseBody
 	public List<Star> Srch_Star_List(@ModelAttribute Star entity) throws Exception{
 		return starService.Srch_Star_List(entity);
@@ -72,7 +72,7 @@ public class StarController {
 	 * @return
 	 * @throws Exception
 	 */
-	@RequestMapping(value = "/srch/star", method=RequestMethod.POST)
+	@RequestMapping(value = "/srch/star/do", method=RequestMethod.POST)
 	@ResponseBody
 	public Star Srch_Star(@ModelAttribute Star entity) throws Exception{
 		return starService.Srch_Star(entity);
@@ -86,7 +86,7 @@ public class StarController {
 	 * @return
 	 * @throws Exception
 	 */
-	@RequestMapping(value = "/srch/grp", method=RequestMethod.POST)
+	@RequestMapping(value = "/srch/grp/do", method=RequestMethod.POST)
 	@ResponseBody
 	public Star Srch_Grp(@ModelAttribute Star entity) throws Exception{
 		return starService.Srch_Grp(entity);
@@ -99,7 +99,7 @@ public class StarController {
 	 * @return
 	 * @throws Exception
 	 */
-	@RequestMapping(value = "/fix/star.admin", method=RequestMethod.POST)
+	@RequestMapping(value = "/fix/star/do.admin", method=RequestMethod.POST)
 	@ResponseBody
 	public Integer Fix_Star(HttpServletRequest request, @ModelAttribute Star entity) throws Exception{
 		return starService.Fix_Star(entity);			
@@ -113,7 +113,7 @@ public class StarController {
 	 * @return
 	 * @throws Exception
 	 */
-	@RequestMapping(value = "/fix/grp.admin", method=RequestMethod.POST)
+	@RequestMapping(value = "/fix/grp/do.admin", method=RequestMethod.POST)
 	@ResponseBody
 	public Integer Fix_Grp(HttpServletRequest request, @ModelAttribute Star entity) throws Exception{
 		return starService.Fix_Grp(entity);
@@ -127,7 +127,7 @@ public class StarController {
 	 * @return
 	 * @throws Exception
 	 */
-	@RequestMapping(value = "/del/star.admin", method=RequestMethod.POST)
+	@RequestMapping(value = "/del/star/do.admin", method=RequestMethod.POST)
 	@ResponseBody
 	public Integer Del_Star(HttpServletRequest request, @ModelAttribute Star entity) throws Exception{
 		return starService.Del_Star(entity);
@@ -141,7 +141,7 @@ public class StarController {
 	 * @return
 	 * @throws Exception
 	 */
-	@RequestMapping(value = "/del/grp.admin", method=RequestMethod.POST)
+	@RequestMapping(value = "/del/grp/do.admin", method=RequestMethod.POST)
 	@ResponseBody
 	public Integer Del_Grp(HttpServletRequest request, @ModelAttribute Star entity) throws Exception{
 		return starService.Del_Grp(entity);
@@ -156,7 +156,7 @@ public class StarController {
 	 * @return
 	 * @throws Exception
 	 */
-	@RequestMapping(value = "/like/star.go", method=RequestMethod.POST)
+	@RequestMapping(value = "/like/star/do.go", method=RequestMethod.POST)
 	@ResponseBody
 	public Integer Like_Star(HttpServletRequest request, @ModelAttribute Star entity) throws Exception{
 		entity.setMem_id(String.valueOf(request.getSession().getAttribute("mem_id")));
@@ -171,7 +171,7 @@ public class StarController {
 	 * @return
 	 * @throws Exception
 	 */
-	@RequestMapping(value = "/tag/star.go", method=RequestMethod.POST)
+	@RequestMapping(value = "/tag/star/do.go", method=RequestMethod.POST)
 	@ResponseBody
 	public Integer Add_Tag_Star(HttpServletRequest request, @ModelAttribute Star entity) throws Exception{
 		return starService.Add_Tag_Star(entity);

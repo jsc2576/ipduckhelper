@@ -84,7 +84,7 @@ public class UserController {
 	 * @return
 	 * @throws Exception
 	 */
-	@RequestMapping(value = "/logout/do", method=RequestMethod.POST)
+	@RequestMapping(value = "/logout/do.go", method=RequestMethod.POST)
 	@ResponseBody
 	public Integer Logout(HttpServletRequest request) throws Exception{
 		
@@ -101,15 +101,85 @@ public class UserController {
 	}
 	
 	/**
+	 * 회원 리스트 찾기
 	 * need value : offset
 	 * @param request
 	 * @param entity
 	 * @return
 	 * @throws Exception
 	 */
-	@RequestMapping(value = "/srch/mem/do", method=RequestMethod.POST)
+	@RequestMapping(value = "/srch/list/mem/do.admin", method=RequestMethod.POST)
 	@ResponseBody
 	public List<User> Srch_Mem_List(HttpServletRequest request, User entity) throws Exception{
 		return userService.Srch_Mem_List(entity);
+	}
+	
+	/**
+	 * 회원 상세 조회
+	 * need value : mem_id
+	 * @param request
+	 * @param entity
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping(value = "/srch/mem/do.go", method=RequestMethod.POST)
+	@ResponseBody
+	public User Srch_Mem(HttpServletRequest request, User entity) throws Exception{
+		return userService.Srch_Mem(entity);
+	}
+	
+	
+	/**
+	 * 회원정보 수정
+	 * need value : upload_img, mem_id, mem_pwd, mem_nick, mem_nm
+	 * @param request
+	 * @param entity
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping(value = "/fix/mem/do.go", method=RequestMethod.POST)
+	@ResponseBody
+	public Integer Fix_Mem(HttpServletRequest request, User entity) throws Exception{
+		if(String.valueOf(request.getSession().getAttribute("mem_id")) == entity.getMem_id() || // 회원 본인이거나
+				String.valueOf(request.getSession().getAttribute("mem_stat")) == "2") { // 관리자만 수정 가능
+			return userService.Fix_Mem(entity);			
+		}
+		else {
+			return -1;
+		}
+	}	
+	
+	/**
+	 * 회원 탈퇴
+	 * need value : mem_id
+	 * @param request
+	 * @param entity
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping(value = "/del/mem/do.go", method=RequestMethod.POST)
+	@ResponseBody
+	public Integer Del_Mem(HttpServletRequest request, User entity) throws Exception{
+		if(String.valueOf(request.getSession().getAttribute("mem_id")) == entity.getMem_id() || // 회원 본인이거나
+				String.valueOf(request.getSession().getAttribute("mem_stat")) == "2") { // 관리자만 수정 가능
+			return userService.Del_Mem(entity);			
+		}
+		else {
+			return -1;
+		}
+	}
+	
+	/**
+	 * 회원 활성
+	 * need value : mem_id
+	 * @param request
+	 * @param entity
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping(value = "/acvt/mem/do", method=RequestMethod.POST)
+	@ResponseBody
+	public Integer Acvt_Mem(HttpServletRequest request, User entity) throws Exception{
+		return userService.Acvt_Mem(entity);
 	}
 }
