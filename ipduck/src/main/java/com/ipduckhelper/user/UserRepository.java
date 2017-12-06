@@ -42,4 +42,8 @@ public class UserRepository {
 	public User Login_Mem(User entity) throws Exception{
 		return sqlSession.selectOne("com.ipduckhelper.user.login_mem", entity);
 	}
+	
+	public User File_Info(String mem_id) throws Exception{
+		return sqlSession.selectOne("com.ipduckhelper.user.file_info", mem_id);
+	}
 }

@@ -11,10 +11,15 @@ public class SessionConfig extends WebMvcConfigurerAdapter{
 	@Autowired
 	SessionInterCeptor sessionInterCeptor;
 	
+	@Autowired
+	AdministratorInterCeptor administratorInterCeptor;
+	
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
 		// TODO Auto-generated method stub
 		registry.addInterceptor(sessionInterCeptor)
-		.addPathPatterns("/**/*.go");
+		.addPathPatterns("/**/*.go", "/**/*.admin");
+		
+		registry.addInterceptor(administratorInterCeptor).addPathPatterns("/**/*.admin");
 	}
 }

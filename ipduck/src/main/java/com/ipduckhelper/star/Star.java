@@ -3,6 +3,7 @@ package com.ipduckhelper.star;
 import java.io.Serializable;
 
 import org.springframework.stereotype.Repository;
+import org.springframework.web.multipart.MultipartFile;
 
 @Repository("Star")
 public class Star implements Serializable
@@ -12,6 +13,8 @@ public class Star implements Serializable
 	 */
 	private static final long serialVersionUID = 7287598313606673342L;
 	
+	private String mem_id; // 회원 아이디
+	
 	private Integer star_idx; // 연예인 인덱
 	private String star_nm; // 연예인 이름
 	private Integer star_typ; // 0: GRP, 1: STAR
@@ -19,6 +22,7 @@ public class Star implements Serializable
 	private String cmpy_nm; // 소속사 이름
 	private Integer file_idx; // 대표 사진 인덱스
 	
+	private MultipartFile upload_img; // 업로드 이미지
 	private String file_nm; // 사진 이름
 	private String file_path; // 사진 경로
 	
@@ -136,5 +140,17 @@ public class Star implements Serializable
 	}
 	public void setTag_nm(String tag_nm) {
 		this.tag_nm = tag_nm;
+	}
+	public MultipartFile getUpload_img() {
+		return upload_img;
+	}
+	public void setUpload_img(MultipartFile upload_img) {
+		this.upload_img = upload_img;
+	}
+	public String getMem_id() {
+		return mem_id;
+	}
+	public void setMem_id(String mem_id) {
+		this.mem_id = mem_id;
 	}
 }

@@ -53,6 +53,7 @@
 			SET M.MEM_PWD = hex(aes_encrypt(#{mem_pwd}, #{pwd_key})), 
 				M.MEM_NICK = #{mem_nick}, 
 				M.MEM_NM = #{mem_nm}, 
+				F.FILE_NM = #{file_nm}
 				F.FILE_PATH = #{file_path} 
 			where M.MEM_ID = #{mem_id};
 	</update>
@@ -81,5 +82,14 @@
 			where M.MEM_ID = #{mem_id} 
 				and M.ACVT = 1 
 				and M.MEM_PWD = hex(aes_encrypt(#{mem_pwd}, #{pwd_key}));
+	</select>
+	
+	<!-- fix 에서 이미지 파일을 삭제하기 위해 사용 -->
+	<select id="file_info" parameterType="String" resultType="com.ipduckhelper.user.User">
+		select FT.FILE_NM, FT.FILE_PATH
+			from MEM_TBL MT
+				inner join FILE_TBL FT
+					on MT.FILE_IDX = FT.FILE_IDX
+			where MT.MEM_ID = #{value}
 	</select>
 </mapper>

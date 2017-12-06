@@ -1,31 +1,26 @@
 package com.ipduckhelper;
 
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Map;
 import java.util.Random;
 
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
+import org.springframework.web.multipart.MultipartFile;
 
 public class CommonUtil {
 
 	private final static String pwd_key = "문자열1234";
 	private final static Integer file_random_length = 12; // 파일 뒤에 랜덤으로 붙는 숫자 자리수
 	private final static String user_profile_path = "./profile"; //유저 프로필 사진 저장 경로
-	
-	public static String getPwdKey() {
-		return pwd_key;
-	}
-	
-	public static Integer getFileRandomLength() {
-		return file_random_length;
-	}
-	
-	public static String getUserProfilePath() {
-		return user_profile_path;
-	}
+	private final static String star_profile_path = "./star_profile"; //연예인 프로필 사진 저장 경로
 	
 	
 	public static String getDate() {
@@ -42,5 +37,58 @@ public class CommonUtil {
 		}
 		
 		return rand_str;
+	}
+	
+	public static boolean Delete_Image(String path, String file_name) throws Exception{
+		String file_path = Paths.get(path, file_name).toString();
+		
+		File profile = new File(file_path);
+		
+		if(profile.exists()) {
+			profile.delete();
+			return true;
+		}
+		else return false;
+	}
+	
+	/**
+	 * 파일 업로드
+	 * @param image
+	 * @param path
+	 * @return
+	 * @throws Exception
+	 */
+	public static String Upload_Image(MultipartFile image, String path) throws Exception{
+		String file_nm = image.getOriginalFilename() + "_" + CommonUtil.getDate() + "_" + CommonUtil.getRandom(CommonUtil.getFileRandomLength());
+		String file_path = Paths.get(path, file_nm).toString();
+		
+		// 파일 생성
+		File save_profile = new File(file_path);
+		
+		/*
+		 * 파일 저장
+		 */
+		FileOutputStream fileOutputStream = new FileOutputStream(save_profile);
+		BufferedOutputStream stream = new BufferedOutputStream(fileOutputStream);
+        stream.write(image.getBytes());
+        stream.close();
+	
+        return file_nm;
+	}
+
+	public static String getPwdKey() {
+		return pwd_key;
+	}
+	
+	public static Integer getFileRandomLength() {
+		return file_random_length;
+	}
+	
+	public static String getUserProfilePath() {
+		return user_profile_path;
+	}
+	
+	public static String getStarProfilePath() {
+		return star_profile_path;
 	}
 }

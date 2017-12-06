@@ -61,5 +61,13 @@ public class StarRepository {
 	
 	public Integer Add_Tag_Star(Star entity) throws Exception{
 		return sqlSession.insert("com.ipduckhelper.star.add_tag_star", entity);
-	}	
+	}
+	
+	public Star Star_File_Info(Integer star_mem_idx) throws Exception{
+		return sqlSession.selectOne("com.ipduckhelper.star.star_file_info", star_mem_idx);
+	}
+	
+	public Star Grp_File_Info(Integer grp_idx) throws Exception{
+		return sqlSession.selectOne("com.ipduckhelper.star.grp_file_info", grp_idx);
+	}
 }

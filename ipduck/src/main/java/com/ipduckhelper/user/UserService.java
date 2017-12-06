@@ -1,15 +1,9 @@
 package com.ipduckhelper.user;
 
-import java.io.BufferedOutputStream;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.nio.file.Paths;
 import java.util.List;
-import java.util.Random;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.multipart.MultipartFile;
 
 import com.ipduckhelper.CommonUtil;
 
@@ -27,28 +21,16 @@ public class UserService {
 	 * @return
 	 * @throws Exception
 	 */
-	public Integer Crt_Mem(User entity, MultipartFile profile_img) throws Exception{
+	public Integer Crt_Mem(User entity) throws Exception{
 		String file_nm = "";
 		
 		//프로필 사진을 넣지 않은 경우
-		if(profile_img == null) {
+		if(entity.getUpload_img().isEmpty()) {
 			file_nm = "base_profile"; // 기본 프로필로 설정
 		}
 		else {
-			//파일 메타 데이터 생성
-			file_nm = profile_img.getOriginalFilename() + "_" + CommonUtil.getDate() + "_" + CommonUtil.getRandom(CommonUtil.getFileRandomLength());
-			String file_path = Paths.get(CommonUtil.getUserProfilePath(), file_nm).toString();
-			
-			// 파일 생성
-			File save_profile = new File(file_path);
-			
-			/*
-			 * 파일 저장
-			 */
-			FileOutputStream fileOutputStream = new FileOutputStream(save_profile);
-			BufferedOutputStream stream = new BufferedOutputStream(fileOutputStream);
-	        stream.write(profile_img.getBytes());
-	        stream.close();
+			// 파일 저장
+			file_nm = CommonUtil.Upload_Image(entity.getUpload_img(), CommonUtil.getUserProfilePath());
 		}
         
         entity.setFile_nm(file_nm); // 저장된 파일 이름
@@ -69,7 +51,22 @@ public class UserService {
 	}
 	
 	public Integer Fix_Mem(User entity) throws Exception{
-		entity.setPwd_key(CommonUtil.getPwdKey());
+		User file_info = userRepository.File_Info(entity.getMem_id());
+		
+		if(file_info.getFile_nm() != "base_profile") { //기본 프로필이 아닌 경우 파일 삭제
+			CommonUtil.Delete_Image(file_info.getFile_path(), file_info.getFile_nm());
+		}
+		
+		if(entity.getUpload_img().isEmpty()) { // 업데이트 프로필이 없는 경우
+			entity.setFile_nm("base_profile");
+		}
+		else { // 업데이트 프로필이 있는 경우
+			//파일을 업로드하고 이름을 객체에 저장
+			entity.setFile_nm(CommonUtil.Upload_Image(entity.getUpload_img(), CommonUtil.getUserProfilePath()));
+		}
+			
+		entity.setFile_path(CommonUtil.getUserProfilePath()); // 프로필 경로
+		entity.setPwd_key(CommonUtil.getPwdKey());	// 비밀번호 업데이트 용 키
 		return userRepository.Fix_Mem(entity);
 	}
 	

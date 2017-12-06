@@ -3,6 +3,7 @@ package com.ipduckhelper.user;
 import java.io.Serializable;
 
 import org.springframework.stereotype.Repository;
+import org.springframework.web.multipart.MultipartFile;
 
 @Repository("User")
 public class User implements Serializable{
@@ -19,6 +20,7 @@ public class User implements Serializable{
 	private Integer mem_stat; // 유저 상태 (0: 미인증 , 1: 회원, 2: 관리자)
 	private boolean acvt = false; // 활성 상태
 	
+	private MultipartFile upload_img;
 	private Integer file_idx; // 파일 인덱스
 	private String file_nm;  // 파일 이름
 	private String file_path; // 파일 경로
@@ -92,5 +94,11 @@ public class User implements Serializable{
 	}
 	public void setOffset(Integer offset) {
 		this.offset = offset;
+	}
+	public MultipartFile getUpload_img() {
+		return upload_img;
+	}
+	public void setUpload_img(MultipartFile upload_img) {
+		this.upload_img = upload_img;
 	}
 }

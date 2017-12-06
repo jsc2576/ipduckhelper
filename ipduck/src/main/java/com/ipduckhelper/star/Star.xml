@@ -118,6 +118,7 @@
 				SM.STAR_MEM_WGHT = #{star_mem_wght}, 
 				SM.STAR_MEM_BIRTH = #{star_mem_birth}, 
 				SI.STAR_DBT_DATE = #{star_dbt_date}, 
+				FT.FILE_NM = #{file_nm},
 				FT.FILE_PATH = #{file_path}, 
 				SM.GRP_IDX = 
 					(select * from 
@@ -126,9 +127,9 @@
 								inner join STAR_TBL S 
 									on G.STAR_IDX = S.STAR_IDX 
 							where S.STAR_NM = #{star_nm} 
-								and S.STAR_TYP = 'GRP')T) 
+								and S.STAR_TYP = 0)T) 
 			where SM.STAR_MEM_IDX = #{star_mem_idx} 
-				and SI.STAR_TYP = 'STAR';
+				and SI.STAR_TYP = 1;
 	</update>
 	
 	<update id="fix_grp" parameterType="com.ipduckhelper.star.Star">
@@ -138,7 +139,8 @@
 			inner join FILE_TBL FT 
 				on ST.FILE_IDX = FT.FILE_IDX 
 			set CLB_SITE = #{clb_site}, 
-				ST.STAR_DBT_DATE = #{star_dbt_date}, 
+				ST.STAR_DBT_DATE = #{star_dbt_date},
+				FT.FILE_NM = #{file_nm} 
 				FT.FILE_PATH = #{file_path} 
 			where GT.GRP_IDX = #{grp_idx};
 	</update>
@@ -152,7 +154,7 @@
 					on ST.STAR_IDX = SMT.STAR_IDX 
 				inner join FILE_TBL FT 
 					on ST.FILE_IDX = FT.FILE_IDX 
-				where ST.STAR_IDX = #{star_idx};
+				where SMT.STAR_MEM_IDX = #{star_mem_idx};
 	</delete>
 	
 	<delete id="del_grp" parameterType="com.ipduckhelper.star.Star">
@@ -178,4 +180,24 @@
 								 TAG_NM) 
 			values (#{star_idx}, #{tag_nm});
 	</insert>
+	
+	<select id="star_file_info" parameterType="Integer">
+		select FT.FILE_NM, FT.FILE_PATH
+			from STAR_TBL ST
+				inner join STAR_MEM_TBL SMT
+					on ST.STAR_IDX = SMT.STAR_IDX
+				inner join FILE_TBL FT
+					on ST.FILE_IDX = FT.FILE_IDX
+			where SMT.STAR_MEM_IDX = #{value}
+	</select>
+	
+	<select id="grp_file_info" parameterType="Integer">
+		select FT.FILE_NM, FT.FILE_PATH
+			from STAR_TBL ST
+				inner join GRP_TBL GT
+					on ST.STAR_IDX = GT.STAR_IDX
+				inner join FILE_TBL FT
+					on ST.FILE_IDX = FT.FILE_IDX
+			where GT.GRP_IDX = #{value}
+	</select>
 </mapper>

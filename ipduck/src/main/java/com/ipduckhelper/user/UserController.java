@@ -50,19 +50,9 @@ public class UserController {
 	 */
 	@RequestMapping(value = "/signup/do", method=RequestMethod.POST)
 	@ResponseBody
-	public Integer SignUp(@RequestParam("profile_img") MultipartFile profile_img, 
-						  @RequestParam("mem_id") String mem_id, 
-						  @RequestParam("mem_pwd") String mem_pwd, 
-						  @RequestParam("mem_nick") String mem_nick,
-						  @RequestParam("mem_nm") String mem_nm) throws Exception{
+	public Integer SignUp(@ModelAttribute User entity) throws Exception{
 		
-		User entity = new User();
-		entity.setMem_id(mem_id);
-		entity.setMem_pwd(mem_pwd);
-		entity.setMem_nick(mem_nick);
-		entity.setMem_nm(mem_nm);
-		
-		return userService.Crt_Mem(entity, profile_img);
+		return userService.Crt_Mem(entity);
 	}
 	
 	/**
@@ -80,6 +70,8 @@ public class UserController {
 		
 		if(userInfo != null && userInfo.getMem_id() != null & userInfo.getMem_id() != "") {
 			request.getSession().setAttribute("SessionSuccess", true);
+			request.getSession().setAttribute("mem_id", userInfo.getMem_id());
+			request.getSession().setAttribute("mem_stat", userInfo.getMem_stat());
 		}
 		
 		return userInfo;
@@ -99,4 +91,6 @@ public class UserController {
 	public List<User> Srch_Mem_List(HttpServletRequest request, User entity) throws Exception{
 		return userService.Srch_Mem_List(entity);
 	}
+	
+	
 }
