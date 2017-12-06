@@ -34,4 +34,8 @@ public class CmpyRepository {
 	public Integer Del_Cmpy(Cmpy entity) throws Exception{
 		return sqlSession.delete("com.ipduckhelper.cmpy.del_cmpy", entity);
 	}
+	
+	public Cmpy File_Info(Cmpy entity) throws Exception{
+		return sqlSession.selectOne("com.ipduckhelper.cmpy.file_info", entity);
+	}
 }

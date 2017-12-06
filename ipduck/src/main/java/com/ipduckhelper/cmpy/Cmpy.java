@@ -3,6 +3,7 @@ package com.ipduckhelper.cmpy;
 import java.io.Serializable;
 
 import org.springframework.stereotype.Repository;
+import org.springframework.web.multipart.MultipartFile;
 
 @Repository("Cmpy")
 public class Cmpy implements Serializable{
@@ -20,6 +21,8 @@ public class Cmpy implements Serializable{
 	private String file_path; // 파일 경로
 	
 	private Integer offset; // offset
+	
+	private MultipartFile upload_img;
 	
 	public String getCmpy_nm() {
 		return cmpy_nm;
@@ -59,6 +62,12 @@ public class Cmpy implements Serializable{
 	}
 	public void setOffset(Integer offset) {
 		this.offset = offset;
+	}
+	public MultipartFile getUpload_img() {
+		return upload_img;
+	}
+	public void setUpload_img(MultipartFile upload_img) {
+		this.upload_img = upload_img;
 	}
 	
 	

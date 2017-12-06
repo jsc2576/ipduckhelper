@@ -65,7 +65,7 @@ public class UserController {
 	 */
 	@RequestMapping(value = "/login/do", method=RequestMethod.POST)
 	@ResponseBody
-	public User Login(HttpServletRequest request, User entity) throws Exception{
+	public User Login(HttpServletRequest request, @ModelAttribute User entity) throws Exception{
 		User userInfo = userService.Login_Mem(entity);
 		
 		if(userInfo != null && userInfo.getMem_id() != null & userInfo.getMem_id() != "") {
@@ -110,7 +110,7 @@ public class UserController {
 	 */
 	@RequestMapping(value = "/srch/list/mem/do.admin", method=RequestMethod.POST)
 	@ResponseBody
-	public List<User> Srch_Mem_List(HttpServletRequest request, User entity) throws Exception{
+	public List<User> Srch_Mem_List(HttpServletRequest request, @ModelAttribute User entity) throws Exception{
 		return userService.Srch_Mem_List(entity);
 	}
 	
@@ -124,7 +124,7 @@ public class UserController {
 	 */
 	@RequestMapping(value = "/srch/mem/do.go", method=RequestMethod.POST)
 	@ResponseBody
-	public User Srch_Mem(HttpServletRequest request, User entity) throws Exception{
+	public User Srch_Mem(HttpServletRequest request, @ModelAttribute User entity) throws Exception{
 		return userService.Srch_Mem(entity);
 	}
 	
@@ -139,7 +139,7 @@ public class UserController {
 	 */
 	@RequestMapping(value = "/fix/mem/do.go", method=RequestMethod.POST)
 	@ResponseBody
-	public Integer Fix_Mem(HttpServletRequest request, User entity) throws Exception{
+	public Integer Fix_Mem(HttpServletRequest request, @ModelAttribute User entity) throws Exception{
 		if(String.valueOf(request.getSession().getAttribute("mem_id")) == entity.getMem_id() || // 회원 본인이거나
 				String.valueOf(request.getSession().getAttribute("mem_stat")) == "2") { // 관리자만 수정 가능
 			return userService.Fix_Mem(entity);			
@@ -159,7 +159,7 @@ public class UserController {
 	 */
 	@RequestMapping(value = "/del/mem/do.go", method=RequestMethod.POST)
 	@ResponseBody
-	public Integer Del_Mem(HttpServletRequest request, User entity) throws Exception{
+	public Integer Del_Mem(HttpServletRequest request, @ModelAttribute User entity) throws Exception{
 		if(String.valueOf(request.getSession().getAttribute("mem_id")) == entity.getMem_id() || // 회원 본인이거나
 				String.valueOf(request.getSession().getAttribute("mem_stat")) == "2") { // 관리자만 수정 가능
 			return userService.Del_Mem(entity);			
@@ -179,7 +179,7 @@ public class UserController {
 	 */
 	@RequestMapping(value = "/acvt/mem/do", method=RequestMethod.POST)
 	@ResponseBody
-	public Integer Acvt_Mem(HttpServletRequest request, User entity) throws Exception{
+	public Integer Acvt_Mem(@ModelAttribute User entity) throws Exception{
 		return userService.Acvt_Mem(entity);
 	}
 }

@@ -21,7 +21,7 @@ public class CommonUtil {
 	private final static Integer file_random_length = 12; // 파일 뒤에 랜덤으로 붙는 숫자 자리수
 	private final static String user_profile_path = "./profile"; //유저 프로필 사진 저장 경로
 	private final static String star_profile_path = "./star_profile"; //연예인 프로필 사진 저장 경로
-	
+	private final static String cmpy_profile_path = "./cmpy_profile"; // 기획사 대표 프로필 사진 저장 경로
 	
 	public static String getDate() {
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMddhhddssSSS");
@@ -90,5 +90,9 @@ public class CommonUtil {
 	
 	public static String getStarProfilePath() {
 		return star_profile_path;
+	}
+
+	public static String getCmpyProfilePath() {
+		return cmpy_profile_path;
 	}
 }

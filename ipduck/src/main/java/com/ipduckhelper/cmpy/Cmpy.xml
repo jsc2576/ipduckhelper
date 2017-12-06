@@ -38,6 +38,13 @@
 						and CMPY_REP = #{cmpy_rep};
 	</select>
 	
+	<select id="file_info" parameterType="String">
+		select FT.FILE_NM, FT.FILE_PATH
+			from CMPY_TBL CT
+				inner join FILE_TBL FT
+					on CT.FILE_IDX = FT.FILE_IDX
+			where CT.CMPY_NM = #{value}
+	</select>
 	<update id="fix_cmpy" parameterType="com.ipduckhelper.cmpy.Cmpy">
 		update CMPY_TBL C 
 			LEFT OUTER JOIN FILE_TBL F 
@@ -48,7 +55,8 @@
 	</update>
 	
 	<delete id="del_cmpy" parameterType="com.ipduckhelper.cmpy.Cmpy">
-		delete from CMPY_TBL 
+		delete from CMPY_TBL CT
+			inner join FILE_IDX
 			where CMPY_NM = #{cmpy_nm};
 	</delete>
 	
