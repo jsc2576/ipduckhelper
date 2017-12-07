@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
@@ -129,8 +130,8 @@ public class StarController {
 	 */
 	@RequestMapping(value = "/del/star/do.admin", method=RequestMethod.POST)
 	@ResponseBody
-	public Integer Del_Star(HttpServletRequest request, @ModelAttribute Star entity) throws Exception{
-		return starService.Del_Star(entity);
+	public Integer Del_Star(HttpServletRequest request, @RequestParam("star_mem_idx") Integer star_mem_idx) throws Exception{
+		return starService.Del_Star(star_mem_idx);
 	}
 	
 	/**
@@ -143,8 +144,8 @@ public class StarController {
 	 */
 	@RequestMapping(value = "/del/grp/do.admin", method=RequestMethod.POST)
 	@ResponseBody
-	public Integer Del_Grp(HttpServletRequest request, @ModelAttribute Star entity) throws Exception{
-		return starService.Del_Grp(entity);
+	public Integer Del_Grp(HttpServletRequest request, @RequestParam("grp_idx") Integer grp_idx) throws Exception{
+		return starService.Del_Grp(grp_idx);
 	}
 	
 	

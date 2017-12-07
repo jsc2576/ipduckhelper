@@ -47,12 +47,16 @@ public class StarRepository {
 		return sqlSession.update("com.ipduckhelper.star.fix_grp", entity);
 	}
 	
-	public Integer Del_Star(Star entity) throws Exception{
-		return sqlSession.delete("com.ipduckhelper.star.del_star", entity);
+	@Transactional(readOnly=false, rollbackFor = {Exception.class})
+	public Integer Del_Star(Integer star_mem_idx) throws Exception{
+		sqlSession.delete("com.ipduckhelper.star.del_star_profile", star_mem_idx);
+		return sqlSession.delete("com.ipduckhelper.star.del_star", star_mem_idx);
 	}
 	
-	public Integer Del_Grp(Star entity) throws Exception{
-		return sqlSession.delete("com.ipduckhelper.star.del_grp", entity);
+	@Transactional(readOnly=false, rollbackFor = {Exception.class})
+	public Integer Del_Grp(Integer grp_idx) throws Exception{
+		sqlSession.delete("com.ipduckhelper.star.del_grp_profile", grp_idx);
+		return sqlSession.delete("com.ipduckhelper.star.del_grp", grp_idx);
 	}
 	
 	public Integer Like_Star(Star entity) throws Exception{

@@ -87,12 +87,12 @@ public class StarService {
 		return starRepository.Fix_Grp(entity);
 	}
 	
-	public Integer Del_Star(Star entity) throws Exception{
-		return starRepository.Del_Star(entity);
+	public Integer Del_Star(Integer star_mem_idx) throws Exception{
+		return starRepository.Del_Star(star_mem_idx);
 	}
 	
-	public Integer Del_Grp(Star entity) throws Exception{
-		return starRepository.Del_Grp(entity);
+	public Integer Del_Grp(Integer grp_idx) throws Exception{
+		return starRepository.Del_Grp(grp_idx);
 	}
 	
 	public Integer Like_Star(Star entity) throws Exception{

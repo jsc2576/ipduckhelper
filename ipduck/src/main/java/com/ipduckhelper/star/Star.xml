@@ -145,28 +145,44 @@
 			where GT.GRP_IDX = #{grp_idx};
 	</update>
 	
-	<delete id="del_star" parameterType="com.ipduckhelper.star.Star">
+	<delete id="del_star" parameterType="Integer">
 		delete ST, 
-			   SMT, 
-			   FT 
+			   SMT	
 			from STAR_TBL ST 
 				inner join STAR_MEM_TBL SMT 
 					on ST.STAR_IDX = SMT.STAR_IDX 
-				inner join FILE_TBL FT 
-					on ST.FILE_IDX = FT.FILE_IDX 
-				where SMT.STAR_MEM_IDX = #{star_mem_idx};
+			where SMT.STAR_MEM_IDX = #{star_mem_idx};
 	</delete>
 	
-	<delete id="del_grp" parameterType="com.ipduckhelper.star.Star">
+	<delete id="del_star_profile" parameterType="Integer">
+		delete FT
+			from STAR_TBL ST
+				inner join STAR_MEM_TBL SMT
+					on ST.STAR_IDX = SMT.STAR_IDX
+				inner join FILE_TBL FT
+					on FT.FILE_IDX = ST.FILE_IDX
+			where SMT.STAR_MEM_IDX = #{star_mem_idx}
+				and FT.FILE_NM != "base_profile"
+	</delete>
+	
+	<delete id="del_grp" parameterType="Integer">
 		delete ST, 
-			   GT, 
-			   FT 
+			   GT
 			from STAR_TBL ST 
 				inner join GRP_TBL GT 
-					on ST.STAR_IDX = GT.SRP_IDX 
-				inner join FILE_TBL FT 
-					on ST.FILE_IDX = FT.FILE_IDX 
-				where ST.GRP_IDX = #{grp_idx};
+					on ST.STAR_IDX = GT.GRP_IDX 
+			where ST.GRP_IDX = #{grp_idx};
+	</delete>
+	
+	<delete id="del_grp_profile" parameterType="Integer">
+		delete FT
+			from FILE_TBL FT
+				inner join STAR_TBL ST
+					on ST.FILE_IDX = FT.FILE_IDX
+				inner join GRP_TBL GT
+					on GT.STAR_IDX = ST.STAR_IDX
+			where GT.GRP_IDX = #{grp_idx}
+				and FT.FILE_NM != "base_profile"
 	</delete>
 	
 	<insert id="like_star" parameterType="com.ipduckhelper.star.Star">
