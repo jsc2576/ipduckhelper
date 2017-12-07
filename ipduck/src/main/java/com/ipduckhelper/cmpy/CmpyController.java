@@ -9,6 +9,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
@@ -42,7 +43,7 @@ public class CmpyController {
 	
 	@RequestMapping(value = "/del/cmpy/do.admin", method=RequestMethod.POST)
 	@ResponseBody
-	public Integer Del_Cmpy(HttpServletRequest request, @ModelAttribute Cmpy entity) throws Exception{
-		return cmpyService.Del_Cmpy(entity);
+	public Integer Del_Cmpy(HttpServletRequest request, @RequestParam("cmpy_nm") String cmpy_nm) throws Exception{
+		return cmpyService.Del_Cmpy(cmpy_nm);
 	}
 }

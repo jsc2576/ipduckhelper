@@ -38,7 +38,7 @@ public class CmpyService {
 	}
 	
 	public Integer Fix_Cmpy(Cmpy entity) throws Exception{
-		Cmpy file_info = cmpyRepository.File_Info(entity);
+		Cmpy file_info = cmpyRepository.File_Info(entity.getCmpy_nm());
 		
 		if(file_info.getFile_nm() != "base_profile") {
 			CommonUtil.Delete_Image(file_info.getFile_path(), file_info.getFile_nm());
@@ -58,8 +58,8 @@ public class CmpyService {
 		return cmpyRepository.Fix_Cmpy(entity);
 	}
 	
-	public Integer Del_Cmpy(Cmpy entity) throws Exception{
-		return cmpyRepository.Del_Cmpy(entity);
+	public Integer Del_Cmpy(String cmpy_nm) throws Exception{
+		return cmpyRepository.Del_Cmpy(cmpy_nm);
 		// TODO: base_profile이 아닌 프로필도 같이 삭제
 	}
 }

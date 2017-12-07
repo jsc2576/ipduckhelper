@@ -54,11 +54,19 @@
 			WHERE CMPY_NM = #{cmpy_nm};
 	</update>
 	
-	<delete id="del_cmpy" parameterType="com.ipduckhelper.cmpy.Cmpy">
+	<delete id="del_cmpy" parameterType="String">
 		delete from CMPY_TBL CT
 			inner join FILE_IDX
-			where CMPY_NM = #{cmpy_nm};
+			where CMPY_NM = #{value};
 	</delete>
 	
+	<delete id="del_cmpy_profile" parameterType="String">
+		delete FT
+			from FILE_TBL FT
+				inner join CMPY_TBL CT
+					on FT.FILE_IDX = CT.FILE_IDX
+			where CT.CMPY_NM = #{value}
+				and FT.FILE_NM != "base_profile"
+	</delete>
 	 	
 </mapper>
