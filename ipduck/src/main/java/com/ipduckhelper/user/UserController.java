@@ -137,16 +137,10 @@ public class UserController {
 	 * @return
 	 * @throws Exception
 	 */
-	@RequestMapping(value = "/fix/mem/do.go", method=RequestMethod.POST)
+	@RequestMapping(value = "/fix/mem/do.my", method=RequestMethod.POST)
 	@ResponseBody
 	public Integer Fix_Mem(HttpServletRequest request, @ModelAttribute User entity) throws Exception{
-		if(String.valueOf(request.getSession().getAttribute("mem_id")) == entity.getMem_id() || // 회원 본인이거나
-				String.valueOf(request.getSession().getAttribute("mem_stat")) == "2") { // 관리자만 수정 가능
-			return userService.Fix_Mem(entity);			
-		}
-		else {
-			return -1;
-		}
+		return userService.Fix_Mem(entity);			
 	}	
 	
 	/**
@@ -157,16 +151,10 @@ public class UserController {
 	 * @return
 	 * @throws Exception
 	 */
-	@RequestMapping(value = "/del/mem/do.go", method=RequestMethod.POST)
+	@RequestMapping(value = "/del/mem/do.my", method=RequestMethod.POST)
 	@ResponseBody
 	public Integer Del_Mem(HttpServletRequest request, @ModelAttribute User entity) throws Exception{
-		if(String.valueOf(request.getSession().getAttribute("mem_id")) == entity.getMem_id() || // 회원 본인이거나
-				String.valueOf(request.getSession().getAttribute("mem_stat")) == "2") { // 관리자만 수정 가능
-			return userService.Del_Mem(entity);			
-		}
-		else {
-			return -1;
-		}
+		return userService.Del_Mem(entity);			
 	}
 	
 	/**

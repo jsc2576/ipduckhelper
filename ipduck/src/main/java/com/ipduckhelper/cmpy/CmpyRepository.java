@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
 
 @Repository
@@ -13,7 +14,7 @@ public class CmpyRepository {
 	@Autowired
 	private SqlSession sqlSession;
 	
-	@Transactional(readOnly=false, rollbackFor= {Exception.class})
+	@Transactional(readOnly=false, rollbackFor= {Exception.class}, isolation=Isolation.REPEATABLE_READ)
 	public Integer Crt_Cmpy(Cmpy entity) throws Exception{
 		sqlSession.insert("com.ipduckhelper.cmpy.crt_cmpy_first", entity);
 		return sqlSession.insert("com.ipduckhelper.cmpy.crt_cmpy_second", entity);

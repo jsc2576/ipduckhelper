@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Isolation;
 import org.springframework.transaction.annotation.Transactional;
 
 @Repository
@@ -13,14 +14,14 @@ public class StarRepository {
 	@Autowired
 	private SqlSession sqlSession;
 	
-	@Transactional(readOnly=false, rollbackFor= {Exception.class})
+	@Transactional(readOnly=false, rollbackFor= {Exception.class}, isolation=Isolation.REPEATABLE_READ)
 	public Integer Crt_Star(Star entity) throws Exception{
 		sqlSession.insert("com.ipduckhelper.star.crt_star_first", entity);
 		sqlSession.insert("com.ipduckhelper.star.crt_star_second", entity);
 		return sqlSession.insert("com.ipduckhelper.star.crt_star_third", entity);
 	}
 	
-	@Transactional(readOnly=false, rollbackFor= {Exception.class})
+	@Transactional(readOnly=false, rollbackFor= {Exception.class}, isolation=Isolation.REPEATABLE_READ)
 	public Integer Crt_Grp(Star entity) throws Exception{
 		sqlSession.insert("com.ipduckhelper.star.crt_grp_first", entity);
 		sqlSession.insert("com.ipduckhelper.star.crt_grp_second", entity);

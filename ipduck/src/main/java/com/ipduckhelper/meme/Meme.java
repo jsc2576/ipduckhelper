@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.List;
 
 import org.springframework.stereotype.Repository;
+import org.springframework.web.multipart.MultipartFile;
 
 @Repository("Meme")
 public class Meme implements Serializable{
@@ -17,6 +18,8 @@ public class Meme implements Serializable{
 	private Integer mm_hit_cnt; // 밈 조회수
 	private Integer file_idx; // 파일 인덱스
 	private String mem_id; // 작성자 아이디
+	
+	private MultipartFile upload_img;
 	
 	private String file_nm; // 파일 이름
 	private String file_path; // 파일 경로
@@ -98,5 +101,21 @@ public class Meme implements Serializable{
 
 	public void setFile_crt_date(String file_crt_date) {
 		this.file_crt_date = file_crt_date;
+	}
+
+	public Integer getOffset() {
+		return offset;
+	}
+
+	public void setOffset(Integer offset) {
+		this.offset = offset;
+	}
+
+	public MultipartFile getUpload_img() {
+		return upload_img;
+	}
+
+	public void setUpload_img(MultipartFile upload_img) {
+		this.upload_img = upload_img;
 	}
 }

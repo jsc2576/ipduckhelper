@@ -67,6 +67,13 @@
 					where MM_IDX = #{mm_idx});
 	</update>
 	
+	<select id="file_info" parameterType="Integer" resultType="com.ipduckhelper.meme.Meme">
+		select FT.FILE_NM, FT.FILE_PATH
+			from FILE_TBL FT
+				inner join MM_TBL MT
+					on FT.FILE_IDX = MT.FILE_IDX
+			where MT.MM_IDX = #{value}
+	</select>
 	<delete id="del_mm" parameterType="com.ipduckhelper.meme.Meme">
 		delete FT, 
 			   MMT 
