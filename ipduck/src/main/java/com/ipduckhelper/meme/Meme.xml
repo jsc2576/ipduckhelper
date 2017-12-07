@@ -88,4 +88,10 @@
 								MM_IDX) 
 			values (#{tag_nm}, #{mm_idx});
 	</insert>
+	
+	<delete id="del_tag_mm" parameterType="com.ipduckhelper.meme.Meme">
+		delete from MM_TAG_TBL 
+			where MM_IDX = #{mm_idx} 
+				and TAG_NM = #{tag_nm}
+	</delete>
 </mapper>

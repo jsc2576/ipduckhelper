@@ -61,7 +61,7 @@ public class MemeController {
 	
 	/**
 	 * 밈 수정
-	 * need value : upload_img, mm_idx
+	 * need value : upload_img, mm_idx, mem_id
 	 * @param request
 	 * @param entity
 	 * @return
@@ -75,7 +75,7 @@ public class MemeController {
 	
 	/**
 	 * 밈 삭제
-	 * need value : mm_idx
+	 * need value : mm_idx, mem_id
 	 * @param request
 	 * @param mm_idx
 	 * @return
@@ -89,7 +89,7 @@ public class MemeController {
 	
 	/**
 	 * 밈에 태그 추가
-	 * need value : tag_nm, mm_idx
+	 * need value : tag_nm, mm_idx, mem_id
 	 * @param request
 	 * @param entity
 	 * @return
@@ -99,5 +99,19 @@ public class MemeController {
 	@ResponseBody
 	public Integer Add_Tag_Mm(HttpServletRequest request, @ModelAttribute Meme entity) throws Exception{
 		return memeService.Add_Tag_Mm(entity);
+	}
+	
+	/**
+	 * 밈 태그 삭제
+	 * need value : tag_nm, mm_idx, mem_id
+	 * @param request
+	 * @param entity
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping(value = "/del/tag/mm/do.my", method=RequestMethod.POST)
+	@ResponseBody
+	public Integer Del_Tag_Mm(HttpServletRequest request, @ModelAttribute Meme entity) throws Exception{
+		return memeService.Del_Tag_Mm(entity);
 	}
 }

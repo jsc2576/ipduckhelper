@@ -73,7 +73,8 @@
 			   S.STAR_TYP, 
 			   S.STAR_DBT_DATE, 
 			   S.CMPY_NM, 
-			   F.FILE_PATH 
+			   F.FILE_PATH,
+			   F.FILE_NM
 			FROM STAR_TBL S 
 				inner join FILE_TBL F 
 					on S.FILE_IDX = F.FILE_IDX 
@@ -196,6 +197,12 @@
 								 TAG_NM) 
 			values (#{star_idx}, #{tag_nm});
 	</insert>
+	
+	<delete id="del_tag_star" parameterType="com.ipduckhelper.star.Star">
+		delete from STAR_TAG_TBL STT 
+			where STT.STAR_IDX = #{star_idx} 
+				and STT.TAG_NM = #{tag_nm}
+	</delete>
 	
 	<select id="star_file_info" parameterType="Integer">
 		select FT.FILE_NM, FT.FILE_PATH

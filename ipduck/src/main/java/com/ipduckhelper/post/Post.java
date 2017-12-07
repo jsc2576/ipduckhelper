@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.List;
 
 import org.springframework.stereotype.Repository;
+import org.springframework.web.multipart.MultipartFile;
 
 @Repository("Post")
 public class Post implements Serializable{
@@ -23,6 +24,8 @@ public class Post implements Serializable{
 	
 	private List<String> tag_nm_list;
 	private String tag_nm;
+	
+	private MultipartFile upload_img;
 	
 	private String file_nm;
 	private String file_path;
@@ -110,5 +113,11 @@ public class Post implements Serializable{
 	}
 	public void setTag_nm(String tag_nm) {
 		this.tag_nm = tag_nm;
+	}
+	public MultipartFile getUpload_img() {
+		return upload_img;
+	}
+	public void setUpload_img(MultipartFile upload_img) {
+		this.upload_img = upload_img;
 	}
 }

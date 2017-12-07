@@ -36,6 +36,7 @@ public class MemeService {
 	}
 	
 	public Integer Fix_Mm(Meme entity) throws Exception{
+		
 		if(entity.getUpload_img().isEmpty()) {
 			return -1;
 		}
@@ -57,5 +58,9 @@ public class MemeService {
 	
 	public Integer Add_Tag_Mm(Meme entity) throws Exception{
 		return memeRepository.Add_Tag_Mm(entity);
+	}
+	
+	public Integer Del_Tag_Mm(Meme entity) throws Exception{
+		return memeRepository.Del_Tag_Mm(entity);
 	}
 }

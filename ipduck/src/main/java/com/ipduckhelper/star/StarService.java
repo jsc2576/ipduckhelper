@@ -46,43 +46,33 @@ public class StarService {
 	
 	public Integer Fix_Star(Star entity) throws Exception{
 		
-		Star file_info = starRepository.Star_File_Info(entity.getStar_mem_idx());
-		
-		if(file_info.getFile_nm() != "base_profile") {
-			CommonUtil.Delete_Image(file_info.getFile_path(), file_info.getFile_nm());
+		if(!entity.getUpload_img().isEmpty()) {
+			Star file_info = starRepository.Star_File_Info(entity.getStar_mem_idx());
+			if(file_info.getFile_nm() != "base_profile") {
+				CommonUtil.Delete_Image(file_info.getFile_path(), file_info.getFile_nm());
+			}
+					
+			String file_nm = CommonUtil.Upload_Image(entity.getUpload_img(), CommonUtil.getStarProfilePath());
+			entity.setFile_nm(file_nm);
+			entity.setFile_path(CommonUtil.getStarProfilePath());
+			
 		}
-		
-		String file_nm = "";
-		if(entity.getUpload_img().isEmpty()) {
-			file_nm = "base_profile";
-		}
-		else {
-			file_nm = CommonUtil.Upload_Image(entity.getUpload_img(), CommonUtil.getStarProfilePath());
-		}
-		
-		entity.setFile_nm(file_nm);
-		entity.setFile_path(CommonUtil.getStarProfilePath());
 		
 		return starRepository.Fix_Star(entity);
 	}
 	
 	public Integer Fix_Grp(Star entity) throws Exception{
-		Star file_info = starRepository.Grp_File_Info(entity.getGrp_idx());
 		
-		if(file_info.getFile_nm() != "base_profile") {
-			CommonUtil.Delete_Image(file_info.getFile_path(), file_info.getFile_nm());
+		if(!entity.getUpload_img().isEmpty()) {
+			Star file_info = starRepository.Grp_File_Info(entity.getGrp_idx());
+			
+			if(file_info.getFile_nm() != "base_profile") {
+				CommonUtil.Delete_Image(file_info.getFile_path(), file_info.getFile_nm());
+			}	
+			String file_nm = CommonUtil.Upload_Image(entity.getUpload_img(), CommonUtil.getStarProfilePath());
+			entity.setFile_nm(file_nm);
+			entity.setFile_path(CommonUtil.getStarProfilePath());
 		}
-		
-		String file_nm = "";
-		if(entity.getUpload_img().isEmpty()) {
-			file_nm = "base_profile";
-		}
-		else {
-			file_nm = CommonUtil.Upload_Image(entity.getUpload_img(), CommonUtil.getStarProfilePath());
-		}
-		
-		entity.setFile_nm(file_nm);
-		entity.setFile_path(CommonUtil.getStarProfilePath());
 		
 		return starRepository.Fix_Grp(entity);
 	}
@@ -101,5 +91,9 @@ public class StarService {
 	
 	public Integer Add_Tag_Star(Star entity) throws Exception{
 		return starRepository.Add_Tag_Star(entity);
+	}
+	
+	public Integer Del_Tag_Star(Star entity) throws Exception{
+		return starRepository.Del_Tag_Star(entity);
 	}
 }

@@ -47,4 +47,8 @@ public class MemeRepository {
 	public Integer Add_Tag_Mm(Meme entity) throws Exception{
 		return sqlSession.insert("com.ipduckhelper.meme.add_tag_mm", entity);
 	}
+	
+	public Integer Del_Tag_Mm(Meme entity) throws Exception{
+		return sqlSession.delete("com.ipduckhelper.meme.del_tag_mm", entity);
+	}
 }

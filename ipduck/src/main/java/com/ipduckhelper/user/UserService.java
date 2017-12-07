@@ -51,21 +51,19 @@ public class UserService {
 	}
 	
 	public Integer Fix_Mem(User entity) throws Exception{
-		User file_info = userRepository.File_Info(entity.getMem_id());
 		
-		if(file_info.getFile_nm() != "base_profile") { //기본 프로필이 아닌 경우 파일 삭제
-			CommonUtil.Delete_Image(file_info.getFile_path(), file_info.getFile_nm());
-		}
-		
-		if(entity.getUpload_img().isEmpty()) { // 업데이트 프로필이 없는 경우
-			entity.setFile_nm("base_profile");
-		}
-		else { // 업데이트 프로필이 있는 경우
-			//파일을 업로드하고 이름을 객체에 저장
-			entity.setFile_nm(CommonUtil.Upload_Image(entity.getUpload_img(), CommonUtil.getUserProfilePath()));
-		}
+		if(!entity.getUpload_img().isEmpty()) { // 새로운 파일이 올라올 경우
+			User file_info = userRepository.File_Info(entity.getMem_id()); // base_profile인지 비교하기 위해서 가져옴
 			
-		entity.setFile_path(CommonUtil.getUserProfilePath()); // 프로필 경로
+			if(file_info.getFile_nm() != "base_profile") { // 기본 프로필이 아니면
+				CommonUtil.Delete_Image(file_info.getFile_path(), file_info.getFile_nm()); // 프로필 삭제 					
+			}
+			
+			// 파일 추가
+			entity.setFile_nm(CommonUtil.Upload_Image(entity.getUpload_img(), CommonUtil.getUserProfilePath()));
+			entity.setFile_path(CommonUtil.getUserProfilePath()); // 프로필 경로
+		}
+		
 		entity.setPwd_key(CommonUtil.getPwdKey());	// 비밀번호 업데이트 용 키
 		return userRepository.Fix_Mem(entity);
 	}

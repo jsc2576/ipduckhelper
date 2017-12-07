@@ -95,7 +95,7 @@ public class StarController {
 	
 	/**
 	 * 연예인 수정
-	 * need value : upload_img, star_mem_hght, star_mem_bld, star_mem_wght, star_mem_birth, star_dbt_date, star_nm(그룹 이름), star_mem_idx 
+	 * need value : upload_img(null), file_path, file_nm, star_mem_hght, star_mem_bld, star_mem_wght, star_mem_birth, star_dbt_date, star_nm(그룹 이름), star_mem_idx 
 	 * @param entity
 	 * @return
 	 * @throws Exception
@@ -108,7 +108,7 @@ public class StarController {
 	
 	/**
 	 * 그룹 수정
-	 * need value : upload_img, 
+	 * need value : upload_img(null), file_path, file_nm, clb_site, dbt_date, grp_idx
 	 * @param request
 	 * @param entity
 	 * @return
@@ -172,9 +172,24 @@ public class StarController {
 	 * @return
 	 * @throws Exception
 	 */
-	@RequestMapping(value = "/tag/star/do.go", method=RequestMethod.POST)
+	@RequestMapping(value = "/tag/add/star/do.go", method=RequestMethod.POST)
 	@ResponseBody
 	public Integer Add_Tag_Star(HttpServletRequest request, @ModelAttribute Star entity) throws Exception{
 		return starService.Add_Tag_Star(entity);
+	}
+	
+	
+	/**
+	 * 연예인 태그를 삭제한다.
+	 * need value : star_idx, tag_nm
+	 * @param request
+	 * @param entity
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping(value = "/tag/del/star/do.go", method=RequestMethod.POST)
+	@ResponseBody
+	public Integer Del_Tag_Star(HttpServletRequest request, @ModelAttribute Star entity) throws Exception{
+		return starService.Del_Tag_Star(entity);
 	}
 }

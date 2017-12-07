@@ -11,7 +11,11 @@
 					#{star_idx}, 
 					#{post_ttl}, 
 					SYSDATE(), 
-					#{post_con}); 
+					#{post_con});
+					
+		<selectKey keyProperty="post_idx" resultType="Integer" order="AFTER">
+			select LAST_INSERT_ID()
+		</selectKey> 
 	</insert>
 	
 	<insert id="crt_post_second" parameterType="com.ipduckhelper.post.Post">
@@ -19,7 +23,7 @@
 								 TAG_NM) 
 			values 
 				<foreach collection="tag_nm_list" item="tag_nm" open="(" close=")" separator=",">
-					LAST_INSERT_ID(), #{tag_nm.value}
+					#{post_idx}, #{tag_nm.value}
 				</foreach>
 	</insert>
 	
@@ -34,7 +38,7 @@
 	
 	<insert id="crt_file_second" parameterType="com.ipduckhelper.post.Post">
 		insert INTO POST_FILE_TBL (POST_IDX, 
-								   FILE_IDX) 
+								   FILE_IDX)
 			values (#{post_idx}, 
 					LAST_INSERT_ID());
 	</insert>
@@ -116,11 +120,11 @@
 	<delete id="del_post" parameterType="com.ipduckhelper.post.Post">
 		delete PT, PFT, FT 
 			from POST_TABLE PT 
-				inner join POST_FILE_TBL PFT 
+				left outer join POST_FILE_TBL PFT 
 					on PT.POST_IDX = PFT.POST_IDX 
-				inner join FILE_TBL FT 
+				left outer join FILE_TBL FT 
 					on PFT.FILE_IDX = FT.FILE_IDX 
-			where PT.POST_IDX = #{post_idx};
+			where PT.POST_IDX = #{value};
 	</delete>
 	
 	<insert id="like_post" parameterType="com.ipduckhelper.post.Post">

@@ -55,8 +55,7 @@
 	</update>
 	
 	<delete id="del_cmpy" parameterType="String">
-		delete from CMPY_TBL CT
-			inner join FILE_IDX
+		delete from CMPY_TBL
 			where CMPY_NM = #{value};
 	</delete>
 	
