@@ -17,8 +17,8 @@
 	<select id="srch_sche_list" parameterType="com.ipduckhelper.sche.Sche">
 		select * from SCHE_TBL 
 			where STAR_IDX = #{star_idx} 
-				and SCHE_DATE >= DATE_FORMAT(#{SCHE_DATE}, '%Y/%m/01') 
-				and SCHE_DATE <![CDATA[<]]> DATE_FORMAT(#{SCHE_DATE} + INTERVAL 1 MONTH, '%Y/%m/01');
+				and DATE_FORMAT(SCHE_DATE, '%Y-%m-%d') <![CDATA[>=]]> DATE_FORMAT(#{SCHE_DATE}, '%Y-%m-01') 
+				and DATE_FORMAT(SCHE_DATE, '%Y-%m-%d') <![CDATA[<]]> DATE_FORMAT(#{SCHE_DATE} + INTERVAL 1 MONTH, '%Y-%m-01');
 	</select>
 	
 	<update id="fix_sche" parameterType="com.ipduckhelper.sche.Sche">

@@ -24,7 +24,7 @@ public class ScheRepository {
 		return sqlSession.update("com.ipduckhelper.sche.fix_sche", entity);
 	}
 	
-	public Integer Del_Sche(Sche entity) throws Exception{
-		return sqlSession.delete("com.ipduckhelper.sche.del_sche", entity);
+	public Integer Del_Sche(Integer sche_idx) throws Exception{
+		return sqlSession.delete("com.ipduckhelper.sche.del_sche", sche_idx);
 	}
 }

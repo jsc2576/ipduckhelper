@@ -118,12 +118,14 @@
 	</insert>
 	
 	<delete id="del_post" parameterType="com.ipduckhelper.post.Post">
-		delete PT, PFT, FT 
+		delete PT, PFT, FT, CT
 			from POST_TABLE PT 
 				left outer join POST_FILE_TBL PFT 
 					on PT.POST_IDX = PFT.POST_IDX 
 				left outer join FILE_TBL FT 
-					on PFT.FILE_IDX = FT.FILE_IDX 
+					on PFT.FILE_IDX = FT.FILE_IDX
+				left outer join CMNT_TBL CT
+					on CT.POST_IDX = PT.POST_IDX 
 			where PT.POST_IDX = #{value};
 	</delete>
 	

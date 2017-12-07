@@ -24,7 +24,7 @@ public class CmntRepository {
 		return sqlSession.update("com.ipduckhelper.cmnt.fix_cmnt", entity);
 	}
 	
-	public Integer Del_Cmnt(Cmnt entity) throws Exception{
-		return sqlSession.delete("com.ipduckhelper.cmnt.del_cmnt", entity);
+	public Integer Del_Cmnt(Integer cmnt_idx) throws Exception{
+		return sqlSession.delete("com.ipduckhelper.cmnt.del_cmnt", cmnt_idx);
 	}
 }
