@@ -61,7 +61,8 @@ public class MemeController {
 	
 	/**
 	 * 밈 수정
-	 * need value : upload_img, mm_idx, mem_id
+	 * need value : upload_img, mm_idx
+	 * need header : mem_id
 	 * @param request
 	 * @param entity
 	 * @return
@@ -75,7 +76,8 @@ public class MemeController {
 	
 	/**
 	 * 밈 삭제
-	 * need value : mm_idx, mem_id
+	 * need value : mm_idx
+	 * need header : mem_id
 	 * @param request
 	 * @param mm_idx
 	 * @return
@@ -89,7 +91,8 @@ public class MemeController {
 	
 	/**
 	 * 밈에 태그 추가
-	 * need value : tag_nm, mm_idx, mem_id
+	 * need value : tag_nm, mm_idx
+	 * need header : mem_id
 	 * @param request
 	 * @param entity
 	 * @return
@@ -103,7 +106,8 @@ public class MemeController {
 	
 	/**
 	 * 밈 태그 삭제
-	 * need value : tag_nm, mm_idx, mem_id
+	 * need value : tag_nm, mm_idx
+	 * need header : mem_id
 	 * @param request
 	 * @param entity
 	 * @return

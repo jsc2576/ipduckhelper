@@ -44,7 +44,8 @@ public class CmntController {
 	
 	/**
 	 * 댓글 수정
-	 * need value : cmnt_con, cmnt_idx, mem_id
+	 * need value : cmnt_con, cmnt_idx
+	 * need header : mem_id
 	 * @param entity
 	 * @return
 	 * @throws Exception
@@ -57,7 +58,8 @@ public class CmntController {
 	
 	/**
 	 * 댓글 삭제
-	 * need value : cmnt_idx, mem_id
+	 * need value : cmnt_idx
+	 * need header : mem_id
 	 * @param cmnt_idx
 	 * @return
 	 * @throws Exception

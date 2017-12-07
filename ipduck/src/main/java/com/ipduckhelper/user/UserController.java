@@ -132,6 +132,7 @@ public class UserController {
 	/**
 	 * 회원정보 수정
 	 * need value : upload_img, mem_id, mem_pwd, mem_nick, mem_nm
+	 * need header : mem_id
 	 * @param request
 	 * @param entity
 	 * @return
@@ -146,6 +147,7 @@ public class UserController {
 	/**
 	 * 회원 탈퇴
 	 * need value : mem_id
+	 * need header : mem_id
 	 * @param request
 	 * @param entity
 	 * @return

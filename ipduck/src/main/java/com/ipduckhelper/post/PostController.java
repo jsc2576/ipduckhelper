@@ -73,7 +73,8 @@ public class PostController {
 	
 	/**
 	 * 게시글 수정
-	 * need value : post_idx, post_ttl, post_con, mem_id, upload_img(null)
+	 * need value : post_idx, post_ttl, post_con, upload_img(null)
+	 * need header : mem_id
 	 * @param entity
 	 * @return
 	 * @throws Exception
@@ -87,6 +88,7 @@ public class PostController {
 	/**
 	 * 게시글 삭제
 	 * need value : post_idx, mem_id
+	 * need header : mem_id
 	 * @param post_idx
 	 * @return
 	 * @throws Exception
@@ -100,6 +102,7 @@ public class PostController {
 	/**
 	 * 게시글 추천
 	 * need value : post_idx, mem_id
+	 * need header : mem_id
 	 * @param entity
 	 * @return
 	 * @throws Exception

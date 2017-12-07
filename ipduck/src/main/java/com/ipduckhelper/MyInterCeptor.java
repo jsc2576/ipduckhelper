@@ -13,7 +13,7 @@ public class MyInterCeptor extends HandlerInterceptorAdapter{
 		// TODO Auto-generated method stub
 		
 		try {
-			if(request.getAttribute("mem_id") == request.getSession().getAttribute("mem_id")||
+			if(request.getHeader("mem_id") == request.getSession().getAttribute("mem_id")||
 					String.valueOf(request.getSession().getAttribute("mem_stat")) == "2") {
 				return true;
 			}
