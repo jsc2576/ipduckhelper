@@ -15,7 +15,7 @@ public class SessionConfig extends WebMvcConfigurerAdapter{
 	AdministratorInterCeptor administratorInterCeptor;
 	
 	//@Autowired
-	//MyInterCeptor myInterCeptor;
+	MyInterCeptor myInterCeptor;
 	
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
