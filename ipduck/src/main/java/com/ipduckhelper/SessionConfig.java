@@ -22,6 +22,6 @@ public class SessionConfig extends WebMvcConfigurerAdapter{
 		// TODO Auto-generated method stub
 		registry.addInterceptor(sessionInterCeptor).addPathPatterns("/**/*.go", "/**/*.admin", "/**/*.my");
 		registry.addInterceptor(administratorInterCeptor).addPathPatterns("/**/*.admin");
-		//registry.addInterceptor(myInterCeptor).addPathPatterns("/**/*.my");
+		registry.addInterceptor(myInterCeptor).addPathPatterns("/**/*.my");
 	}
 }
