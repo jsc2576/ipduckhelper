@@ -86,6 +86,22 @@
 	<build>
 		<plugins>
 			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-clean-plugin</artifactId>
+				<version>2.4.1</version>
+				<configuration>
+					<filesets>
+						<fileset>
+							<directory>src/main/resources/public</directory>
+							<includes>
+								<include>**/*</include>
+							</includes>
+							<followSymlinks>false</followSymlinks>
+						</fileset>
+					</filesets>
+				</configuration>
+			</plugin>
+			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
@@ -105,7 +121,9 @@
 								<resource>
 									<directory>${project.basedir}/frontend/target/dist</directory>
 									<includes>
-										<include>static/</include>
+										<include>css/</include>
+										<include>js/</include>
+										<include>view/</include>
 										<include>index.html</include>
 									</includes>
 								</resource>
