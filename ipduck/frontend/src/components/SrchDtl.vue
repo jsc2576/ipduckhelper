@@ -31,7 +31,7 @@ export default {
   },
   methods: {
     searchDetail: function () {
-      this.$router.push('/srch/rst/list/view')// { name: 'SrchRstList' })
+      this.$router.push('/srch/rst/list/view')
     }
   }
 }

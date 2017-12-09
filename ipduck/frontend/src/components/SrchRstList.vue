@@ -9,25 +9,25 @@
 		연예인
 	</div>
 	<div class="content">
-		<a href="./search_star_spec.html">
+		<a v-on:click.prevent="searchResultDetail">
 		<div class="srat_result" style="float:left">
 			<img src="/img/profile_none.png"><br>
 			연예인 이름
 		</div></a>
 
-		<a href="./search_star_spec.html">
+		<a v-on:click.prevent="searchResultDetail">
 		<div class="srat_result" style="float:left">
 		<img src="/img/profile_none.png"><br>
 			연예인 이름
 		</div></a>
 
-		<a href="./search_star_spec.html">
+		<a v-on:click.prevent="searchResultDetail">
 		<div class="srat_result" style="float:left">
 		<img src="/img/profile_none.png"><br>
 			연예인 이름
 		</div></a>
 
-		<a href="./search_star_spec.html">
+		<a v-on:click.prevent="searchResultDetail">
 		<div class="srat_result" style="float:left">
 		<img src="/img/profile_none.png"><br>
 			연예인 이름
@@ -64,6 +64,9 @@ export default {
     }
   },
   methods: {
+    searchResultDetail: function () {
+      this.$router.push({ name: 'SrchRstDtl' })
+    }
   }
 }
 </script>
