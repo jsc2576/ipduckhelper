@@ -58,6 +58,19 @@ button{
     border: none;
 }
 
+button.wide{
+    font-family: "PGL", Sans-serif;
+    font-size:20px;
+    background-color:#bfbfbf;
+    padding: 6px;
+    color:#ffffff;
+    width: 200px;
+    height: 35px;
+    border-radius:10px;
+    border: none;
+    margin:5px;
+}
+
 .submit_button{
     font-family: "PGL", Sans-serif;
     font-size:25px;
@@ -216,10 +229,10 @@ td, th{
     width:130px;
 }
 .visit{
-    width:70px;
+    width:110px;
 }
 .like{
-    width:70px;
+    width:110px;
 }
 .no{
     width:120px;
