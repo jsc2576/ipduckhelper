@@ -1,0 +1,84 @@
+@font-face{
+	font-family: 'AmeL';
+	src: url('./font/AmericanoL.ttf');
+}
+
+@font-face{
+	font-family: 'AmeM';
+	src: url('./font/AmericanoM.ttf');
+}
+
+@font-face{
+	font-family: 'G10';
+	src: url('./font/Gothic10.ttf');
+}
+
+@font-face{
+	font-family: 'G11';
+	src: url('./font/Gothic11.ttf');
+}
+
+@font-face{
+	font-family: 'G12';
+	src: url('./font/Gothic12.ttf');
+}
+
+@font-face{
+	font-family: 'G13';
+	src: url('./font/Gothic13.ttf');
+}
+
+@font-face{
+	font-family: 'G14';
+	src: url('./font/Gothic14.ttf');
+}
+
+@font-face{
+	font-family: 'G15';
+	src: url('./font/Gothic15.ttf');
+}
+
+@font-face{
+	font-family: 'G16';
+	src: url('./font/Gothic16.ttf');
+}
+
+@font-face{
+	font-family: 'G17';
+	src: url('./font/Gothic17.ttf');
+}
+
+@font-face{
+	font-family: 'G18';
+	src: url('./font/Gothic18.ttf');
+}
+
+@font-face{
+	font-family: 'G19';
+	src: url('./font/Gothic19.ttf');
+}
+
+@font-face{
+	font-family: 'PGM';
+	src: url('./font/PenGothicM.ttf');
+}
+
+@font-face{
+	font-family: 'PGL';
+	src: url('./font/PenGothicL.ttf');
+}
+
+@font-face{
+	font-family: 'PGB';
+	src: url('./font/PenGothicB.ttf');
+}
+
+@font-face{
+	font-family: 'SineL';
+	src: url('./font/SinemaL.ttf');
+}
+
+@font-face{
+	font-family: 'SineM';
+	src: url('./font/SinemaM.ttf');
+}
