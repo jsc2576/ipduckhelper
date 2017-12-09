@@ -1,6 +1,6 @@
 <template>
 <ul class="navbar">
-	<li class="left"><a href="./index.html">Linkaden님, 안녕하세요!</a></li>	
+	<li class="left"><a v-on:click.prevent="goMyInfo">Linkaden님, 안녕하세요!</a></li>	
 	<li class="right"><a href="./search_rate.html" class="right">검색 순위</a></li> 
 	<li class="right"><a href="./schedule.html" class="right">스케쥴</a></li> 
 	<li class="right"><a href="./galary.html" class="right">연예인 갤러리</a></li> 	
@@ -19,6 +19,9 @@ export default {
     }
   },
   methods: {
+    goMyInfo: function () {
+      this.$router.push({ name: 'MyInfo' })
+    }
   }
 }
 </script>

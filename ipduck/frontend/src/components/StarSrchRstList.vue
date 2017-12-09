@@ -9,25 +9,25 @@
 		연예인
 	</div>
 	<div class="content">
-		<a v-on:click.prevent="searchResultDetail">
+		<a v-on:click.prevent="starSearchResultDetail">
 		<div class="srat_result" style="float:left">
 			<img src="/img/profile_none.png"><br>
 			연예인 이름
 		</div></a>
 
-		<a v-on:click.prevent="searchResultDetail">
+		<a v-on:click.prevent="starSearchResultDetail">
 		<div class="srat_result" style="float:left">
 		<img src="/img/profile_none.png"><br>
 			연예인 이름
 		</div></a>
 
-		<a v-on:click.prevent="searchResultDetail">
+		<a v-on:click.prevent="starSearchResultDetail">
 		<div class="srat_result" style="float:left">
 		<img src="/img/profile_none.png"><br>
 			연예인 이름
 		</div></a>
 
-		<a v-on:click.prevent="searchResultDetail">
+		<a v-on:click.prevent="starSearchResultDetail">
 		<div class="srat_result" style="float:left">
 		<img src="/img/profile_none.png"><br>
 			연예인 이름
@@ -47,7 +47,7 @@
 
 		<br><br><br>
 		원하는 결과가 없으면...
-		<button style="width:200px;font-size: 20px;" onclick="location.href='./add_star.html'">새 연예인 등록하기</button>
+		<button style="width:200px;font-size: 20px;" v-on:click.prevent="goStarCrt" >새 연예인 등록하기</button>
 	</div>
 </div>
 </template>
@@ -56,7 +56,7 @@
 import MainNav from '@/components/MainNav'
 
 export default {
-  name: 'srch-rst-list',
+  name: 'star-srch-rst-list',
   components: { MainNav },
   data () {
     return {
@@ -64,8 +64,11 @@ export default {
     }
   },
   methods: {
-    searchResultDetail: function () {
-      this.$router.push({ name: 'SrchRstDtl' })
+    starSearchResultDetail: function () {
+      this.$router.push({ name: 'StarSrchRstDtl' })
+    },
+    goStarCrt: function () {
+      this.$router.push({ name: 'StarCrt' })
     }
   }
 }

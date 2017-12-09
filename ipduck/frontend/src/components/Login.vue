@@ -15,9 +15,9 @@
 	<router-link tag="img" src="/img/login_nv.png" style="width:200px; height: 40px"></router-link>
 	<router-link tag="img" src="/img/login_kk.png" style="width:200px; height: 40px"></router-link>
 	
-	<router-link to="/signup/view" tag="button" style="font-size: 20px; width:230px">입덕도우미 계정 만들기</router-link>
+	<router-link v-bind:to="{ name: 'Signup' }" tag="button" style="font-size: 20px; width:230px">입덕도우미 계정 만들기</router-link>
 	<button style="font-size: 20px; width:230px">계정/비밀번호 분실</button><br>
-	<router-link to="Srch" tag="button" style="margin-top: 10px;font-size: 20px; width:230px" >홈으로 이동</router-link>
+	<router-link v-bind:to="{ name: 'StarSrch' }" tag="button" style="margin-top: 10px;font-size: 20px; width:230px" >홈으로 이동</router-link>
 		
 	</div>
 </template>

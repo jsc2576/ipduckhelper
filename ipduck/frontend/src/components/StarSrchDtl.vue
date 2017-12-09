@@ -11,7 +11,7 @@
 태그 <input type="text" class="search" style="width:600px"/>
 
 
-<button v-on:click.prevent="searchDetail()" class="submit_button" >검색하기</button>
+<button v-on:click.prevent="starSearchDetail" class="submit_button" >검색하기</button>
 		
 </form>
 </pre>
@@ -22,7 +22,7 @@
 import MainNav from '@/components/MainNav'
 
 export default {
-  name: 'srch-dtl',
+  name: 'star-srch-dtl',
   components: { MainNav },
   data () {
     return {
@@ -30,8 +30,8 @@ export default {
     }
   },
   methods: {
-    searchDetail: function () {
-      this.$router.push('/srch/rst/list/view')
+    starSearchDetail: function () {
+      this.$router.push('/star/srch/rst/list/view')
     }
   }
 }
