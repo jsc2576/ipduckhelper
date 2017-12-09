@@ -102,7 +102,7 @@ public class UserController {
 	
 	/**
 	 * 회원 리스트 찾기
-	 * need value : offset
+	 * need value : offset, mem_id
 	 * @param request
 	 * @param entity
 	 * @return

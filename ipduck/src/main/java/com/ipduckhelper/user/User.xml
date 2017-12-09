@@ -28,6 +28,8 @@
 			   M.MEM_NICK, 
 			   M.MEM_NM 
 			from MEM_TBL M
+			where M.MEM_ID
+				like CONCAT('%', #{mem_id}, '%')
 			limit 10 
 			offset #{offset};
 	</select>

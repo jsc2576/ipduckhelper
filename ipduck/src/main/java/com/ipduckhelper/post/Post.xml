@@ -65,7 +65,8 @@
 			from POST_TBL PT 
 				inner join POST_TAG_TBL PTT 
 					on PT.POST_IDX = PTT.POST_IDX 
-			where PTT.TAG_NM = #{tag_nm} 
+			where PTT.TAG_NM 
+				like CONCATE('%', #{tag_nm}, '%')  
 			limit #{offset}, 10;
 	</select>
 	
