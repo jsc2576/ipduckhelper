@@ -37,6 +37,8 @@ h1.galary{
 }
 
 .search_submit{
+	margin-bottom: 10px;
+    margin-left: 5px;
 	background: url(./img/search.png) no-repeat 10px 3px;
     background-size: 30px 30px;
     border-radius: 5px;

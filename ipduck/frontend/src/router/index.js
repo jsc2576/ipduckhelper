@@ -9,8 +9,8 @@ export default new Router({
   mode: 'history',
   routes: [
     { path: '*', redirect: '/' },
-    { path: '/', redirect: '/srch/view' }, 
-    { path: '/srch/view', name: 'Srch', component: Srch}, 
-    { path: '/login/view', name: 'Login', component: Login}
+    { path: '/', redirect: '/srch/view' },
+    { path: '/srch/view', name: 'Srch', component: Srch },
+    { path: '/login/view', name: 'Login', component: Login }
   ]
 })

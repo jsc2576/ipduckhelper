@@ -7,7 +7,7 @@
 		<h1 class="menu">입덕 도우미</h1>
 		
 		<form action="/srch/list/star/do.go">
-			<input type="text" class="search" placeholder="원하는 연예인의 컨셉, 이름, 노래, 분위기 등을 검색해 보세요!">
+			<input v-html="tag_nm" type="text" class="search" placeholder="원하는 연예인의 컨셉, 이름, 노래, 분위기 등을 검색해 보세요!">
 			<button class="search_submit" @click="srch">
 		</form>
 	
@@ -20,23 +20,27 @@
 </template>
 
 <script>
-import axios from 'axios';
+import axios from 'axios'
 
 export default {
-  name: 'Srch',
+  tag_nm: '',
   data () {
     return {
       msg: 'Welcome to Your Vue.js '
     }
   },
   methods: {
-    srch:function(){
-    	axios({
-    	  method: 'POST',
-    	  url: '/srch/list/star/do.go',
-    	  
-    	})
-    } 
+    srch: function () {
+      axios.post('/srch/list/star/do.go', {
+        tag_nm: this.tag_nm
+      })
+      .then(function (response) {
+        console.log(response)
+      })
+      .catch(function (error) {
+        console.log(error)
+      })
+    }
   }
 }
 </script>
