@@ -26,7 +26,7 @@
 import MainNav from '@/components/MainNav'
 
 export default {
-  name: 'srch-rst-dtl',
+  name: 'star-srch-rst-dtl',
   components: { MainNav },
   data () {
     return {

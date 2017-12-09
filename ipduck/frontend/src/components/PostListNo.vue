@@ -5,7 +5,7 @@
 <br>
 
 <h1 class="galary">OOO 갤러리 {{this.$route.params.no}}</h1>
-<button style="margin-right: 200px" onclick="location.href='./write_article.html'">글쓰기</button>
+<button style="margin-right: 200px" v-on:click.prevent="postWrite">글쓰기</button>
 <form style="display: inline-block;">
 	<input type="text" class="search" style="width: 300px; margin-left: 100px;" placeholder="갤러리 내 게시글/댓글 검색">
 	<input type="submit" name="" class="search_submit" value="">
@@ -102,6 +102,9 @@ export default {
   methods: {
     postDetailNo: function () {
       this.$router.push({ name: 'PostDtlNo', params: { no1: 1, no2: 7 } })
+    },
+    postWrite: function () {
+      this.$router.push({ name: 'PostWrtNo', params: { no: this.$route.params.no } })
     }
   }
 }
