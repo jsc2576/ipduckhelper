@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -25,7 +26,7 @@ public class CmntController {
 	 */
 	@RequestMapping(value = "/crt/cmnt/do.go", method=RequestMethod.POST)
 	@ResponseBody
-	public Integer Crt_Cmnt(@ModelAttribute Cmnt entity) throws Exception{
+	public Integer Crt_Cmnt(@RequestBody Cmnt entity) throws Exception{
 		return cmntService.Crt_Cmnt(entity);
 	}
 	
@@ -38,7 +39,7 @@ public class CmntController {
 	 */
 	@RequestMapping(value = "/srch/list/cmnt/do", method = RequestMethod.POST)
 	@ResponseBody
-	public List<Cmnt> Srch_Cmnt_List(@ModelAttribute Cmnt entity) throws Exception{
+	public List<Cmnt> Srch_Cmnt_List(@RequestBody Cmnt entity) throws Exception{
 		return cmntService.Srch_Cmnt_list(entity);
 	}
 	
@@ -52,7 +53,7 @@ public class CmntController {
 	 */
 	@RequestMapping(value = "/fix/cmnt/do.my", method = RequestMethod.POST)
 	@ResponseBody
-	public Integer Fix_Cmnt(@ModelAttribute Cmnt entity) throws Exception{
+	public Integer Fix_Cmnt(@RequestBody Cmnt entity) throws Exception{
 		return cmntService.Fix_Cmnt(entity);
 	}
 	

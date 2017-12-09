@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -29,7 +30,7 @@ public class MemeController {
 	 */
 	@RequestMapping(value = "/crt/mm/do.go", method=RequestMethod.POST)
 	@ResponseBody
-	public Integer Crt_Mm(HttpServletRequest request, @ModelAttribute Meme entity) throws Exception{
+	public Integer Crt_Mm(HttpServletRequest request, @RequestBody Meme entity) throws Exception{
 		return memeService.Crt_Mm(entity);
 	}
 	
@@ -42,7 +43,7 @@ public class MemeController {
 	 */
 	@RequestMapping(value = "/srch/list/mm/star/do", method=RequestMethod.POST)
 	@ResponseBody
-	public List<Meme> Srch_Mm_Star_List(@ModelAttribute Meme entity) throws Exception{
+	public List<Meme> Srch_Mm_Star_List(@RequestBody Meme entity) throws Exception{
 		return memeService.Srch_Mm_Star_List(entity);
 	}
 	
@@ -55,7 +56,7 @@ public class MemeController {
 	 */
 	@RequestMapping(value = "/srch/list/mm/tag/do", method=RequestMethod.POST)
 	@ResponseBody
-	public List<Meme> Srch_Mm_Tag_List(@ModelAttribute Meme entity) throws Exception{
+	public List<Meme> Srch_Mm_Tag_List(@RequestBody Meme entity) throws Exception{
 		return memeService.Srch_Mm_Tag_List(entity);
 	}
 	
@@ -70,7 +71,7 @@ public class MemeController {
 	 */
 	@RequestMapping(value = "/fix/mm/do.my", method=RequestMethod.POST)
 	@ResponseBody
-	public Integer Fix_Mm(HttpServletRequest request, @ModelAttribute Meme entity) throws Exception{
+	public Integer Fix_Mm(HttpServletRequest request, @RequestBody Meme entity) throws Exception{
 		return memeService.Fix_Mm(entity);
 	}
 	
@@ -100,7 +101,7 @@ public class MemeController {
 	 */
 	@RequestMapping(value = "/add/tag/mm/do.my", method=RequestMethod.POST)
 	@ResponseBody
-	public Integer Add_Tag_Mm(HttpServletRequest request, @ModelAttribute Meme entity) throws Exception{
+	public Integer Add_Tag_Mm(HttpServletRequest request, @RequestBody Meme entity) throws Exception{
 		return memeService.Add_Tag_Mm(entity);
 	}
 	
@@ -115,7 +116,7 @@ public class MemeController {
 	 */
 	@RequestMapping(value = "/del/tag/mm/do.my", method=RequestMethod.POST)
 	@ResponseBody
-	public Integer Del_Tag_Mm(HttpServletRequest request, @ModelAttribute Meme entity) throws Exception{
+	public Integer Del_Tag_Mm(HttpServletRequest request, @RequestBody Meme entity) throws Exception{
 		return memeService.Del_Tag_Mm(entity);
 	}
 }

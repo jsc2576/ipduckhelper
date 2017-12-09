@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -25,7 +26,7 @@ public class ScheController {
 	 */
 	@RequestMapping(value = "/crt/sche/do.go", method=RequestMethod.POST)
 	@ResponseBody
-	public Integer Crt_Sche(@ModelAttribute Sche entity) throws Exception{
+	public Integer Crt_Sche(@RequestBody Sche entity) throws Exception{
 		return scheService.Crt_Sche(entity);
 	}
 	
@@ -38,7 +39,7 @@ public class ScheController {
 	 */
 	@RequestMapping(value = "/srch/list/sche/do", method=RequestMethod.POST)
 	@ResponseBody
-	public List<Sche> Srch_Sche_List(@ModelAttribute Sche entity) throws Exception{
+	public List<Sche> Srch_Sche_List(@RequestBody Sche entity) throws Exception{
 		return scheService.Srch_Sche_List(entity);
 	}
 	
@@ -51,7 +52,7 @@ public class ScheController {
 	 */
 	@RequestMapping(value = "/fix/sche/do.go", method=RequestMethod.POST)
 	@ResponseBody
-	public Integer Fix_Sche(@ModelAttribute Sche entity) throws Exception{
+	public Integer Fix_Sche(@RequestBody Sche entity) throws Exception{
 		return scheService.Fix_Sche(entity);
 	}
 	

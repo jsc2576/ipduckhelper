@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -23,19 +24,19 @@ public class UserController {
 	 * 회원가입 페이지
 	 * @return
 	 */
-	@RequestMapping("/signup/view")
+/*	@RequestMapping("/signup/view")
 	public String SignUp_View() {
 		return "";
-	}
+	}*/
 	
 	/**
 	 * 로그인 페이지
 	 * @return
 	 */
-	@RequestMapping("/login/view")
+/*	@RequestMapping("/login/view")
 	public String Login_View() {
 		return "index";
-	}
+	}*/
 	
 	/**
 	 * 회원 가입 
@@ -50,7 +51,7 @@ public class UserController {
 	 */
 	@RequestMapping(value = "/signup/do", method=RequestMethod.POST)
 	@ResponseBody
-	public Integer SignUp(@ModelAttribute User entity) throws Exception{
+	public Integer SignUp(@RequestBody User entity) throws Exception{
 		
 		return userService.Crt_Mem(entity);
 	}
@@ -65,7 +66,7 @@ public class UserController {
 	 */
 	@RequestMapping(value = "/login/do", method=RequestMethod.POST)
 	@ResponseBody
-	public User Login(HttpServletRequest request, @ModelAttribute User entity) throws Exception{
+	public User Login(HttpServletRequest request, @RequestBody User entity) throws Exception{
 		User userInfo = userService.Login_Mem(entity);
 		
 		if(userInfo != null && userInfo.getMem_id() != null & userInfo.getMem_id() != "") {
@@ -110,7 +111,7 @@ public class UserController {
 	 */
 	@RequestMapping(value = "/srch/list/mem/do.admin", method=RequestMethod.POST)
 	@ResponseBody
-	public List<User> Srch_Mem_List(HttpServletRequest request, @ModelAttribute User entity) throws Exception{
+	public List<User> Srch_Mem_List(HttpServletRequest request, @RequestBody User entity) throws Exception{
 		return userService.Srch_Mem_List(entity);
 	}
 	
@@ -124,7 +125,7 @@ public class UserController {
 	 */
 	@RequestMapping(value = "/srch/mem/do.go", method=RequestMethod.POST)
 	@ResponseBody
-	public User Srch_Mem(HttpServletRequest request, @ModelAttribute User entity) throws Exception{
+	public User Srch_Mem(HttpServletRequest request, @RequestBody User entity) throws Exception{
 		return userService.Srch_Mem(entity);
 	}
 	
@@ -140,7 +141,7 @@ public class UserController {
 	 */
 	@RequestMapping(value = "/fix/mem/do.my", method=RequestMethod.POST)
 	@ResponseBody
-	public Integer Fix_Mem(HttpServletRequest request, @ModelAttribute User entity) throws Exception{
+	public Integer Fix_Mem(HttpServletRequest request, @RequestBody User entity) throws Exception{
 		return userService.Fix_Mem(entity);			
 	}	
 	
@@ -155,7 +156,7 @@ public class UserController {
 	 */
 	@RequestMapping(value = "/del/mem/do.my", method=RequestMethod.POST)
 	@ResponseBody
-	public Integer Del_Mem(HttpServletRequest request, @ModelAttribute User entity) throws Exception{
+	public Integer Del_Mem(HttpServletRequest request, @RequestBody User entity) throws Exception{
 		return userService.Del_Mem(entity);			
 	}
 	
@@ -169,7 +170,7 @@ public class UserController {
 	 */
 	@RequestMapping(value = "/acvt/mem/do", method=RequestMethod.POST)
 	@ResponseBody
-	public Integer Acvt_Mem(@ModelAttribute User entity) throws Exception{
+	public Integer Acvt_Mem(@RequestBody User entity) throws Exception{
 		return userService.Acvt_Mem(entity);
 	}
 }

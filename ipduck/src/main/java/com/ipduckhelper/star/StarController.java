@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -29,7 +30,7 @@ public class StarController {
 	 */
 	@RequestMapping(value = "/crt/star/do.admin", method=RequestMethod.POST)
 	@ResponseBody
-	public Integer Crt_Star(HttpServletRequest request, @ModelAttribute Star entity) throws Exception{
+	public Integer Crt_Star(HttpServletRequest request, @RequestBody Star entity) throws Exception{
 		return starService.Crt_Star_and_Grp(entity, true);
 		// 참고 예시 : http://gangzzang.tistory.com/entry/스프링Spring-파일-업로드File-Upload
 		
@@ -47,7 +48,7 @@ public class StarController {
 	 */
 	@RequestMapping(value = "/crt/grp/do.admin", method=RequestMethod.POST)
 	@ResponseBody
-	public Integer Crt_Grp(HttpServletRequest request, @ModelAttribute Star entity) throws Exception{
+	public Integer Crt_Grp(HttpServletRequest request, @RequestBody Star entity) throws Exception{
 		return starService.Crt_Star_and_Grp(entity, false);
 	}
 	
@@ -61,7 +62,7 @@ public class StarController {
 	 */
 	@RequestMapping(value = "/srch/list/star/do.go", method=RequestMethod.POST)
 	@ResponseBody
-	public List<Star> Srch_Star_List(@ModelAttribute Star entity) throws Exception{
+	public List<Star> Srch_Star_List(@RequestBody Star entity) throws Exception{
 		return starService.Srch_Star_List(entity);
 	}
 	
@@ -75,7 +76,7 @@ public class StarController {
 	 */
 	@RequestMapping(value = "/srch/star/do", method=RequestMethod.POST)
 	@ResponseBody
-	public Star Srch_Star(@ModelAttribute Star entity) throws Exception{
+	public Star Srch_Star(@RequestBody Star entity) throws Exception{
 		return starService.Srch_Star(entity);
 	}
 	
@@ -89,7 +90,7 @@ public class StarController {
 	 */
 	@RequestMapping(value = "/srch/grp/do", method=RequestMethod.POST)
 	@ResponseBody
-	public Star Srch_Grp(@ModelAttribute Star entity) throws Exception{
+	public Star Srch_Grp(@RequestBody Star entity) throws Exception{
 		return starService.Srch_Grp(entity);
 	}
 	
@@ -102,7 +103,7 @@ public class StarController {
 	 */
 	@RequestMapping(value = "/fix/star/do.admin", method=RequestMethod.POST)
 	@ResponseBody
-	public Integer Fix_Star(HttpServletRequest request, @ModelAttribute Star entity) throws Exception{
+	public Integer Fix_Star(HttpServletRequest request, @RequestBody Star entity) throws Exception{
 		return starService.Fix_Star(entity);			
 	}
 	
@@ -116,7 +117,7 @@ public class StarController {
 	 */
 	@RequestMapping(value = "/fix/grp/do.admin", method=RequestMethod.POST)
 	@ResponseBody
-	public Integer Fix_Grp(HttpServletRequest request, @ModelAttribute Star entity) throws Exception{
+	public Integer Fix_Grp(HttpServletRequest request, @RequestBody Star entity) throws Exception{
 		return starService.Fix_Grp(entity);
 	}
 	
@@ -159,7 +160,7 @@ public class StarController {
 	 */
 	@RequestMapping(value = "/like/star/do.go", method=RequestMethod.POST)
 	@ResponseBody
-	public Integer Like_Star(HttpServletRequest request, @ModelAttribute Star entity) throws Exception{
+	public Integer Like_Star(HttpServletRequest request, @RequestBody Star entity) throws Exception{
 		entity.setMem_id(String.valueOf(request.getSession().getAttribute("mem_id")));
 		return starService.Like_Star(entity);
 	}
@@ -174,7 +175,7 @@ public class StarController {
 	 */
 	@RequestMapping(value = "/tag/add/star/do.go", method=RequestMethod.POST)
 	@ResponseBody
-	public Integer Add_Tag_Star(HttpServletRequest request, @ModelAttribute Star entity) throws Exception{
+	public Integer Add_Tag_Star(HttpServletRequest request, @RequestBody Star entity) throws Exception{
 		return starService.Add_Tag_Star(entity);
 	}
 	
@@ -189,7 +190,7 @@ public class StarController {
 	 */
 	@RequestMapping(value = "/tag/del/star/do.go", method=RequestMethod.POST)
 	@ResponseBody
-	public Integer Del_Tag_Star(HttpServletRequest request, @ModelAttribute Star entity) throws Exception{
+	public Integer Del_Tag_Star(HttpServletRequest request, @RequestBody Star entity) throws Exception{
 		return starService.Del_Tag_Star(entity);
 	}
 }

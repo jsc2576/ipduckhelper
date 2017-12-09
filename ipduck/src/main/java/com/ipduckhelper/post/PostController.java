@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -28,7 +29,7 @@ public class PostController {
 	 */
 	@RequestMapping(value = "/crt/post/do.go", method=RequestMethod.POST)
 	@ResponseBody
-	public Integer Crt_Post(HttpServletRequest request, @ModelAttribute Post entity) throws Exception{
+	public Integer Crt_Post(HttpServletRequest request, @RequestBody Post entity) throws Exception{
 		return postService.Crt_Post(entity);
 	}
 	
@@ -41,7 +42,7 @@ public class PostController {
 	 */
 	@RequestMapping(value = "/srch/list/post/ttl/do", method=RequestMethod.POST)
 	@ResponseBody
-	public List<Post> Srch_Post_Ttl_List(@ModelAttribute Post entity) throws Exception{
+	public List<Post> Srch_Post_Ttl_List(@RequestBody Post entity) throws Exception{
 		return postService.Srch_Post_Ttl_List(entity);
 	}
 	
@@ -54,7 +55,7 @@ public class PostController {
 	 */
 	@RequestMapping(value = "/srch/list/post/tag/do", method=RequestMethod.POST)
 	@ResponseBody
-	public List<Post> Srch_Post_Tag_List(@ModelAttribute Post entity) throws Exception{
+	public List<Post> Srch_Post_Tag_List(@RequestBody Post entity) throws Exception{
 		return postService.Srch_Post_Tag_List(entity);
 	}
 	
@@ -81,7 +82,7 @@ public class PostController {
 	 */
 	@RequestMapping(value = "/fix/post/do.my", method=RequestMethod.POST)
 	@ResponseBody
-	public Integer Fix_Post(@ModelAttribute Post entity) throws Exception{
+	public Integer Fix_Post(@RequestBody Post entity) throws Exception{
 		return postService.Fix_Post(entity);
 	}
 	
@@ -109,7 +110,7 @@ public class PostController {
 	 */
 	@RequestMapping(value = "/like/post/do.my", method=RequestMethod.POST)
 	@ResponseBody
-	public Integer Like_Post(@ModelAttribute Post entity) throws Exception{
+	public Integer Like_Post(@RequestBody Post entity) throws Exception{
 		return postService.Like_Post(entity);
 	}
 }
