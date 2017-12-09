@@ -160,6 +160,7 @@ div.title{
 }
 
 div.content{
+	display: inline-block;
     margin-top: 10px;
     margin-left: 20px;
     font-family: "PGL";

@@ -12,10 +12,10 @@
 		</form>
 	
 		<br>	
-		<router-link to="/srch/dtl" tag="button">연예인 찾기</router-link>
-		<router-link to="/post" tag="button">연예인 갤러리</router-link>
-		<router-link to="/mm" tag="button">영상/짤 모음</router-link>
-		<router-link to="/rank/view" tag="button">검색 순위</router-link>
+		<router-link v-bind:to="{ name:'SrchDtl' }" tag="button">연예인 찾기</router-link>
+		<router-link v-bind:to="{ name:'Post' }" tag="button">연예인 갤러리</router-link>
+		<router-link v-bind:to="{ name:'Mm' }" tag="button">상/짤 모음</router-link>
+		<router-link v-bind:to="{ name:'Rank' }" tag="button">검색 순위</router-link>
 	</div>
 </template>
 
@@ -23,10 +23,10 @@
 import axios from 'axios'
 
 export default {
-  tag_nm: '',
+  name: 'srch',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js '
+      tag_nm: ''
     }
   },
   methods: {

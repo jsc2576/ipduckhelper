@@ -24,7 +24,7 @@ import axios from 'axios'
 import Router from 'vue-router'
 
 export default {
-  name: 'Signup',
+  name: 'signup',
   data () {
     return {
       mem_id: '',
@@ -49,8 +49,7 @@ export default {
         mem_nm: this.mem_nm
       })
       .then(function (response) {
-        alert(JSON.stringify(response) + '')
-        // Router.push('/SignupDone/view')
+        Router.push({ name: 'SignupDone' })
       })
       .catch(function (error) {
         console.log(error)
