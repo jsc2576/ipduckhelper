@@ -53,8 +53,8 @@ public class StarController {
 	
 	
 	/**
-	 * 연예인과 그룹을 합쳐서 검색한다
-	 * need value : offset
+	 * 연예인과 그룹을 합쳐서 태그로 검색한다
+	 * need value : offset, tag_nm
 	 * @param entity
 	 * @return
 	 * @throws Exception

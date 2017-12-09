@@ -77,7 +77,11 @@
 			   F.FILE_NM
 			FROM STAR_TBL S 
 				inner join FILE_TBL F 
-					on S.FILE_IDX = F.FILE_IDX 
+					on S.FILE_IDX = F.FILE_IDX
+				inner join STAR_TAG_TBL STT
+					on STT.STAR_IDX = S.STAR_IDX
+			where STT.TAG_NM
+				like CONCAT('%', #{tag_nm}, '%') 
 			limit 10 
 			offset #{offset};
 	</select>
