@@ -238,6 +238,8 @@ td>a:hover{
 article{
     width: 1300px;   
     margin-top: 50px;
+    font-family: "AmeL";
+    padding: 20px;
 }
 
 h2{
@@ -267,4 +269,42 @@ pre{
     white-space: pre-line;
     font-family: "G12";
     font-size: 20px;
+}
+
+textarea.article{
+    font-family: "G11", Sans-serif;
+    font-size: 18px;
+    color:#000000;
+    width:750px;
+    height: 500px;
+    padding:6px 0px 6px 15px;
+    border-radius: 5px;
+    border: 1px solid #d1d1d1;
+    box-shadow:0 1px 3px rgba(0,0,0,0.15) inset;
+    margin: 20px;
+}
+
+.write_title{
+    font-family: "G11", Sans-serif;
+    font-size: 18px;
+    color:#000000;
+    width:700px;
+    height: 21px;
+    padding:6px 0px 6px 15px;
+    border-radius: 5px;
+    border: 1px solid #d1d1d1;
+    box-shadow:0 1px 3px rgba(0,0,0,0.15) inset;
+    margin: 10px;
+}
+
+.write_info{
+    font-family: "G11", Sans-serif;
+    font-size: 18px;
+    color:#000000;
+    width:300px;
+    height: 21px;
+    padding:6px 0px 6px 15px;
+    border-radius: 5px;
+    border: 1px solid #d1d1d1;
+    box-shadow:0 1px 3px rgba(0,0,0,0.15) inset;
 }
