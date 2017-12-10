@@ -1,11 +1,11 @@
 <template>
 <ul class="navbar">
-	<li class="left"><a v-on:click.prevent="goMyInfo">Linkaden님, 안녕하세요!</a></li>	
-	<li class="right"><a v-on:click.prevent="goRankList" class="right">검색 순위</a></li> 
-	<li class="right"><a v-on:click.prevent="goScheList" class="right">스케쥴</a></li> 
-	<li class="right"><a v-on:click.prevent="goPostList" class="right">연예인 갤러리</a></li> 
-	<li class="right"><a v-on:click.prevent="goStarSrchDtl"	class="right" >연예인 찾기</a></li> 
-	<li class="right"><a v-on:click.prevent="goMain"class="right" >홈으로 이동</a></li> 
+	<li class="left"><a class="click-able" v-on:click.prevent="goMyInfo">Linkaden님, 안녕하세요!</a></li>	
+	<li class="right"><a v-on:click.prevent="goRankList" class="right click-able">검색 순위</a></li> 
+	<li class="right"><a v-on:click.prevent="goScheList" class="right click-able">스케쥴</a></li> 
+	<li class="right"><a v-on:click.prevent="goPostList" class="right click-able">연예인 갤러리</a></li> 
+	<li class="right"><a v-on:click.prevent="goStarSrchDtl"	class="right click-able" >연예인 찾기</a></li> 
+	<li class="right"><a v-on:click.prevent="goMain"class="right click-able" >홈으로 이동</a></li> 
 </ul>
 </template>
 

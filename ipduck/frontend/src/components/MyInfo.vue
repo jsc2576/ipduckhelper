@@ -12,7 +12,7 @@
 		회원 등급: 정회원<br><br>
 		이름 : 12312321<br><br>
 		닉네임 : 12312321<br><br>
-		<button v-on:click.prevent="modifyMyInfo">정보 수정하기</button>
+		<button class="click-able" v-on:click.prevent="modifyMyInfo">정보 수정하기</button>
 	</div>
 </div>
 </template>

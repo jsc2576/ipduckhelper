@@ -16,7 +16,7 @@
 			</tr>
 			<tr>
 				<td>123456</td>
-				<td><a v-on:click.prevent="postDetailNo">연예인 사랑해요</a></td>
+				<td><a class="click-able" v-on:click.prevent="postDetailNo">연예인 사랑해요</a></td>
 				<td>글쓴사람</td>
 				<td>20170101</td>
 				<td>조회수 10</td>
@@ -24,7 +24,7 @@
 			</tr>
 			<tr>
 				<td>123456</td>
-				<td><a v-on:click.prevent="postDetailNo">연예인 사랑해요</a></td>
+				<td><a class="click-able" v-on:click.prevent="postDetailNo">연예인 사랑해요</a></td>
 				<td>글쓴사람</td>
 				<td>20170101</td>
 				<td>조회수 10</td>
@@ -32,7 +32,7 @@
 			</tr>
 			<tr>
 				<td>123456</td>
-				<td><a v-on:click.prevent="postDetailNo">연예인 사랑해요</a></td>
+				<td><a class="click-able" v-on:click.prevent="postDetailNo">연예인 사랑해요</a></td>
 				<td>글쓴사람</td>
 				<td>20170101</td>
 				<td>조회수 10</td>
@@ -44,15 +44,15 @@
 	영상/짤방
 		<div style="margin-top: 30px; margin-bottom: 30px;">
 			<div class="star_result" style="width:450px; height: 300px;">
-				<a v-on:click.prevent="goMmDtl"><img src="/img/sample.jpg" style="width: 400px; height:200px;"></a><br>
+				<a class="click-able" v-on:click.prevent="goMmDtl"><img src="/img/sample.jpg" style="width: 400px; height:200px;"></a><br>
 				영상정보텍스트
 			</div>
 			<div class="star_result" style="width:450px; height: 300px;">
-				<a v-on:click.prevent="goMmDtl"><img src="/img/sample.jpg" style="width: 400px; height:200px;"></a><br>
+				<a class="click-able" v-on:click.prevent="goMmDtl"><img src="/img/sample.jpg" style="width: 400px; height:200px;"></a><br>
 				영상정보텍스트
 			</div>
 			<div class="star_result" style="width:450px; height: 300px;">
-				<a v-on:click.prevent="goMmDtl"><img src="/img/sample.jpg" style="width: 400px; height:200px;"></a><br>
+				<a class="click-able" v-on:click.prevent="goMmDtl"><img src="/img/sample.jpg" style="width: 400px; height:200px;"></a><br>
 				영상정보텍스트
 			</div>
 		</div>

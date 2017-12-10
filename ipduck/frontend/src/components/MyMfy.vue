@@ -15,7 +15,7 @@
 		회원 등급: 정회원<br><br>
 		이름 : <input type="text" class="write_info"><br><br>
 		닉네임 : <input type="text" class="write_info"><br><br>
-		<button v-on:click.prevent="mfyInfo">정보 수정하기</button>
+		<button class="click-able" v-on:click.prevent="mfyInfo">정보 수정하기</button>
 		
 	</div>
 	</form>
@@ -35,8 +35,8 @@ export default {
   },
   methods: {
     mfyInfo: function () {
-      alert('정보를 수정합니다.')
-      this.$router.push({ name: 'MyMfy' })
+      alert('정보를 수정했습니다.')
+      this.$router.push({ name: 'MyInfo' })
     }
   }
 }

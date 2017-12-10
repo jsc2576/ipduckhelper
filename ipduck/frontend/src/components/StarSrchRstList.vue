@@ -9,25 +9,25 @@
 		연예인
 	</div>
 	<div class="content">
-		<a v-on:click.prevent="starSearchResultDetail">
+		<a class="click-able" v-on:click.prevent="starSearchResultDetail">
 		<div class="srat_result" style="float:left">
 			<img src="/img/profile_none.png"><br>
 			연예인 이름
 		</div></a>
 
-		<a v-on:click.prevent="starSearchResultDetail">
+		<a class="click-able" v-on:click.prevent="starSearchResultDetail">
 		<div class="srat_result" style="float:left">
 		<img src="/img/profile_none.png"><br>
 			연예인 이름
 		</div></a>
 
-		<a v-on:click.prevent="starSearchResultDetail">
+		<a class="click-able" v-on:click.prevent="starSearchResultDetail">
 		<div class="srat_result" style="float:left">
 		<img src="/img/profile_none.png"><br>
 			연예인 이름
 		</div></a>
 
-		<a v-on:click.prevent="starSearchResultDetail">
+		<a class="click-able" v-on:click.prevent="starSearchResultDetail">
 		<div class="srat_result" style="float:left">
 		<img src="/img/profile_none.png"><br>
 			연예인 이름
@@ -40,14 +40,14 @@
 		갤러리
 	</div>
 	<div class="content">
-		검색된 내용입니다 / <a v-on:click.prevent="goPostListNo">OO 갤러리</a><br>
-		검색된 내용입니다 / <a v-on:click.prevent="goPostListNo">OO 갤러리</a><br>
-		검색된 내용입니다 / <a v-on:click.prevent="goPostListNo">OO 갤러리</a><br>
-		검색된 내용입니다 / <a v-on:click.prevent="goPostListNo">OO 갤러리</a><br>
+		검색된 내용입니다 / <a class="click-able" v-on:click.prevent="goPostListNo">OO 갤러리</a><br>
+		검색된 내용입니다 / <a class="click-able" v-on:click.prevent="goPostListNo">OO 갤러리</a><br>
+		검색된 내용입니다 / <a class="click-able" v-on:click.prevent="goPostListNo">OO 갤러리</a><br>
+		검색된 내용입니다 / <a class="click-able" v-on:click.prevent="goPostListNo">OO 갤러리</a><br>
 
 		<br><br><br>
 		원하는 결과가 없으면...
-		<button style="width:200px;font-size: 20px;" v-on:click.prevent="goStarCrt" >새 연예인 등록하기</button>
+		<button class="click-able" style="width:200px;font-size: 20px;" v-on:click.prevent="goStarCrt" >새 연예인 등록하기</button>
 	</div>
 </div>
 </template>

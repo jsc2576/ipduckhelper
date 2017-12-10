@@ -1,10 +1,10 @@
 <template>
 <ul class="navbar">
-	<li class="left"><a v-on:click.prevent="goMain">마이페이지</a></li>	
-	<li class="right"><a v-on:click.prevent="goMyLikeStar">나의 연예인</a></li>	
-	<li class="right"><a v-on:click.prevent="goMyLikePost">좋아요 한 글</a></li>	
-	<li class="right"><a v-on:click.prevent="goMyPostList">게시글/댓글</a</a></li>	
-	<li class="right"><a v-on:click.prevent="goMyInfo">프로필 설정</a></li>	
+	<li class="left"><a class="click-able" v-on:click.prevent="goMain">마이페이지</a></li>	
+	<li class="right"><a class="click-able" v-on:click.prevent="goMyLikeStar">나의 연예인</a></li>	
+	<li class="right"><a class="click-able" v-on:click.prevent="goMyLikePost">좋아요 한 글</a></li>	
+	<li class="right"><a class="click-able" v-on:click.prevent="goMyPostList">게시글/댓글</a</a></li>	
+	<li class="right"><a class="click-able" v-on:click.prevent="goMyInfo">프로필 설정</a></li>	
 </ul>
 </template>
 

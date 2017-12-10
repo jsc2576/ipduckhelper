@@ -5,10 +5,10 @@
 <br>
 
 <h1 class="galary">OOO 갤러리 {{this.$route.params.no}}</h1>
-<button style="margin-right: 200px" v-on:click.prevent="postWrite">글쓰기</button>
+<button class="click-able" style="margin-right: 200px" v-on:click.prevent="postWrite">글쓰기</button>
 <form style="display: inline-block;">
 	<input type="text" class="search" style="width: 300px; margin-left: 100px;" placeholder="갤러리 내 게시글/댓글 검색">
-	<button v-on:click.prevent="searchPostDtl" class="search_submit"></button>
+	<button v-on:click.prevent="searchPostDtl" class="search_submit click-able"></button>
 </form>
 <br><br><br><br>
 <table align="center" class="board_list">
@@ -22,7 +22,7 @@
 	</tr>
 	<tr>
 		<td>123456</td>
-		<td><a v-on:click.prevent="postDetailNo">연예인 사랑해요</a></td>
+		<td><a class="click-able" v-on:click.prevent="postDetailNo">연예인 사랑해요</a></td>
 		<td>OOO</td>
 		<td>20170101</td>
 		<td>10</td>
@@ -30,7 +30,7 @@
 	</tr>
 		<tr>
 		<td>123456</td>
-		<td><a v-on:click.prevent="postDetailNo">연예인 사랑해요</a></td>
+		<td><a class="click-able" v-on:click.prevent="postDetailNo">연예인 사랑해요</a></td>
 		<td>OOO</td>
 		<td>20170101</td>
 		<td>10</td>
@@ -38,7 +38,7 @@
 	</tr>
 		<tr>
 		<td>123456</td>
-		<td><a v-on:click.prevent="postDetailNo">연예인 사랑해요</a></td>
+		<td><a class="click-able" v-on:click.prevent="postDetailNo">연예인 사랑해요</a></td>
 		<td>OOO</td>
 		<td>20170101</td>
 		<td>10</td>
@@ -46,7 +46,7 @@
 	</tr>
 		<tr>
 		<td>123456</td>
-		<td><a v-on:click.prevent="postDetailNo">연예인 사랑해요</a></td>
+		<td><a class="click-able" v-on:click.prevent="postDetailNo">연예인 사랑해요</a></td>
 		<td>OOO</td>
 		<td>20170101</td>
 		<td>10</td>
@@ -54,7 +54,7 @@
 	</tr>
 		<tr>
 		<td>123456</td>
-		<td><a v-on:click.prevent="postDetailNo">연예인 사랑해요</a></td>
+		<td><a class="click-able" v-on:click.prevent="postDetailNo">연예인 사랑해요</a></td>
 		<td>OOO</td>
 		<td>20170101</td>
 		<td>10</td>
@@ -62,7 +62,7 @@
 	</tr>
 		<tr>
 		<td>123456</td>
-		<td><a v-on:click.prevent="postDetailNo">연예인 사랑해요</a></td>
+		<td><a class="click-able" v-on:click.prevent="postDetailNo">연예인 사랑해요</a></td>
 		<td>OOO</td>
 		<td>20170101</td>
 		<td>10</td>
@@ -70,7 +70,7 @@
 	</tr>
 		<tr>
 		<td>123456</td>
-		<td><a v-on:click.prevent="postDetailNo">연예인 사랑해요</a></td>
+		<td><a class="click-able" v-on:click.prevent="postDetailNo">연예인 사랑해요</a></td>
 		<td>OOO</td>
 		<td>20170101</td>
 		<td>10</td>
@@ -78,7 +78,7 @@
 	</tr>
 		<tr>
 		<td>123456</td>
-		<td><a v-on:click.prevent="postDetailNo">연예인 사랑해요</a></td>
+		<td><a class="click-able" v-on:click.prevent="postDetailNo">연예인 사랑해요</a></td>
 		<td>OOO</td>
 		<td>20170101</td>
 		<td>10</td>
@@ -107,7 +107,7 @@ export default {
       this.$router.push({ name: 'PostWrtNo', params: { no: this.$route.params.no } })
     },
     searchPostDtl: function () {
-      console.log('search to post detail')
+      alert('search to post detail')
       // this.$router.push({ name: 'PostWrtNo', params: { no: this.$route.params.no } })
     }
   }

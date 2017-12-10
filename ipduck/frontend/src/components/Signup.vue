@@ -13,7 +13,7 @@
 		<input type="text" class="search" style="width: 300px" v-model="mem_nm"><br><br>
 		닉네임&nbsp;
 		<input type="text" class="search" style="width: 300px" v-model="mem_nick"><br><br><br>
-		<button @click.prevent="mSubmit" class="submit_button" style="font-size: 20px; width:230px">회원가입</button>
+		<button v-on:click.prevent="mSubmit" class="click-able submit_button" style="font-size: 20px; width:230px">회원가입</button>
 	</form>
 	<br>
 </div>
@@ -21,7 +21,6 @@
 
 <script>
 import axios from 'axios'
-import Router from 'vue-router'
 
 export default {
   name: 'signup',
@@ -38,7 +37,7 @@ export default {
     mSubmit: function () {
       alert(this.mem_id)
       if (this.mem_pwd1 !== this.mem_pwd2) {
-        console.log('비밀번호 불일치')
+        alert('비밀번호 불일치')
         return
       }
       axios.post('/signup/do', {
@@ -49,10 +48,10 @@ export default {
         mem_nm: this.mem_nm
       })
       .then(function (response) {
-        Router.push({ name: 'SignupDone' })
+        this.$router.push({ name: 'SignupDone' })
       })
       .catch(function (error) {
-        console.log(error)
+        alert(JSON.stringify(error))
       })
     }
   }

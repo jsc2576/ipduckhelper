@@ -5,8 +5,9 @@
 <article>
 	<h2>게시글 제목 {{this.$route.params.no1}} {{this.$route.params.no2}}</h2>
 	<span>조회수 00</span>
-	&nbsp;
-	<button class="article" onclick="location.href='./write_article.html'">수정</button>&nbsp;&nbsp;<button class="article">삭제</button>
+	&nbsp
+	<button class="article click-able" v-on:click="goPostMfy">수정</button>&nbsp;&nbsp;
+	<button class="article click-able" v-on:click="dltPost">삭제</button>
 	<div>
 		<pre>
 			The standard Lorem Ipsum passage, used since the 1500s
@@ -26,20 +27,20 @@ Section 1.10.32 of "de Finibus Bonorum et Malorum", written by Cicero in 45 BC
 	<tr>
 		<td class="author">닉네임</td>
 		<td>댓글내용</td>
-		<td class="like"><button class="article">수정</button></td>
-		<td class="like"><button class="article">삭제</button></td>
+		<td class="like"><button class="article click-able" v-on:click="mfyCmt">수정</button></td>
+		<td class="like"><button class="article click-able" v-on:click="dltCmt">삭제</button></td>
 	</tr>
 		<tr>
 		<td class="author">닉네임</td>
 		<td>댓글내용</td>
-		<td class="like"><button class="article">수정</button></td>
-		<td class="like"><button class="article">삭제</button></td>
+		<td class="like"><button class="article click-able" v-on:click="mfyCmt">수정</button></td>
+		<td class="like"><button class="article click-able" v-on:click="dltCmt">삭제</button></td>
 	</tr>
 		<tr>
 		<td class="author">닉네임</td>
 		<form>
 		<td colspan="2"><input type="text" class="search" name=""></td>
-		<td class="like"><button class="article">등록</button></td>
+		<td class="like"><button class="article click-able" v-on:click="crtCmt">등록</button></td>
 		</form>
 	</tr>
 </table>
@@ -59,6 +60,26 @@ export default {
     }
   },
   methods: {
+    goPostMfy: function () {
+      alert(' 게시물 수정페이지로 이동합니다 ')
+      // this.$router.push({ name: 'PostMfy' })
+    },
+    dltPost: function () {
+      alert(' 게시물 삭제하시겠습니까 ')
+      // this.$router.push({ name: 'dltPost' })
+    },
+    mfyCmt: function () {
+      alert(' 댓글 수정하시겠습니까 ')
+      // this.$router.push({ name: '' })
+    },
+    dltCmt: function () {
+      alert(' 댓글 삭제하시겠습니까 ')
+      // this.$router.push({ name: '' })
+    },
+    crtCmt: function () {
+      alert(' 댓글 등록하시겠습니까 ')
+      // this.$router.push({ name: '' })
+    }
   }
 }
 </script>

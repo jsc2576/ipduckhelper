@@ -7,7 +7,7 @@
 			<form>
 				<div class="star_result" style="width:300px; height: 300px;">
 					<img src="/img/profile_none.png" style="width: 200px; height:200px;"><br>
-					<input type="file" value="사진을 업로드하세요">
+					<input class="click-able" type="file" value="사진을 업로드하세요">
 				</div>
 				<div class="content">
 					이름 <input type="text" class="search" style="width:150px"> &nbsp;
@@ -20,7 +20,7 @@
 					데뷔날짜 <input type="text" class="search" style="width:250px"> &nbsp;
 					생년월일 <input type="text" class="search" style="width:250px"><br><br>
 					태그 <input type="text" class="search" style="width:600px"><br><br>
-					<button class="submit_button" style="width:200px;font-size: 20px;" v-on:click.prevent="starCreate" >등록하기</button>
+					<button class="submit_button click-able" style="width:200px;font-size: 20px;" v-on:click.prevent="starCreate" >등록하기</button>
 				</div>
 			</form>
 		</div>
@@ -40,6 +40,7 @@ export default {
   },
   methods: {
     starCreate: function () {
+      alert(' 연예인을 등록합니다 ')
     }
   }
 }

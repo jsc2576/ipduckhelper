@@ -11,7 +11,7 @@
 태그 <input type="text" class="search" style="width:600px">
 
 
-<button v-on:click.prevent="goMmList">검색하기</button>
+<button class="click-able" v-on:click.prevent="goMmList">검색하기</button>
 
 </form>
 </pre>
