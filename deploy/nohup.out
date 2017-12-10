@@ -1,0 +1,263 @@
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::        (v1.5.9.RELEASE)
+
+2017-12-09 20:48:22.572  INFO 1038 --- [           main] com.ipduckhelper.IpduckApplication       : Starting IpduckApplication v0.0.1-SNAPSHOT on cegrp4 with PID 1038 (/home/CECTX/se14/jars/jjj-0.0.1-SNAPSHOT.jar started by root in /home/CECTX/se14/jars)
+2017-12-09 20:48:22.599  INFO 1038 --- [           main] com.ipduckhelper.IpduckApplication       : No active profile set, falling back to default profiles: default
+2017-12-09 20:48:22.884  INFO 1038 --- [           main] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@5a2e4553: startup date [Sat Dec 09 20:48:22 KST 2017]; root of context hierarchy
+2017-12-09 20:48:25.132  WARN 1038 --- [           main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.ipduckhelper]' package. Please check your configuration.
+2017-12-09 20:48:25.525  WARN 1038 --- [           main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.ipduckhelper]' package. Please check your configuration.
+2017-12-09 20:48:28.013  INFO 1038 --- [           main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 8080 (http)
+2017-12-09 20:48:28.085  INFO 1038 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2017-12-09 20:48:28.087  INFO 1038 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.23
+2017-12-09 20:48:28.760  INFO 1038 --- [ost-startStop-1] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2017-12-09 20:48:29.427  INFO 1038 --- [ost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2017-12-09 20:48:29.428  INFO 1038 --- [ost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 6555 ms
+2017-12-09 20:48:29.922  INFO 1038 --- [ost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Mapping servlet: 'dispatcherServlet' to [/]
+2017-12-09 20:48:29.932  INFO 1038 --- [ost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2017-12-09 20:48:29.932  INFO 1038 --- [ost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2017-12-09 20:48:29.932  INFO 1038 --- [ost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2017-12-09 20:48:29.932  INFO 1038 --- [ost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2017-12-09 20:48:32.571  INFO 1038 --- [           main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@5a2e4553: startup date [Sat Dec 09 20:48:22 KST 2017]; root of context hierarchy
+2017-12-09 20:48:32.748  INFO 1038 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/crt/cmnt/do.go],methods=[POST]}" onto public java.lang.Integer com.ipduckhelper.cmnt.CmntController.Crt_Cmnt(com.ipduckhelper.cmnt.Cmnt) throws java.lang.Exception
+2017-12-09 20:48:32.749  INFO 1038 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/del/cmnt/do.my],methods=[POST]}" onto public java.lang.Integer com.ipduckhelper.cmnt.CmntController.Del_Cmnt(java.lang.Integer) throws java.lang.Exception
+2017-12-09 20:48:32.756  INFO 1038 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/fix/cmnt/do.my],methods=[POST]}" onto public java.lang.Integer com.ipduckhelper.cmnt.CmntController.Fix_Cmnt(com.ipduckhelper.cmnt.Cmnt) throws java.lang.Exception
+2017-12-09 20:48:32.756  INFO 1038 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/srch/list/cmnt/do],methods=[POST]}" onto public java.util.List<com.ipduckhelper.cmnt.Cmnt> com.ipduckhelper.cmnt.CmntController.Srch_Cmnt_List(com.ipduckhelper.cmnt.Cmnt) throws java.lang.Exception
+2017-12-09 20:48:32.765  INFO 1038 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/srch/list/cmpy/do],methods=[POST]}" onto public java.util.List<com.ipduckhelper.cmpy.Cmpy> com.ipduckhelper.cmpy.CmpyController.Srch_Cmpy_List(com.ipduckhelper.cmpy.Cmpy) throws java.lang.Exception
+2017-12-09 20:48:32.765  INFO 1038 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/crt/cmpy/do.admin],methods=[POST]}" onto public java.lang.Integer com.ipduckhelper.cmpy.CmpyController.Crt_Cmpy(javax.servlet.http.HttpServletRequest,com.ipduckhelper.cmpy.Cmpy) throws java.lang.Exception
+2017-12-09 20:48:32.765  INFO 1038 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/srch/cmpy/do],methods=[POST]}" onto public com.ipduckhelper.cmpy.Cmpy com.ipduckhelper.cmpy.CmpyController.Srch_Cmpy(com.ipduckhelper.cmpy.Cmpy) throws java.lang.Exception
+2017-12-09 20:48:32.766  INFO 1038 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/del/cmpy/do.admin],methods=[POST]}" onto public java.lang.Integer com.ipduckhelper.cmpy.CmpyController.Del_Cmpy(javax.servlet.http.HttpServletRequest,java.lang.String) throws java.lang.Exception
+2017-12-09 20:48:32.766  INFO 1038 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/fix/cmpy/do.admin],methods=[POST]}" onto public java.lang.Integer com.ipduckhelper.cmpy.CmpyController.Fix_Cmpy(javax.servlet.http.HttpServletRequest,com.ipduckhelper.cmpy.Cmpy) throws java.lang.Exception
+2017-12-09 20:48:32.779  INFO 1038 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/del/mm/do.my],methods=[POST]}" onto public java.lang.Integer com.ipduckhelper.meme.MemeController.Del_Mm(javax.servlet.http.HttpServletRequest,java.lang.Integer) throws java.lang.Exception
+2017-12-09 20:48:32.780  INFO 1038 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/add/tag/mm/do.my],methods=[POST]}" onto public java.lang.Integer com.ipduckhelper.meme.MemeController.Add_Tag_Mm(javax.servlet.http.HttpServletRequest,com.ipduckhelper.meme.Meme) throws java.lang.Exception
+2017-12-09 20:48:32.780  INFO 1038 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/del/tag/mm/do.my],methods=[POST]}" onto public java.lang.Integer com.ipduckhelper.meme.MemeController.Del_Tag_Mm(javax.servlet.http.HttpServletRequest,com.ipduckhelper.meme.Meme) throws java.lang.Exception
+2017-12-09 20:48:32.781  INFO 1038 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/srch/list/mm/star/do],methods=[POST]}" onto public java.util.List<com.ipduckhelper.meme.Meme> com.ipduckhelper.meme.MemeController.Srch_Mm_Star_List(com.ipduckhelper.meme.Meme) throws java.lang.Exception
+2017-12-09 20:48:32.782  INFO 1038 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/crt/mm/do.go],methods=[POST]}" onto public java.lang.Integer com.ipduckhelper.meme.MemeController.Crt_Mm(javax.servlet.http.HttpServletRequest,com.ipduckhelper.meme.Meme) throws java.lang.Exception
+2017-12-09 20:48:32.783  INFO 1038 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/srch/list/mm/tag/do],methods=[POST]}" onto public java.util.List<com.ipduckhelper.meme.Meme> com.ipduckhelper.meme.MemeController.Srch_Mm_Tag_List(com.ipduckhelper.meme.Meme) throws java.lang.Exception
+2017-12-09 20:48:32.783  INFO 1038 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/fix/mm/do.my],methods=[POST]}" onto public java.lang.Integer com.ipduckhelper.meme.MemeController.Fix_Mm(javax.servlet.http.HttpServletRequest,com.ipduckhelper.meme.Meme) throws java.lang.Exception
+2017-12-09 20:48:32.787  INFO 1038 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/srch/post/do],methods=[POST]}" onto public com.ipduckhelper.post.Post com.ipduckhelper.post.PostController.Srch_Post(java.lang.Integer) throws java.lang.Exception
+2017-12-09 20:48:32.791  INFO 1038 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/srch/list/post/ttl/do],methods=[POST]}" onto public java.util.List<com.ipduckhelper.post.Post> com.ipduckhelper.post.PostController.Srch_Post_Ttl_List(com.ipduckhelper.post.Post) throws java.lang.Exception
+2017-12-09 20:48:32.793  INFO 1038 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/srch/list/post/tag/do],methods=[POST]}" onto public java.util.List<com.ipduckhelper.post.Post> com.ipduckhelper.post.PostController.Srch_Post_Tag_List(com.ipduckhelper.post.Post) throws java.lang.Exception
+2017-12-09 20:48:32.793  INFO 1038 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/fix/post/do.my],methods=[POST]}" onto public java.lang.Integer com.ipduckhelper.post.PostController.Fix_Post(com.ipduckhelper.post.Post) throws java.lang.Exception
+2017-12-09 20:48:32.795  INFO 1038 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/del/post/do.my],methods=[POST]}" onto public java.lang.Integer com.ipduckhelper.post.PostController.Del_Post(java.lang.Integer) throws java.lang.Exception
+2017-12-09 20:48:32.795  INFO 1038 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/like/post/do.my],methods=[POST]}" onto public java.lang.Integer com.ipduckhelper.post.PostController.Like_Post(com.ipduckhelper.post.Post) throws java.lang.Exception
+2017-12-09 20:48:32.796  INFO 1038 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/crt/post/do.go],methods=[POST]}" onto public java.lang.Integer com.ipduckhelper.post.PostController.Crt_Post(javax.servlet.http.HttpServletRequest,com.ipduckhelper.post.Post) throws java.lang.Exception
+2017-12-09 20:48:32.797  INFO 1038 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/crt/sche/do.go],methods=[POST]}" onto public java.lang.Integer com.ipduckhelper.sche.ScheController.Crt_Sche(com.ipduckhelper.sche.Sche) throws java.lang.Exception
+2017-12-09 20:48:32.797  INFO 1038 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/fix/sche/do.go],methods=[POST]}" onto public java.lang.Integer com.ipduckhelper.sche.ScheController.Fix_Sche(com.ipduckhelper.sche.Sche) throws java.lang.Exception
+2017-12-09 20:48:32.798  INFO 1038 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/del/sche/do.go],methods=[POST]}" onto public java.lang.Integer com.ipduckhelper.sche.ScheController.Del_Sche(java.lang.Integer) throws java.lang.Exception
+2017-12-09 20:48:32.798  INFO 1038 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/srch/list/sche/do],methods=[POST]}" onto public java.util.List<com.ipduckhelper.sche.Sche> com.ipduckhelper.sche.ScheController.Srch_Sche_List(com.ipduckhelper.sche.Sche) throws java.lang.Exception
+2017-12-09 20:48:32.808  INFO 1038 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/del/star/do.admin],methods=[POST]}" onto public java.lang.Integer com.ipduckhelper.star.StarController.Del_Star(javax.servlet.http.HttpServletRequest,java.lang.Integer) throws java.lang.Exception
+2017-12-09 20:48:32.809  INFO 1038 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/del/grp/do.admin],methods=[POST]}" onto public java.lang.Integer com.ipduckhelper.star.StarController.Del_Grp(javax.servlet.http.HttpServletRequest,java.lang.Integer) throws java.lang.Exception
+2017-12-09 20:48:32.809  INFO 1038 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/like/star/do.go],methods=[POST]}" onto public java.lang.Integer com.ipduckhelper.star.StarController.Like_Star(javax.servlet.http.HttpServletRequest,com.ipduckhelper.star.Star) throws java.lang.Exception
+2017-12-09 20:48:32.809  INFO 1038 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/tag/add/star/do.go],methods=[POST]}" onto public java.lang.Integer com.ipduckhelper.star.StarController.Add_Tag_Star(javax.servlet.http.HttpServletRequest,com.ipduckhelper.star.Star) throws java.lang.Exception
+2017-12-09 20:48:32.809  INFO 1038 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/crt/star/do.admin],methods=[POST]}" onto public java.lang.Integer com.ipduckhelper.star.StarController.Crt_Star(javax.servlet.http.HttpServletRequest,com.ipduckhelper.star.Star) throws java.lang.Exception
+2017-12-09 20:48:32.810  INFO 1038 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/tag/del/star/do.go],methods=[POST]}" onto public java.lang.Integer com.ipduckhelper.star.StarController.Del_Tag_Star(javax.servlet.http.HttpServletRequest,com.ipduckhelper.star.Star) throws java.lang.Exception
+2017-12-09 20:48:32.810  INFO 1038 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/fix/star/do.admin],methods=[POST]}" onto public java.lang.Integer com.ipduckhelper.star.StarController.Fix_Star(javax.servlet.http.HttpServletRequest,com.ipduckhelper.star.Star) throws java.lang.Exception
+2017-12-09 20:48:32.811  INFO 1038 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/fix/grp/do.admin],methods=[POST]}" onto public java.lang.Integer com.ipduckhelper.star.StarController.Fix_Grp(javax.servlet.http.HttpServletRequest,com.ipduckhelper.star.Star) throws java.lang.Exception
+2017-12-09 20:48:32.815  INFO 1038 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/srch/star/do],methods=[POST]}" onto public com.ipduckhelper.star.Star com.ipduckhelper.star.StarController.Srch_Star(com.ipduckhelper.star.Star) throws java.lang.Exception
+2017-12-09 20:48:32.816  INFO 1038 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/srch/grp/do],methods=[POST]}" onto public com.ipduckhelper.star.Star com.ipduckhelper.star.StarController.Srch_Grp(com.ipduckhelper.star.Star) throws java.lang.Exception
+2017-12-09 20:48:32.816  INFO 1038 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/crt/grp/do.admin],methods=[POST]}" onto public java.lang.Integer com.ipduckhelper.star.StarController.Crt_Grp(javax.servlet.http.HttpServletRequest,com.ipduckhelper.star.Star) throws java.lang.Exception
+2017-12-09 20:48:32.816  INFO 1038 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/srch/list/star/do.go],methods=[POST]}" onto public java.util.List<com.ipduckhelper.star.Star> com.ipduckhelper.star.StarController.Srch_Star_List(com.ipduckhelper.star.Star) throws java.lang.Exception
+2017-12-09 20:48:32.816  INFO 1038 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/test]}" onto public java.lang.String com.ipduckhelper.test.test.Main()
+2017-12-09 20:48:32.817  INFO 1038 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/logout/do.go],methods=[POST]}" onto public java.lang.Integer com.ipduckhelper.user.UserController.Logout(javax.servlet.http.HttpServletRequest) throws java.lang.Exception
+2017-12-09 20:48:32.817  INFO 1038 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/login/do],methods=[POST]}" onto public com.ipduckhelper.user.User com.ipduckhelper.user.UserController.Login(javax.servlet.http.HttpServletRequest,com.ipduckhelper.user.User) throws java.lang.Exception
+2017-12-09 20:48:32.817  INFO 1038 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/srch/list/mem/do.admin],methods=[POST]}" onto public java.util.List<com.ipduckhelper.user.User> com.ipduckhelper.user.UserController.Srch_Mem_List(javax.servlet.http.HttpServletRequest,com.ipduckhelper.user.User) throws java.lang.Exception
+2017-12-09 20:48:32.817  INFO 1038 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/srch/mem/do.go],methods=[POST]}" onto public com.ipduckhelper.user.User com.ipduckhelper.user.UserController.Srch_Mem(javax.servlet.http.HttpServletRequest,com.ipduckhelper.user.User) throws java.lang.Exception
+2017-12-09 20:48:32.817  INFO 1038 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/signup/do],methods=[POST]}" onto public java.lang.Integer com.ipduckhelper.user.UserController.SignUp(com.ipduckhelper.user.User) throws java.lang.Exception
+2017-12-09 20:48:32.817  INFO 1038 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/acvt/mem/do],methods=[POST]}" onto public java.lang.Integer com.ipduckhelper.user.UserController.Acvt_Mem(com.ipduckhelper.user.User) throws java.lang.Exception
+2017-12-09 20:48:32.818  INFO 1038 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/fix/mem/do.my],methods=[POST]}" onto public java.lang.Integer com.ipduckhelper.user.UserController.Fix_Mem(javax.servlet.http.HttpServletRequest,com.ipduckhelper.user.User) throws java.lang.Exception
+2017-12-09 20:48:32.829  INFO 1038 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/del/mem/do.my],methods=[POST]}" onto public java.lang.Integer com.ipduckhelper.user.UserController.Del_Mem(javax.servlet.http.HttpServletRequest,com.ipduckhelper.user.User) throws java.lang.Exception
+2017-12-09 20:48:32.836  INFO 1038 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2017-12-09 20:48:32.837  INFO 1038 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2017-12-09 20:48:32.928  INFO 1038 --- [           main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-12-09 20:48:32.928  INFO 1038 --- [           main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-12-09 20:48:33.082  INFO 1038 --- [           main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-12-09 20:48:33.148  INFO 1038 --- [           main] oConfiguration$WelcomePageHandlerMapping : Adding welcome page: class path resource [public/index.html]
+2017-12-09 20:48:33.526  INFO 1038 --- [           main] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2017-12-09 20:48:34.121  INFO 1038 --- [           main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat started on port(s): 8080 (http)
+2017-12-09 20:48:34.142  INFO 1038 --- [           main] com.ipduckhelper.IpduckApplication       : Started IpduckApplication in 12.579 seconds (JVM running for 13.631)
+2017-12-10 04:48:20.500  INFO 1038 --- [nio-8080-exec-3] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring FrameworkServlet 'dispatcherServlet'
+2017-12-10 04:48:20.500  INFO 1038 --- [nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization started
+2017-12-10 04:48:20.545  INFO 1038 --- [nio-8080-exec-3] o.s.web.servlet.DispatcherServlet        : FrameworkServlet 'dispatcherServlet': initialization completed in 45 ms
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::        (v1.5.9.RELEASE)
+
+2017-12-10 10:35:38.069  INFO 28323 --- [           main] com.ipduckhelper.IpduckApplication       : Starting IpduckApplication v0.0.1-SNAPSHOT on cegrp4 with PID 28323 (/home/CECTX/se14/jars/jjj-0.0.1-SNAPSHOT.jar started by root in /home/CECTX/se14/jars)
+2017-12-10 10:35:38.095  INFO 28323 --- [           main] com.ipduckhelper.IpduckApplication       : No active profile set, falling back to default profiles: default
+2017-12-10 10:35:38.456  INFO 28323 --- [           main] ationConfigEmbeddedWebApplicationContext : Refreshing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@5a2e4553: startup date [Sun Dec 10 10:35:38 KST 2017]; root of context hierarchy
+2017-12-10 10:35:41.016  WARN 28323 --- [           main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.ipduckhelper]' package. Please check your configuration.
+2017-12-10 10:35:41.302  WARN 28323 --- [           main] o.m.s.mapper.ClassPathMapperScanner      : No MyBatis mapper was found in '[com.ipduckhelper]' package. Please check your configuration.
+2017-12-10 10:35:44.514  INFO 28323 --- [           main] s.b.c.e.t.TomcatEmbeddedServletContainer : Tomcat initialized with port(s): 8080 (http)
+2017-12-10 10:35:44.560  INFO 28323 --- [           main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2017-12-10 10:35:44.562  INFO 28323 --- [           main] org.apache.catalina.core.StandardEngine  : Starting Servlet Engine: Apache Tomcat/8.5.23
+2017-12-10 10:35:45.374  INFO 28323 --- [ost-startStop-1] org.apache.jasper.servlet.TldScanner     : At least one JAR was scanned for TLDs yet contained no TLDs. Enable debug logging for this logger for a complete list of JARs that were scanned but no TLDs were found in them. Skipping unneeded JARs during scanning can improve startup time and JSP compilation time.
+2017-12-10 10:35:45.871  INFO 28323 --- [ost-startStop-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2017-12-10 10:35:45.872  INFO 28323 --- [ost-startStop-1] o.s.web.context.ContextLoader            : Root WebApplicationContext: initialization completed in 7423 ms
+2017-12-10 10:35:46.257  INFO 28323 --- [ost-startStop-1] o.s.b.w.servlet.ServletRegistrationBean  : Mapping servlet: 'dispatcherServlet' to [/]
+2017-12-10 10:35:46.267  INFO 28323 --- [ost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'characterEncodingFilter' to: [/*]
+2017-12-10 10:35:46.267  INFO 28323 --- [ost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'hiddenHttpMethodFilter' to: [/*]
+2017-12-10 10:35:46.267  INFO 28323 --- [ost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'httpPutFormContentFilter' to: [/*]
+2017-12-10 10:35:46.267  INFO 28323 --- [ost-startStop-1] o.s.b.w.servlet.FilterRegistrationBean   : Mapping filter: 'requestContextFilter' to: [/*]
+2017-12-10 10:35:49.718  INFO 28323 --- [           main] s.w.s.m.m.a.RequestMappingHandlerAdapter : Looking for @ControllerAdvice: org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@5a2e4553: startup date [Sun Dec 10 10:35:38 KST 2017]; root of context hierarchy
+2017-12-10 10:35:49.909  INFO 28323 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/fix/cmnt/do.my],methods=[POST]}" onto public java.lang.Integer com.ipduckhelper.cmnt.CmntController.Fix_Cmnt(com.ipduckhelper.cmnt.Cmnt) throws java.lang.Exception
+2017-12-10 10:35:49.911  INFO 28323 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/del/cmnt/do.my],methods=[POST]}" onto public java.lang.Integer com.ipduckhelper.cmnt.CmntController.Del_Cmnt(java.lang.Integer) throws java.lang.Exception
+2017-12-10 10:35:49.912  INFO 28323 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/crt/cmnt/do.go],methods=[POST]}" onto public java.lang.Integer com.ipduckhelper.cmnt.CmntController.Crt_Cmnt(com.ipduckhelper.cmnt.Cmnt) throws java.lang.Exception
+2017-12-10 10:35:49.913  INFO 28323 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/srch/list/cmnt/do],methods=[POST]}" onto public java.util.List<com.ipduckhelper.cmnt.Cmnt> com.ipduckhelper.cmnt.CmntController.Srch_Cmnt_List(com.ipduckhelper.cmnt.Cmnt) throws java.lang.Exception
+2017-12-10 10:35:49.918  INFO 28323 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/crt/cmpy/do.admin],methods=[POST]}" onto public java.lang.Integer com.ipduckhelper.cmpy.CmpyController.Crt_Cmpy(javax.servlet.http.HttpServletRequest,com.ipduckhelper.cmpy.Cmpy) throws java.lang.Exception
+2017-12-10 10:35:49.918  INFO 28323 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/srch/list/cmpy/do],methods=[POST]}" onto public java.util.List<com.ipduckhelper.cmpy.Cmpy> com.ipduckhelper.cmpy.CmpyController.Srch_Cmpy_List(com.ipduckhelper.cmpy.Cmpy) throws java.lang.Exception
+2017-12-10 10:35:49.919  INFO 28323 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/srch/cmpy/do],methods=[POST]}" onto public com.ipduckhelper.cmpy.Cmpy com.ipduckhelper.cmpy.CmpyController.Srch_Cmpy(com.ipduckhelper.cmpy.Cmpy) throws java.lang.Exception
+2017-12-10 10:35:49.920  INFO 28323 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/fix/cmpy/do.admin],methods=[POST]}" onto public java.lang.Integer com.ipduckhelper.cmpy.CmpyController.Fix_Cmpy(javax.servlet.http.HttpServletRequest,com.ipduckhelper.cmpy.Cmpy) throws java.lang.Exception
+2017-12-10 10:35:49.920  INFO 28323 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/del/cmpy/do.admin],methods=[POST]}" onto public java.lang.Integer com.ipduckhelper.cmpy.CmpyController.Del_Cmpy(javax.servlet.http.HttpServletRequest,java.lang.String) throws java.lang.Exception
+2017-12-10 10:35:49.928  INFO 28323 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/srch/list/mm/star/do],methods=[POST]}" onto public java.util.List<com.ipduckhelper.meme.Meme> com.ipduckhelper.meme.MemeController.Srch_Mm_Star_List(com.ipduckhelper.meme.Meme) throws java.lang.Exception
+2017-12-10 10:35:49.928  INFO 28323 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/srch/list/mm/tag/do],methods=[POST]}" onto public java.util.List<com.ipduckhelper.meme.Meme> com.ipduckhelper.meme.MemeController.Srch_Mm_Tag_List(com.ipduckhelper.meme.Meme) throws java.lang.Exception
+2017-12-10 10:35:49.929  INFO 28323 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/fix/mm/do.my],methods=[POST]}" onto public java.lang.Integer com.ipduckhelper.meme.MemeController.Fix_Mm(javax.servlet.http.HttpServletRequest,com.ipduckhelper.meme.Meme) throws java.lang.Exception
+2017-12-10 10:35:49.931  INFO 28323 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/del/mm/do.my],methods=[POST]}" onto public java.lang.Integer com.ipduckhelper.meme.MemeController.Del_Mm(javax.servlet.http.HttpServletRequest,java.lang.Integer) throws java.lang.Exception
+2017-12-10 10:35:49.932  INFO 28323 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/add/tag/mm/do.my],methods=[POST]}" onto public java.lang.Integer com.ipduckhelper.meme.MemeController.Add_Tag_Mm(javax.servlet.http.HttpServletRequest,com.ipduckhelper.meme.Meme) throws java.lang.Exception
+2017-12-10 10:35:49.932  INFO 28323 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/del/tag/mm/do.my],methods=[POST]}" onto public java.lang.Integer com.ipduckhelper.meme.MemeController.Del_Tag_Mm(javax.servlet.http.HttpServletRequest,com.ipduckhelper.meme.Meme) throws java.lang.Exception
+2017-12-10 10:35:49.932  INFO 28323 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/crt/mm/do.go],methods=[POST]}" onto public java.lang.Integer com.ipduckhelper.meme.MemeController.Crt_Mm(javax.servlet.http.HttpServletRequest,com.ipduckhelper.meme.Meme) throws java.lang.Exception
+2017-12-10 10:35:49.943  INFO 28323 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/crt/post/do.go],methods=[POST]}" onto public java.lang.Integer com.ipduckhelper.post.PostController.Crt_Post(javax.servlet.http.HttpServletRequest,com.ipduckhelper.post.Post) throws java.lang.Exception
+2017-12-10 10:35:49.944  INFO 28323 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/srch/list/post/ttl/do],methods=[POST]}" onto public java.util.List<com.ipduckhelper.post.Post> com.ipduckhelper.post.PostController.Srch_Post_Ttl_List(com.ipduckhelper.post.Post) throws java.lang.Exception
+2017-12-10 10:35:49.945  INFO 28323 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/srch/list/post/tag/do],methods=[POST]}" onto public java.util.List<com.ipduckhelper.post.Post> com.ipduckhelper.post.PostController.Srch_Post_Tag_List(com.ipduckhelper.post.Post) throws java.lang.Exception
+2017-12-10 10:35:49.945  INFO 28323 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/srch/post/do],methods=[POST]}" onto public com.ipduckhelper.post.Post com.ipduckhelper.post.PostController.Srch_Post(java.lang.Integer) throws java.lang.Exception
+2017-12-10 10:35:49.946  INFO 28323 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/fix/post/do.my],methods=[POST]}" onto public java.lang.Integer com.ipduckhelper.post.PostController.Fix_Post(com.ipduckhelper.post.Post) throws java.lang.Exception
+2017-12-10 10:35:49.947  INFO 28323 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/del/post/do.my],methods=[POST]}" onto public java.lang.Integer com.ipduckhelper.post.PostController.Del_Post(java.lang.Integer) throws java.lang.Exception
+2017-12-10 10:35:49.948  INFO 28323 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/like/post/do.my],methods=[POST]}" onto public java.lang.Integer com.ipduckhelper.post.PostController.Like_Post(com.ipduckhelper.post.Post) throws java.lang.Exception
+2017-12-10 10:35:49.950  INFO 28323 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/crt/sche/do.go],methods=[POST]}" onto public java.lang.Integer com.ipduckhelper.sche.ScheController.Crt_Sche(com.ipduckhelper.sche.Sche) throws java.lang.Exception
+2017-12-10 10:35:49.950  INFO 28323 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/srch/list/sche/do],methods=[POST]}" onto public java.util.List<com.ipduckhelper.sche.Sche> com.ipduckhelper.sche.ScheController.Srch_Sche_List(com.ipduckhelper.sche.Sche) throws java.lang.Exception
+2017-12-10 10:35:49.950  INFO 28323 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/fix/sche/do.go],methods=[POST]}" onto public java.lang.Integer com.ipduckhelper.sche.ScheController.Fix_Sche(com.ipduckhelper.sche.Sche) throws java.lang.Exception
+2017-12-10 10:35:49.950  INFO 28323 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/del/sche/do.go],methods=[POST]}" onto public java.lang.Integer com.ipduckhelper.sche.ScheController.Del_Sche(java.lang.Integer) throws java.lang.Exception
+2017-12-10 10:35:49.955  INFO 28323 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/crt/star/do.admin],methods=[POST]}" onto public java.lang.Integer com.ipduckhelper.star.StarController.Crt_Star(javax.servlet.http.HttpServletRequest,com.ipduckhelper.star.Star) throws java.lang.Exception
+2017-12-10 10:35:49.955  INFO 28323 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/crt/grp/do.admin],methods=[POST]}" onto public java.lang.Integer com.ipduckhelper.star.StarController.Crt_Grp(javax.servlet.http.HttpServletRequest,com.ipduckhelper.star.Star) throws java.lang.Exception
+2017-12-10 10:35:49.957  INFO 28323 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/srch/list/star/do.go],methods=[POST]}" onto public java.util.List<com.ipduckhelper.star.Star> com.ipduckhelper.star.StarController.Srch_Star_List(com.ipduckhelper.star.Star) throws java.lang.Exception
+2017-12-10 10:35:49.958  INFO 28323 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/srch/star/do],methods=[POST]}" onto public com.ipduckhelper.star.Star com.ipduckhelper.star.StarController.Srch_Star(com.ipduckhelper.star.Star) throws java.lang.Exception
+2017-12-10 10:35:49.963  INFO 28323 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/srch/grp/do],methods=[POST]}" onto public com.ipduckhelper.star.Star com.ipduckhelper.star.StarController.Srch_Grp(com.ipduckhelper.star.Star) throws java.lang.Exception
+2017-12-10 10:35:49.963  INFO 28323 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/fix/star/do.admin],methods=[POST]}" onto public java.lang.Integer com.ipduckhelper.star.StarController.Fix_Star(javax.servlet.http.HttpServletRequest,com.ipduckhelper.star.Star) throws java.lang.Exception
+2017-12-10 10:35:49.964  INFO 28323 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/fix/grp/do.admin],methods=[POST]}" onto public java.lang.Integer com.ipduckhelper.star.StarController.Fix_Grp(javax.servlet.http.HttpServletRequest,com.ipduckhelper.star.Star) throws java.lang.Exception
+2017-12-10 10:35:49.964  INFO 28323 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/del/star/do.admin],methods=[POST]}" onto public java.lang.Integer com.ipduckhelper.star.StarController.Del_Star(javax.servlet.http.HttpServletRequest,java.lang.Integer) throws java.lang.Exception
+2017-12-10 10:35:49.964  INFO 28323 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/del/grp/do.admin],methods=[POST]}" onto public java.lang.Integer com.ipduckhelper.star.StarController.Del_Grp(javax.servlet.http.HttpServletRequest,java.lang.Integer) throws java.lang.Exception
+2017-12-10 10:35:49.964  INFO 28323 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/like/star/do.go],methods=[POST]}" onto public java.lang.Integer com.ipduckhelper.star.StarController.Like_Star(javax.servlet.http.HttpServletRequest,com.ipduckhelper.star.Star) throws java.lang.Exception
+2017-12-10 10:35:49.964  INFO 28323 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/tag/add/star/do.go],methods=[POST]}" onto public java.lang.Integer com.ipduckhelper.star.StarController.Add_Tag_Star(javax.servlet.http.HttpServletRequest,com.ipduckhelper.star.Star) throws java.lang.Exception
+2017-12-10 10:35:49.964  INFO 28323 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/tag/del/star/do.go],methods=[POST]}" onto public java.lang.Integer com.ipduckhelper.star.StarController.Del_Tag_Star(javax.servlet.http.HttpServletRequest,com.ipduckhelper.star.Star) throws java.lang.Exception
+2017-12-10 10:35:49.965  INFO 28323 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/test]}" onto public java.lang.String com.ipduckhelper.test.test.Main()
+2017-12-10 10:35:49.965  INFO 28323 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/logout/do.go],methods=[POST]}" onto public java.lang.Integer com.ipduckhelper.user.UserController.Logout(javax.servlet.http.HttpServletRequest) throws java.lang.Exception
+2017-12-10 10:35:49.965  INFO 28323 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/srch/list/mem/do.admin],methods=[POST]}" onto public java.util.List<com.ipduckhelper.user.User> com.ipduckhelper.user.UserController.Srch_Mem_List(javax.servlet.http.HttpServletRequest,com.ipduckhelper.user.User) throws java.lang.Exception
+2017-12-10 10:35:49.966  INFO 28323 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/srch/mem/do.go],methods=[POST]}" onto public com.ipduckhelper.user.User com.ipduckhelper.user.UserController.Srch_Mem(javax.servlet.http.HttpServletRequest,com.ipduckhelper.user.User) throws java.lang.Exception
+2017-12-10 10:35:49.966  INFO 28323 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/fix/mem/do.my],methods=[POST]}" onto public java.lang.Integer com.ipduckhelper.user.UserController.Fix_Mem(javax.servlet.http.HttpServletRequest,com.ipduckhelper.user.User) throws java.lang.Exception
+2017-12-10 10:35:49.966  INFO 28323 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/del/mem/do.my],methods=[POST]}" onto public java.lang.Integer com.ipduckhelper.user.UserController.Del_Mem(javax.servlet.http.HttpServletRequest,com.ipduckhelper.user.User) throws java.lang.Exception
+2017-12-10 10:35:49.966  INFO 28323 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/acvt/mem/do],methods=[POST]}" onto public java.lang.Integer com.ipduckhelper.user.UserController.Acvt_Mem(com.ipduckhelper.user.User) throws java.lang.Exception
+2017-12-10 10:35:49.966  INFO 28323 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/login/do],methods=[POST]}" onto public com.ipduckhelper.user.User com.ipduckhelper.user.UserController.Login(javax.servlet.http.HttpServletRequest,com.ipduckhelper.user.User) throws java.lang.Exception
+2017-12-10 10:35:49.966  INFO 28323 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/signup/do],methods=[POST]}" onto public java.lang.Integer com.ipduckhelper.user.UserController.SignUp(com.ipduckhelper.user.User) throws java.lang.Exception
+2017-12-10 10:35:49.978  INFO 28323 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error],produces=[text/html]}" onto public org.springframework.web.servlet.ModelAndView org.springframework.boot.autoconfigure.web.BasicErrorController.errorHtml(javax.servlet.http.HttpServletRequest,javax.servlet.http.HttpServletResponse)
+2017-12-10 10:35:49.978  INFO 28323 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped "{[/error]}" onto public org.springframework.http.ResponseEntity<java.util.Map<java.lang.String, java.lang.Object>> org.springframework.boot.autoconfigure.web.BasicErrorController.error(javax.servlet.http.HttpServletRequest)
+2017-12-10 10:35:50.050  INFO 28323 --- [           main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/webjars/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-12-10 10:35:50.050  INFO 28323 --- [           main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-12-10 10:35:50.172  INFO 28323 --- [           main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped URL path [/**/favicon.ico] onto handler of type [class org.springframework.web.servlet.resource.ResourceHttpRequestHandler]
+2017-12-10 10:35:50.229  INFO 28323 --- [           main] oConfiguration$WelcomePageHandlerMapping : Adding welcome page: class path resource [public/index.html]
+2017-12-10 10:35:50.758  INFO 28323 --- [           main] o.s.j.e.a.AnnotationMBeanExporter        : Registering beans for JMX exposure on startup
+2017-12-10 10:35:51.254 ERROR 28323 --- [           main] o.a.coyote.http11.Http11NioProtocol      : Failed to start end point associated with ProtocolHandler ["http-nio-8080"]
+
+java.net.BindException: Address already in use
+	at sun.nio.ch.Net.bind0(Native Method) ~[na:1.8.0_151]
+	at sun.nio.ch.Net.bind(Net.java:433) ~[na:1.8.0_151]
+	at sun.nio.ch.Net.bind(Net.java:425) ~[na:1.8.0_151]
+	at sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:223) ~[na:1.8.0_151]
+	at sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:74) ~[na:1.8.0_151]
+	at org.apache.tomcat.util.net.NioEndpoint.bind(NioEndpoint.java:210) ~[tomcat-embed-core-8.5.23.jar!/:8.5.23]
+	at org.apache.tomcat.util.net.AbstractEndpoint.start(AbstractEndpoint.java:990) ~[tomcat-embed-core-8.5.23.jar!/:8.5.23]
+	at org.apache.coyote.AbstractProtocol.start(AbstractProtocol.java:635) ~[tomcat-embed-core-8.5.23.jar!/:8.5.23]
+	at org.apache.catalina.connector.Connector.startInternal(Connector.java:1022) [tomcat-embed-core-8.5.23.jar!/:8.5.23]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:150) [tomcat-embed-core-8.5.23.jar!/:8.5.23]
+	at org.apache.catalina.core.StandardService.addConnector(StandardService.java:225) [tomcat-embed-core-8.5.23.jar!/:8.5.23]
+	at org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer.addPreviouslyRemovedConnectors(TomcatEmbeddedServletContainer.java:250) [spring-boot-1.5.9.RELEASE.jar!/:1.5.9.RELEASE]
+	at org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer.start(TomcatEmbeddedServletContainer.java:193) [spring-boot-1.5.9.RELEASE.jar!/:1.5.9.RELEASE]
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.startEmbeddedServletContainer(EmbeddedWebApplicationContext.java:297) [spring-boot-1.5.9.RELEASE.jar!/:1.5.9.RELEASE]
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.finishRefresh(EmbeddedWebApplicationContext.java:145) [spring-boot-1.5.9.RELEASE.jar!/:1.5.9.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:546) [spring-context-4.3.13.RELEASE.jar!/:4.3.13.RELEASE]
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.refresh(EmbeddedWebApplicationContext.java:122) [spring-boot-1.5.9.RELEASE.jar!/:1.5.9.RELEASE]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:693) [spring-boot-1.5.9.RELEASE.jar!/:1.5.9.RELEASE]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:360) [spring-boot-1.5.9.RELEASE.jar!/:1.5.9.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:303) [spring-boot-1.5.9.RELEASE.jar!/:1.5.9.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1118) [spring-boot-1.5.9.RELEASE.jar!/:1.5.9.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1107) [spring-boot-1.5.9.RELEASE.jar!/:1.5.9.RELEASE]
+	at com.ipduckhelper.IpduckApplication.main(IpduckApplication.java:18) [classes!/:0.0.1-SNAPSHOT]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_151]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_151]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_151]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_151]
+	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:48) [jjj-0.0.1-SNAPSHOT.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:87) [jjj-0.0.1-SNAPSHOT.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:50) [jjj-0.0.1-SNAPSHOT.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:51) [jjj-0.0.1-SNAPSHOT.jar:0.0.1-SNAPSHOT]
+
+2017-12-10 10:35:51.257 ERROR 28323 --- [           main] o.apache.catalina.core.StandardService   : Failed to start connector [Connector[HTTP/1.1-8080]]
+
+org.apache.catalina.LifecycleException: Failed to start component [Connector[HTTP/1.1-8080]]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:167) ~[tomcat-embed-core-8.5.23.jar!/:8.5.23]
+	at org.apache.catalina.core.StandardService.addConnector(StandardService.java:225) ~[tomcat-embed-core-8.5.23.jar!/:8.5.23]
+	at org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer.addPreviouslyRemovedConnectors(TomcatEmbeddedServletContainer.java:250) [spring-boot-1.5.9.RELEASE.jar!/:1.5.9.RELEASE]
+	at org.springframework.boot.context.embedded.tomcat.TomcatEmbeddedServletContainer.start(TomcatEmbeddedServletContainer.java:193) [spring-boot-1.5.9.RELEASE.jar!/:1.5.9.RELEASE]
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.startEmbeddedServletContainer(EmbeddedWebApplicationContext.java:297) [spring-boot-1.5.9.RELEASE.jar!/:1.5.9.RELEASE]
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.finishRefresh(EmbeddedWebApplicationContext.java:145) [spring-boot-1.5.9.RELEASE.jar!/:1.5.9.RELEASE]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:546) [spring-context-4.3.13.RELEASE.jar!/:4.3.13.RELEASE]
+	at org.springframework.boot.context.embedded.EmbeddedWebApplicationContext.refresh(EmbeddedWebApplicationContext.java:122) [spring-boot-1.5.9.RELEASE.jar!/:1.5.9.RELEASE]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:693) [spring-boot-1.5.9.RELEASE.jar!/:1.5.9.RELEASE]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:360) [spring-boot-1.5.9.RELEASE.jar!/:1.5.9.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:303) [spring-boot-1.5.9.RELEASE.jar!/:1.5.9.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1118) [spring-boot-1.5.9.RELEASE.jar!/:1.5.9.RELEASE]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1107) [spring-boot-1.5.9.RELEASE.jar!/:1.5.9.RELEASE]
+	at com.ipduckhelper.IpduckApplication.main(IpduckApplication.java:18) [classes!/:0.0.1-SNAPSHOT]
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:1.8.0_151]
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62) ~[na:1.8.0_151]
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:1.8.0_151]
+	at java.lang.reflect.Method.invoke(Method.java:498) ~[na:1.8.0_151]
+	at org.springframework.boot.loader.MainMethodRunner.run(MainMethodRunner.java:48) [jjj-0.0.1-SNAPSHOT.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:87) [jjj-0.0.1-SNAPSHOT.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.Launcher.launch(Launcher.java:50) [jjj-0.0.1-SNAPSHOT.jar:0.0.1-SNAPSHOT]
+	at org.springframework.boot.loader.JarLauncher.main(JarLauncher.java:51) [jjj-0.0.1-SNAPSHOT.jar:0.0.1-SNAPSHOT]
+Caused by: org.apache.catalina.LifecycleException: service.getName(): "Tomcat";  Protocol handler start failed
+	at org.apache.catalina.connector.Connector.startInternal(Connector.java:1031) ~[tomcat-embed-core-8.5.23.jar!/:8.5.23]
+	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:150) ~[tomcat-embed-core-8.5.23.jar!/:8.5.23]
+	... 21 common frames omitted
+Caused by: java.net.BindException: Address already in use
+	at sun.nio.ch.Net.bind0(Native Method) ~[na:1.8.0_151]
+	at sun.nio.ch.Net.bind(Net.java:433) ~[na:1.8.0_151]
+	at sun.nio.ch.Net.bind(Net.java:425) ~[na:1.8.0_151]
+	at sun.nio.ch.ServerSocketChannelImpl.bind(ServerSocketChannelImpl.java:223) ~[na:1.8.0_151]
+	at sun.nio.ch.ServerSocketAdaptor.bind(ServerSocketAdaptor.java:74) ~[na:1.8.0_151]
+	at org.apache.tomcat.util.net.NioEndpoint.bind(NioEndpoint.java:210) ~[tomcat-embed-core-8.5.23.jar!/:8.5.23]
+	at org.apache.tomcat.util.net.AbstractEndpoint.start(AbstractEndpoint.java:990) ~[tomcat-embed-core-8.5.23.jar!/:8.5.23]
+	at org.apache.coyote.AbstractProtocol.start(AbstractProtocol.java:635) ~[tomcat-embed-core-8.5.23.jar!/:8.5.23]
+	at org.apache.catalina.connector.Connector.startInternal(Connector.java:1022) ~[tomcat-embed-core-8.5.23.jar!/:8.5.23]
+	... 22 common frames omitted
+
+2017-12-10 10:35:51.321  INFO 28323 --- [           main] o.apache.catalina.core.StandardService   : Stopping service [Tomcat]
+2017-12-10 10:35:51.383  INFO 28323 --- [           main] utoConfigurationReportLoggingInitializer : 
+
+Error starting ApplicationContext. To display the auto-configuration report re-run your application with 'debug' enabled.
+2017-12-10 10:35:51.390 ERROR 28323 --- [           main] o.s.b.d.LoggingFailureAnalysisReporter   : 
+
+***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+The Tomcat connector configured to listen on port 8080 failed to start. The port may already be in use or the connector may be misconfigured.
+
+Action:
+
+Verify the connector's configuration, identify and stop any process that's listening on port 8080, or configure this application to listen on another port.
+
+2017-12-10 10:35:51.400  INFO 28323 --- [           main] ationConfigEmbeddedWebApplicationContext : Closing org.springframework.boot.context.embedded.AnnotationConfigEmbeddedWebApplicationContext@5a2e4553: startup date [Sun Dec 10 10:35:38 KST 2017]; root of context hierarchy
+2017-12-10 10:35:51.401  INFO 28323 --- [           main] o.s.j.e.a.AnnotationMBeanExporter        : Unregistering JMX-exposed beans on shutdown
