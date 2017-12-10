@@ -37,7 +37,7 @@ h1.galary{
 }
 
 .search_submit{
-	margin-bottom: 10px;
+    margin-bottom: 10px;
     margin-left: 5px;
 	background: url(/img/search.png) no-repeat 10px 3px;
     background-size: 30px 30px;
@@ -58,6 +58,19 @@ button{
 	height: 50px;
     border-radius:10px;
     border: none;
+}
+
+button.wide{
+    font-family: "PGL", Sans-serif;
+    font-size:20px;
+    background-color:#bfbfbf;
+    padding: 6px;
+    color:#ffffff;
+    width: 200px;
+    height: 35px;
+    border-radius:10px;
+    border: none;
+    margin:5px;
 }
 
 .submit_button{
@@ -160,7 +173,7 @@ div.title{
 }
 
 div.content{
-	display: inline-block;
+    display: inline-block;
     margin-top: 10px;
     margin-left: 20px;
     font-family: "PGL";
@@ -219,10 +232,10 @@ td, th{
     width:130px;
 }
 .visit{
-    width:70px;
+    width:110px;
 }
 .like{
-    width:70px;
+    width:110px;
 }
 .no{
     width:120px;

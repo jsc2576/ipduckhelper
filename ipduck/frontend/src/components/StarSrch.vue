@@ -8,19 +8,19 @@
 		
 		<form action="/srch/list/star/do.go">
 			<input v-model="tag_nm" type="text" class="search" placeholder="원하는 연예인의 컨셉, 이름, 노래, 분위기 등을 검색해 보세요!">
-			<button class="search_submit" @click="starSrch">
+			<button class="search_submit" v-on:click.prevent="starSrch">
 		</form>
 	
 		<br>	
-		<router-link v-bind:to="{ name:'StarSrchDtl' }" tag="button">연예인 찾기</router-link>
-		<router-link v-bind:to="{ name:'Post' }" tag="button">연예인 갤러리</router-link>
-		<router-link v-bind:to="{ name:'Mm' }" tag="button">상/짤 모음</router-link>
-		<router-link v-bind:to="{ name:'Rank' }" tag="button">검색 순위</router-link>
+		<button v-on:click.prevent="goStarSrchDtl">연예인 찾기</button>
+		<button v-on:click.prevent="goPostList">연예인 갤러리</button>
+		<button v-on:click.prevent="goMmList">상/짤 모음</button>
+		<button v-on:click.prevent="goRankList">검색 순위</button>
 	</div>
 </template>
 
 <script>
-import axios from 'axios'
+// import axios from 'axios'
 
 export default {
   name: 'star-srch',
@@ -30,8 +30,22 @@ export default {
     }
   },
   methods: {
+    goStarSrchDtl: function () {
+      this.$router.push({ name: 'StarSrchDtl' })
+    },
+    goPostList: function () {
+      this.$router.push({ name: 'PostList' })
+    },
+    goMmList: function () {
+      this.$router.push({ name: 'MmList' })
+    },
+    goRankList: function () {
+      alert('go to 순위')
+      // this.$router.push({ name: 'PostList' })
+    },
     starSrch: function () {
-      axios.post('/star/srch/list/star/do.go', {
+      this.$router.push({ name: 'StarSrchRstList' })
+      /* axios.post('/star/srch/list/star/do.go', {
         tag_nm: this.tag_nm
       })
       .then(function (response) {
@@ -39,7 +53,7 @@ export default {
       })
       .catch(function (error) {
         console.log(error)
-      })
+      }) */
     }
   }
 }

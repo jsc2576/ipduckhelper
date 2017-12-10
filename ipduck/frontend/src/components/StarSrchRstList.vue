@@ -40,10 +40,10 @@
 		갤러리
 	</div>
 	<div class="content">
-		검색된 내용입니다 / <a href="./galary.html">OO 갤러리</a><br>
-		검색된 내용입니다 / <a href="./galary.html">OO 갤러리</a><br>
-		검색된 내용입니다 / <a href="./galary.html">OO 갤러리</a><br>
-		검색된 내용입니다 / <a href="./galary.html">OO 갤러리</a><br>
+		검색된 내용입니다 / <a v-on:click.prevent="goPostListNo">OO 갤러리</a><br>
+		검색된 내용입니다 / <a v-on:click.prevent="goPostListNo">OO 갤러리</a><br>
+		검색된 내용입니다 / <a v-on:click.prevent="goPostListNo">OO 갤러리</a><br>
+		검색된 내용입니다 / <a v-on:click.prevent="goPostListNo">OO 갤러리</a><br>
 
 		<br><br><br>
 		원하는 결과가 없으면...
@@ -65,10 +65,13 @@ export default {
   },
   methods: {
     starSearchResultDetail: function () {
-      this.$router.push({ name: 'StarSrchRstDtl' })
+      this.$router.push({ name: 'StarSrchRstDtl', params: { no: 1 } })
     },
     goStarCrt: function () {
       this.$router.push({ name: 'StarCrt' })
+    },
+    goPostListNo: function () {
+      this.$router.push({ name: 'PostListlNo', params: { no: 1 } })
     }
   }
 }

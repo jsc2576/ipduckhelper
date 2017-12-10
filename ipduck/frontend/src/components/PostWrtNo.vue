@@ -16,7 +16,11 @@
 		<label for="upload">파일 업로드</label>
 		<input type="file" id="upload">
 	</div>
-	<div style="margin-left: 200px;"><button onclick="location.href='./article.html'">등록</button>&nbsp;<button onclick="location.href='./article.html'">취소</button></div>
+	<div style="margin-left: 200px;">
+	<button v-on:click.prevent="createPost">등록</button>
+	&nbsp;
+	<button v-on:click.prevent="goBack">취소</button>
+	</div>
 	</form>
 </article>
 </div>
@@ -35,6 +39,12 @@ export default {
     }
   },
   methods: {
+    createPost: function () {
+      console.log('write to the post')
+    },
+    goBack: function () {
+      this.$router.push('./../')
+    }
   }
 }
 </script>

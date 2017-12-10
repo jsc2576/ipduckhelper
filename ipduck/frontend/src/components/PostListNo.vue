@@ -8,7 +8,7 @@
 <button style="margin-right: 200px" v-on:click.prevent="postWrite">글쓰기</button>
 <form style="display: inline-block;">
 	<input type="text" class="search" style="width: 300px; margin-left: 100px;" placeholder="갤러리 내 게시글/댓글 검색">
-	<input type="submit" name="" class="search_submit" value="">
+	<button v-on:click.prevent="searchPostDtl" class="search_submit"></button>
 </form>
 <br><br><br><br>
 <table align="center" class="board_list">
@@ -105,6 +105,10 @@ export default {
     },
     postWrite: function () {
       this.$router.push({ name: 'PostWrtNo', params: { no: this.$route.params.no } })
+    },
+    searchPostDtl: function () {
+      console.log('search to post detail')
+      // this.$router.push({ name: 'PostWrtNo', params: { no: this.$route.params.no } })
     }
   }
 }

@@ -1,0 +1,279 @@
+<template>
+	<div>
+		<main-nav></main-nav>	
+
+<br>
+<h1 style="margin-top: 150px">연예인 갤러리</h1>
+<form>
+	<input type="text" class="search" placeholder="통합 갤러리 검색">
+	<input type="submit" class="search_submit" value="">
+</form>
+<br>
+<h1>갤러리 목록</h1>
+<div class="content">
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>		
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>		
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>	
+	<a v-on:click.prevent="goPostListNo">OOOOOO</a>				
+
+</div>
+</template>
+
+<script>
+import MainNav from '@/components/MainNav'
+
+export default {
+  name: 'post-list',
+  components: { MainNav },
+  data () {
+    return {
+      msg: ''
+    }
+  },
+  methods: {
+    goPostListNo: function () {
+      this.$router.push({ name: 'PostListNo', params: { no: 1 } })
+    }
+  }
+}
+</script>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped>
+</style>
