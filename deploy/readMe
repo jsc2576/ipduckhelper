@@ -1,1 +1,11 @@
-nohup ./startWeb.sh &
+	프로세스 확인 방법
+ps -ef | grep startWeb
+	start 방법
+nohup ./startWeb.sh  > /dev/null &
+	shutdown 방법
+./shutdownWeb.sh
+	포트 확인 방법
+netstat -nap | grep 8080
+	포트 닫는 방법
+fuser -k -n tcp 8080
+
