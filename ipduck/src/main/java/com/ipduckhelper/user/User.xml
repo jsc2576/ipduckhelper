@@ -79,10 +79,11 @@
 			   M.MEM_STAT, 
 			   F.FILE_PATH 
 			from MEM_TBL M 
-				inner join FILE_TBL F 
+				left outer join FILE_TBL F 
 					on M.FILE_IDX = F.FILE_IDX 
 			where M.MEM_ID = #{mem_id} 
 				and M.ACVT = 1 
+				and M.MEM_STAT != 0
 				and M.MEM_PWD = hex(aes_encrypt(#{mem_pwd}, #{pwd_key}));
 	</select>
 	
