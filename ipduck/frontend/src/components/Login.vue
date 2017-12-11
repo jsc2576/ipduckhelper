@@ -57,13 +57,30 @@ export default {
       alert('카카오톡 로그인을 시도합니다.')
     },
     login: function () {
+      let self = this
       axios.post('/login/do', {
         mem_id: this.mem_id,
         mem_pwd: this.mem_pwd
       })
       .then(function (response) {
-        alert(JSON.stringify(response))
-        // this.$router.push({ name: 'Main' })
+        self.$session.start()
+        let data = response.data
+        let sObj = {
+          mem_id: data.mem_id,
+          mem_nick: data.mem_nick,
+          mem_nm: data.mem_nm,
+          mem_stat: data.mem_stat,
+          upload_img: data.upload_img,
+          file_idx: data.file_idx,
+          file_nm: data.file_nm,
+          file_path: data.file_path
+        }
+        console.log(JSON.stringify(sObj))
+        self.$session.set('usr1', data)
+        console.log(JSON.stringify(self.$session.get('usr1')))
+        self.$session.set('usr2', JSON.stringify(sObj))
+        // lert(JSON.stringify(response.data))
+        self.$router.push({ name: 'Main' })
       })
       .catch(function (error) {
         alert(JSON.stringify(error))

@@ -20,6 +20,8 @@
 </template>
 
 <script>
+// session 사용법
+// https://www.npmjs.com/package/vue-sessionstorage
 // import axios from 'axios'
 
 export default {

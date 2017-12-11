@@ -3,8 +3,13 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import VueSession from 'vue-session'
+
+// https://www.npmjs.com/package/vue-session
 
 require('./assets/css/style.css')
+
+Vue.use(VueSession)
 
 Vue.config.productionTip = false
 
