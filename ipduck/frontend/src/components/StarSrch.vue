@@ -14,7 +14,7 @@
 		<br>	
 		<button class="click-able" v-on:click.prevent="goStarSrchDtl">연예인 찾기</button>
 		<button class="click-able" v-on:click.prevent="goPostList">연예인 갤러리</button>
-		<button class="click-able" v-on:click.prevent="goMmList">상/짤 모음</button>
+		<button class="click-able" v-on:click.prevent="goMmList">영상/짤 모음</button>
 		<button class="click-able" v-on:click.prevent="goRankList">검색 순위</button>
 	</div>
 </template>

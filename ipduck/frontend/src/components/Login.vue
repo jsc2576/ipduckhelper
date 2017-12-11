@@ -62,7 +62,8 @@ export default {
         mem_pwd: this.mem_pwd
       })
       .then(function (response) {
-        this.$router.push({ name: 'Main' })
+        alert(JSON.stringify(response))
+        // this.$router.push({ name: 'Main' })
       })
       .catch(function (error) {
         alert(JSON.stringify(error))
