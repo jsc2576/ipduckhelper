@@ -90,7 +90,7 @@
 	<select id="file_info" parameterType="String" resultType="com.ipduckhelper.user.User">
 		select FT.FILE_NM, FT.FILE_PATH
 			from MEM_TBL MT
-				inner join FILE_TBL FT
+				left outer join FILE_TBL FT
 					on MT.FILE_IDX = FT.FILE_IDX
 			where MT.MEM_ID = #{value}
 	</select>
