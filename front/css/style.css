@@ -321,3 +321,14 @@ textarea.article{
     border: 1px solid #d1d1d1;
     box-shadow:0 1px 3px rgba(0,0,0,0.15) inset;
 }
+
+div.schedule{
+    text-align: center;
+    font-family: "G13";
+    margin-top: 100px;
+}
+
+.sched_content{
+    font-size: 45px;
+    margin-left: 50px;
+}
