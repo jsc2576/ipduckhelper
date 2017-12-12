@@ -111,6 +111,7 @@ button.login{
     position: fixed;
     width: 100%;
     font-size: 0;
+    z-index: 3;
 }
 
 .navbar>li {
