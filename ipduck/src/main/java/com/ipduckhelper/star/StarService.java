@@ -76,7 +76,7 @@ public class StarService {
 		
 		if(!entity.getUpload_img().isEmpty()) {
 			Star file_info = starRepository.Star_File_Info(entity.getStar_mem_idx());
-			if(file_info.getFile_nm() != "base_profile" && file_info.getFile_nm() != "" && file_info.getFile_nm() != null) {
+			if(file_info.getFile_nm() != CommonUtil.getBaseProfileNm() && file_info.getFile_nm() != "" && file_info.getFile_nm() != null) {
 				CommonUtil.Delete_Image(file_info.getFile_path(), file_info.getFile_nm());
 			}
 					
@@ -94,7 +94,7 @@ public class StarService {
 		if(!entity.getUpload_img().isEmpty()) {
 			Star file_info = starRepository.Grp_File_Info(entity.getGrp_idx());
 			
-			if(file_info.getFile_nm() != "base_profile" && file_info.getFile_nm() != "" && file_info.getFile_nm() != null) {
+			if(file_info.getFile_nm() != CommonUtil.getBaseProfileNm() && file_info.getFile_nm() != "" && file_info.getFile_nm() != null) {
 				CommonUtil.Delete_Image(file_info.getFile_path(), file_info.getFile_nm());
 			}	
 			String file_nm = CommonUtil.Upload_Image(entity.getUpload_img(), CommonUtil.getStarProfilePath());

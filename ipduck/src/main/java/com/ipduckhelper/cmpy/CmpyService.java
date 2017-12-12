@@ -19,7 +19,7 @@ public class CmpyService {
 		String file_nm = "";
 		
 		if(entity.getUpload_img().isEmpty()) {
-			file_nm = "base_profile";
+			file_nm = CommonUtil.getBaseProfileNm();
 		}
 		else {
 			file_nm = CommonUtil.Upload_Image(entity.getUpload_img(), CommonUtil.getCmpyProfilePath());
@@ -64,7 +64,7 @@ public class CmpyService {
 		if(!entity.getUpload_img().isEmpty()) {
 			Cmpy file_info = cmpyRepository.File_Info(entity.getCmpy_nm());
 			
-			if(file_info.getFile_nm() != "base_profile" && file_info.getFile_nm() != null && file_info.getCmpy_nm() != "") {
+			if(file_info.getFile_nm() != CommonUtil.getBaseProfileNm() && file_info.getFile_nm() != null && file_info.getCmpy_nm() != "") {
 				CommonUtil.Delete_Image(file_info.getFile_path(), file_info.getFile_nm());
 			}
 			String file_nm = CommonUtil.Upload_Image(entity.getUpload_img(), CommonUtil.getCmpyProfilePath());	

@@ -28,7 +28,7 @@ public class UserService {
 		
 		//프로필 사진을 넣지 않은 경우
 		if(entity.getUpload_img().isEmpty()) {
-			file_nm = "base_profile"; // 기본 프로필로 설정
+			file_nm = CommonUtil.getBaseProfileNm(); // 기본 프로필로 설정
 		}
 		else {
 			// 파일 저장
@@ -73,7 +73,7 @@ public class UserService {
 		if(!entity.getUpload_img().isEmpty()) { // 새로운 파일이 올라올 경우
 			User file_info = userRepository.File_Info(entity.getMem_id()); // base_profile인지 비교하기 위해서 가져옴
 			
-			if(file_info.getFile_nm() != "base_profile" && file_info.getFile_nm() != null && file_info.getFile_nm() != "") { // 기본 프로필이 아니면
+			if(file_info.getFile_nm() != CommonUtil.getBaseProfileNm() && file_info.getFile_nm() != null && file_info.getFile_nm() != "") { // 기본 프로필이 아니면
 				CommonUtil.Delete_Image(file_info.getFile_path(), file_info.getFile_nm()); // 프로필 삭제 					
 			}
 			

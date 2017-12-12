@@ -19,7 +19,7 @@ public class CommonUtil {
 	private final static String cmpy_profile_path = "./cmpy_profile"; // 기획사 대표 프로필 사진 저장 경로
 	private final static String meme_path = "./meme";
 	private final static String Post_img_path = "./post_img";
-	private final static String base_profile_nm = "base_profile";
+	private final static String base_profile_nm = "base_profile.jpg";
 	
 	public static String getDate() {
 		SimpleDateFormat dateFormat = new SimpleDateFormat("yyyyMMddhhddssSSS");
