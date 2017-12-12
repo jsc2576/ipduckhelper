@@ -40,8 +40,7 @@ export default {
       this.$router.push({ name: 'PostList' })
     },
     goScheList: function () {
-      alert('go to 스케쥴')
-      // this.$router.push({ name: 'PostList' })
+      this.$router.push({ name: 'ScheTdy' })
     },
     goRankList: function () {
       alert('go to 순위')

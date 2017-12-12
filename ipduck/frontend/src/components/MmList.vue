@@ -65,8 +65,7 @@ export default {
       this.$router.push({ name: 'MmSrch' })
     },
     goMmCrt: function () {
-      alert('go to 영상 등록')
-      // this.$router.push({ name: 'MmCrt' })
+      this.$router.push({ name: 'MmCrt' })
     }
   }
 }

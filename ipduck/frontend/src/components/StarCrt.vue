@@ -5,10 +5,6 @@
 		<div class="search_result" style="padding:40px;">
 			연예인 등록하기<br>
 			<form>
-				<!-- <div class="star_result" style="width:300px; height: 300px;">
-					<img src="/img/profile_none.png" style="width: 200px; height:200px;"><br>
-					<input class="click-able" type="file" value="사진을 업로드하세요">
-				</div> -->
 				<div class="star_result" v-if="!image">
 				    <h2>연예인 사진</h2>
 				    <input v-model="upload_img" class="click-able" type="file" value="사진을 업로드하세요" @change="onFileChange">
@@ -20,35 +16,40 @@
 				<div class="content">
 				
 					이름 <input v-model="star_nm" type="text" class="search" style="width:150px"> &nbsp;
-					기획사 <select class="search" style="width:200px;min-height:35px;" v-model="cmpy_name" v-on:click="getCmpyNms">
+					기획사 <select class="search" style="width:200px;min-height:35px;" v-model="cmpy_nm" v-on:click="getCmpyNms">
 						  <option disabled value="">기획사</option>
 						  <option class="del1" disabled value="">-</option>
 						  <option class="del1" disabled value="">-</option>
 						  <option class="del1" disabled value="">-</option>
-						  <option v-for="cmpy_nm in cmpy_nms" v-bind:value="cmpy_nm">
-						    {{ cmpy_nm }}
+						  <option v-for="cmpy_name in cmpy_nms" v-bind:value="cmpy_name">
+						    {{ cmpy_name }}
 						  </option>
 						</select>
-					키 <input v-model="star_mem_hght" type="text" class="search" style="width:80px"><br><br>
-					나이 <input v-model="star_mem_birth" type="text" class="search" style="width:70px"> &nbsp;
-					몸무게 <input v-model="star_mem_wght" type="text" class="search" style="width:70px"> &nbsp;
-					혈액형 <input v-model="star_mem_bld" type="text" class="search" style="width:70px"> &nbsp;
-					그룹/솔로 <select class="search" style="width:200px;min-height:35px;" v-model="grp_idx" v-on:click="getGrpNms">
+					키 <input v-model="star_mem_hght" type="number" class="search" style="width:80px"><br><br>
+					몸무게 <input v-model="star_mem_wght" type="number" class="search" style="width:70px"> &nbsp;
+					혈액형 <select class="search" style="width:70px;min-height:35px;" v-model="star_mem_bld">
+						<option disabled value="">혈액형</option>
+						<option  value="0">A</option>
+						<option  value="2">B</option>
+						<option  value="1">AB</option>
+						<option  value="3">O</option>
+					</select>
+					그룹/솔로 <select class="search" style="width:130px;min-height:35px;" v-model="grp_idx" v-on:click="getGrpNms">
 						  <option value="0" disabled >그룹/솔로</option>
 						  <option value="1">만들기</option>
 						  <option class="del2" disabled value="">-</option>
-						  <option v-for="grp in grp_nms" v-bind:value="grp.idx">
-						    {{ grp.nm }}
+						  <option v-for="grp in grp_nms" v-bind:value="grp.grp_idx">
+						    {{ grp.star_nm }}
 						  </option>
 						</select>
 				    <div id="grp_nm" style="display : none">
 				    <br>
-					만들그룹명 <input v-model="grp_nm" type="text" class="search" style="width:70px"> &nbsp;
+					그룹명 <input v-model="grp_nm" type="text" class="search" style="width:70px"> &nbsp;
 					<button class="submit_button click-able" style="width:200px;font-size: 20px;" v-on:click.prevent="crtGrp" >생성</button>
 					</div>
 						<br><br>
-					데뷔날짜 <input type="text" class="search" style="width:250px"> &nbsp;
-					생년월일 <input type="text" class="search" style="width:250px"><br><br>
+					데뷔날짜 <input v-model="star_dbt_date" type="text" class="search" style="width:250px"> &nbsp;
+					생년월일 <input v-model="star_mem_birth" type="text" class="search" style="width:250px"><br><br>
 					태그 <input type="text" class="search" style="width:600px"><br><br>
 					<button class="submit_button click-able" style="width:200px;font-size: 20px;" v-on:click.prevent="starCreate" >등록하기</button>
 				</div>
@@ -66,13 +67,19 @@ export default {
   components: { MainNav },
   data () {
     return {
-      msg: '',
+      star_nm: '',
       image: '',
       cmpy_nms: [],
-      cmpy_name: '',
+      cmpy_nm: '',
       grp_nm: '',
-      grp: [],
-      grp_idx: 0
+      grp_nms: [],
+      grp_idx: 0,
+      star_mem_hght: 0,
+      star_mem_wght: 0,
+      star_mem_bld: '',
+      star_mem_birth: '',
+      star_dbt_date: '',
+      upload_img: null
       // /img/profile_none.png
     }
   },
@@ -89,16 +96,10 @@ export default {
     crtGrp: function () {
       // let self = this
       axios.post('/crt/grp/do.admin', {
-        cmpy_nm: this.cmpy_name,
+        cmpy_nm: this.cmpy_nm,
         star_nm: this.grp_nm,
         upload_img: null,
         clb_site: ''
-      })
-      .then(function (response) {
-        console.log(JSON.stringify(response))
-      })
-      .catch(function (error) {
-        console.log(JSON.stringify(error))
       })
     },
     getGrpNms: function () {
@@ -140,13 +141,25 @@ export default {
       })
     },
     starCreate: function () {
-      // let self = this
-      /* axios.post('/crt/star/do.admin', {
-      })
+      const form = new FormData()
+      let self = this
+      self.upload_img = self.image
+      form.append('star_nm', self.star_nm)
+      form.append('upload_img', self.upload_img)
+      form.append('star_dbt_date', self.star_dbt_date)
+      form.append('cmpy_nm', self.cmpy_nm)
+      form.append('grp_idx', self.grp_idx)
+      form.append('star_mem_bld', self.star_mem_bld)
+      form.append('star_mem_wght', self.star_mem_wght)
+      form.append('star_mem_hght', self.star_mem_hght)
+      form.append('star_mem_birth', self.star_mem_birth)
+      axios.post('/crt/star/do.admin', form)
       .then(function (response) {
+        console.log(JSON.stringify(response))
       })
       .catch(function (error) {
-      }) */
+        console.log(JSON.stringify(error))
+      })
     },
     onFileChange: function (e) {
       let files = e.target.files || e.dataTransfer.files

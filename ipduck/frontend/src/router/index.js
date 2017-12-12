@@ -8,6 +8,7 @@ import StarSrchDtl from '@/components/StarSrchDtl'
 import StarSrchRstList from '@/components/StarSrchRstList'
 import StarSrchRstDtl from '@/components/StarSrchRstDtl'
 import StarCrt from '@/components/StarCrt'
+import Cmpy from '@/components/Cmpy'
 import PostListNo from '@/components/PostListNo'
 import PostList from '@/components/PostList'
 import PostDtlNo from '@/components/PostDtlNo'
@@ -19,7 +20,9 @@ import MyPostList from '@/components/MyPostList'
 import MyMfy from '@/components/MyMfy'
 import MmList from '@/components/MmList'
 import MmDtl from '@/components/MmDtl'
+import MmCrt from '@/components/MmCrt'
 import MmSrch from '@/components/MmSrch'
+import ScheTdy from '@/components/ScheTdy'
 
 Vue.use(Router)
 
@@ -36,6 +39,7 @@ export default new Router({
     /* 검색결과리스트 */ { path: '/star/srch/rst/list/view', name: 'StarSrchRstList', component: StarSrchRstList },
     /* 검색결과상세 */ { path: '/star/srch/rst/dtl/view/:no', name: 'StarSrchRstDtl', component: StarSrchRstDtl },
     /* 연예인등록하기 */ { path: '/star/crt/view', name: 'StarCrt', component: StarCrt },
+    /* 기획사정보상세 */ { path: '/cmpy/view/:no', name: 'Cmpy', component: Cmpy },
     /*  */ { path: '/post/list/view', name: 'PostList', component: PostList },
     /*  */ { path: '/post/list/view/:no', name: 'PostListNo', component: PostListNo },
     /*  */ { path: '/post/dtl/view/:no1/:no2', name: 'PostDtlNo', component: PostDtlNo },
@@ -47,6 +51,8 @@ export default new Router({
     /*  */ { path: '/my/mfy/view', name: 'MyMfy', component: MyMfy },
     /*  */ { path: '/mm/list/view', name: 'MmList', component: MmList },
     /*  */ { path: '/mm/dtl/view/:no', name: 'MmDtl', component: MmDtl },
-    /*  */ { path: '/mm/srch/view', name: 'MmSrch', component: MmSrch }
+    /*  */ { path: '/mm/crt/view/', name: 'MmCrt', component: MmCrt },
+    /*  */ { path: '/mm/srch/view', name: 'MmSrch', component: MmSrch },
+    /*  */ { path: '/sche/tdy/view', name: 'ScheTdy', component: ScheTdy }
   ]
 })
