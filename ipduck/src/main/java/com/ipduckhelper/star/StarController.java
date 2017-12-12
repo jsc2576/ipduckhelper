@@ -22,7 +22,7 @@ public class StarController {
 	
 	/**
 	 * 연예인 생성
-	 * need value : upload_img, star_nm, cmpy_nm, star_mem_hght, star_mem_bld, star_mem_wght, star_mem_birth, grp_idx
+	 * need value : upload_img, star_nm, cmpy_nm, star_mem_hght, star_mem_bld, star_mem_wght, star_mem_birth, star_dbt_date
 	 * @param request
 	 * @param entity
 	 * @return
@@ -54,8 +54,8 @@ public class StarController {
 	
 	
 	/**
-	 * 연예인과 그룹을 합쳐서 태그로 검색한다
-	 * need value : offset, tag_nm
+	 * 연예인과 그룹을 합쳐서 검색한다
+	 * need value : offset, star_nm
 	 * @param entity
 	 * @return
 	 * @throws Exception
@@ -66,6 +66,31 @@ public class StarController {
 		return starService.Srch_Star_List(entity);
 	}
 	
+	/**
+	 * 연예인과 그룹을 합쳐서 태그로 검색한다.
+	 * need value : tag_nm, offset
+	 * @param entity
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping(value = "/srch/list/star/tag/do.go", method=RequestMethod.POST)
+	@ResponseBody
+	public List<Star> Srch_Star_Tag_List(@RequestBody Star entity) throws Exception{
+		return starService.Srch_Star_Tag_List(entity);
+	}
+	
+	/**
+	 * 그룹 이름 리스트를 검색한다.
+	 * need value : star_nm
+	 * @param entity
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping(value = "/srch/list/grp/do.go", method=RequestMethod.POST)
+	@ResponseBody
+	public List<Star> Srch_Grp_List(@RequestBody Star entity) throws Exception{
+		return starService.Srch_Grp_List(entity);
+	}
 	
 	/**
 	 * 연예인을 상세 조회한다

@@ -32,6 +32,14 @@ public class StarRepository {
 		return sqlSession.selectList("com.ipduckhelper.star.srch_star_list", entity);
 	}
 	
+	public List<Star> Srch_Star_Tag_List(Star entity) throws Exception{
+		return sqlSession.selectList("com.ipduckhelper.star.srch_star_tag_list", entity);
+	}
+	
+	public List<Star> Srch_Grp_List(Star entity) throws Exception{
+		return sqlSession.selectList("com.ipduckhelper.star.srch_grp_list", entity);
+	}
+	
 	public Star Srch_Star(Star entity) throws Exception{
 		return sqlSession.selectOne("com.ipduckhelper.star.srch_star", entity);
 	}

@@ -192,9 +192,14 @@ public class UserController {
 	public void Response_Naver(HttpServletRequest request, HttpServletResponse response) throws Exception{
 		String get_state = request.getParameter("state");
 		String request_state = request.getSession().getAttribute("state").toString();
+		String access_code = request.getSession().getAttribute("code").toString();
 		
 		if(get_state.equals(request_state)) {
-				
+				response.sendRedirect("https://nid.naver.com/oauth2.0/token?client_id="+NaverUtil.getClientId()
+						+ "&client_secret="+NaverUtil.getClientSecret()
+						+ "&grant_type=authorization_code"
+						+ "&state=" + request_state
+						+ "&code=" + access_code);
 		}
 	}
 }

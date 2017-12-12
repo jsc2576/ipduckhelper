@@ -18,7 +18,7 @@
 							 FILE_IDX) 
 			values (#{star_nm}, 
 					1, 
-					SYSDATE(), 
+					TO_DATE(#{star_dbt_date}, 'YYYYMMDD'), 
 					#{cmpy_nm}, 
 					LAST_INSERT_ID());
 	</insert>
@@ -67,7 +67,7 @@
 	</insert>
 	
 	
-	<select id="srch_star_list" parameterType="com.ipduckhelper.star.Star" resultType="com.ipduckhelper.star.Star">
+	<select id="srch_star_tag_list" parameterType="com.ipduckhelper.star.Star" resultType="com.ipduckhelper.star.Star">
 		select S.STAR_IDX, 
 			   S.STAR_NM, 
 			   S.STAR_TYP, 
@@ -86,6 +86,33 @@
 			offset #{offset};
 	</select>
 	
+	<select id="srch_star_list" parameterType="com.ipduckhelper.star.Star" resultType="com.ipduckhelper.star.Star">
+		select S.STAR_IDX, 
+			   S.STAR_NM, 
+			   S.STAR_TYP, 
+			   S.STAR_DBT_DATE, 
+			   S.CMPY_NM, 
+			   F.FILE_PATH,
+			   F.FILE_NM
+			FROM STAR_TBL S 
+				inner join FILE_TBL F 
+					on S.FILE_IDX = F.FILE_IDX
+			where S.STAR_NM
+				like CONCAT('%', #{star_nm}, '%') 
+			limit 10 
+			offset #{offset};
+	</select>
+	
+	<select id="srch_grp_list" parameterType="com.ipduckhelper.star.Star" resultType="com.ipduckhelper.star.Star">
+		select G.GRP_IDX
+			   S.STAR_NM
+			from STAR_TBL S
+				inner join GRP_TBL G
+					on S.STAR_IDX = G.STAR_IDX
+			where S.STAR_NM
+				like CONCAT('%', #{star_nm}, '%')
+				and S.STAR_TYP = 0;
+	</select>
 	<select id="srch_star" parameterType="com.ipduckhelper.star.Star" resultType="com.ipduckhelper.star.Star">
 		select S.STAR_MEM_IDX, 
 			   S.STAR_MEM_HGHT, 

@@ -36,6 +36,14 @@ public class StarService {
 		return starRepository.Srch_Star_List(entity);
 	}
 	
+	public List<Star> Srch_Star_Tag_List(Star entity) throws Exception{
+		return starRepository.Srch_Star_Tag_List(entity);
+	}
+	
+	public List<Star> Srch_Grp_List(Star entity) throws Exception{
+		return starRepository.Srch_Grp_List(entity);
+	}
+	
 	public Star Srch_Star(Star entity) throws Exception{
 		return starRepository.Srch_Star(entity);
 	}
