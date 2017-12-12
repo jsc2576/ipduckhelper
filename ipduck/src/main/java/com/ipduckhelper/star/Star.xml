@@ -76,7 +76,7 @@
 			   F.FILE_PATH,
 			   F.FILE_NM
 			FROM STAR_TBL S 
-				inner join FILE_TBL F 
+				left outer join FILE_TBL F 
 					on S.FILE_IDX = F.FILE_IDX
 				inner join STAR_TAG_TBL STT
 					on STT.STAR_IDX = S.STAR_IDX
@@ -95,7 +95,7 @@
 			   F.FILE_PATH,
 			   F.FILE_NM
 			FROM STAR_TBL S 
-				inner join FILE_TBL F 
+				left outer join FILE_TBL F 
 					on S.FILE_IDX = F.FILE_IDX
 			where S.STAR_NM
 				like CONCAT('%', #{star_nm}, '%') 
@@ -143,7 +143,7 @@
 		update STAR_MEM_TBL SM 
 			inner join STAR_TBL SI 
 				on SM.STAR_IDX = SI.STAR_IDX 
-			inner join FILE_TBL FT 
+			left outer join FILE_TBL FT 
 				on SM.FILE_IDX = FT.FILE_IDX 
 			set SM.STAR_MEM_HGHT = #{star_mem_hght}, 
 				SM.STAR_MEM_BLD = #{star_mem_bld}, 
@@ -168,7 +168,7 @@
 		update GRP_TBL GT 
 			inner join STAR_TBL ST 
 				on GT.STAR_IDX = ST.STAR_IDX 
-			inner join FILE_TBL FT 
+			left outer join FILE_TBL FT 
 				on ST.FILE_IDX = FT.FILE_IDX 
 			set CLB_SITE = #{clb_site}, 
 				ST.STAR_DBT_DATE = #{star_dbt_date},
@@ -191,7 +191,7 @@
 			from STAR_TBL ST
 				inner join STAR_MEM_TBL SMT
 					on ST.STAR_IDX = SMT.STAR_IDX
-				inner join FILE_TBL FT
+				left outer join FILE_TBL FT
 					on FT.FILE_IDX = ST.FILE_IDX
 			where SMT.STAR_MEM_IDX = #{star_mem_idx}
 				and FT.FILE_NM != "base_profile"
@@ -209,7 +209,7 @@
 	<delete id="del_grp_profile" parameterType="Integer">
 		delete FT
 			from FILE_TBL FT
-				inner join STAR_TBL ST
+				right outer join STAR_TBL ST
 					on ST.FILE_IDX = FT.FILE_IDX
 				inner join GRP_TBL GT
 					on GT.STAR_IDX = ST.STAR_IDX
@@ -240,7 +240,7 @@
 			from STAR_TBL ST
 				inner join STAR_MEM_TBL SMT
 					on ST.STAR_IDX = SMT.STAR_IDX
-				inner join FILE_TBL FT
+				left outer join FILE_TBL FT
 					on ST.FILE_IDX = FT.FILE_IDX
 			where SMT.STAR_MEM_IDX = #{value}
 	</select>
@@ -250,7 +250,7 @@
 			from STAR_TBL ST
 				inner join GRP_TBL GT
 					on ST.STAR_IDX = GT.STAR_IDX
-				inner join FILE_TBL FT
+				left outer join FILE_TBL FT
 					on ST.FILE_IDX = FT.FILE_IDX
 			where GT.GRP_IDX = #{value}
 	</select>

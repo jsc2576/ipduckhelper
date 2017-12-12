@@ -24,7 +24,7 @@
 			   C.CMPY_REP, 
 			   F.FILE_PATH
 			from CMPY_TBL C 
-				inner join FILE_TBL F 
+				left outer join FILE_TBL F 
 					on C.FILE_IDX = F.FILE_IDX 
 			LIMIT 10 
 			OFFSET #{offset};
@@ -35,7 +35,7 @@
 			   C.CMPY_REP, 
 			   F.FILE_PATH
 			from CMPY_TBL C 
-				inner join FILE_TBL F 
+				left outer join FILE_TBL F 
 					on C.FILE_IDX = F.FILE_IDX 
 					where CMPY_NM= #{cmpy_nm} 
 						and CMPY_REP = #{cmpy_rep};
@@ -44,7 +44,7 @@
 	<select id="file_info" parameterType="String">
 		select FT.FILE_NM, FT.FILE_PATH
 			from CMPY_TBL CT
-				inner join FILE_TBL FT
+				left outer join FILE_TBL FT
 					on CT.FILE_IDX = FT.FILE_IDX
 			where CT.CMPY_NM = #{value}
 	</select>
@@ -65,7 +65,7 @@
 	<delete id="del_cmpy_profile" parameterType="String">
 		delete FT
 			from FILE_TBL FT
-				inner join CMPY_TBL CT
+				right outer join join CMPY_TBL CT
 					on FT.FILE_IDX = CT.FILE_IDX
 			where CT.CMPY_NM = #{value}
 				and FT.FILE_NM != "base_profile"

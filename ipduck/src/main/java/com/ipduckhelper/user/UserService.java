@@ -1,5 +1,7 @@
 package com.ipduckhelper.user;
 
+import static org.mockito.Matchers.contains;
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,11 +45,27 @@ public class UserService {
 	
 	
 	public List<User> Srch_Mem_List(User entity) throws Exception{
-		return userRepository.Srch_Mem_List(entity);
+		List<User> result = userRepository.Srch_Mem_List(entity);
+		
+		for(int i=0; i<result.size(); i++) {
+			if(result.get(i).getFile_nm().equals(null) || result.get(i).getFile_nm().equals("")) {
+				result.get(i).setFile_nm(CommonUtil.getBaseProfileNm());
+				result.get(i).setFile_path(CommonUtil.getUserProfilePath());
+			}
+		}
+		
+		return result;
 	}
 	
 	public User Srch_Mem(User entity) throws Exception{
-		return userRepository.Srch_Mem(entity);
+		User result = userRepository.Srch_Mem(entity);
+		
+		if(result.getFile_nm().equals(null) || result.getFile_nm().equals("")) {
+			result.setFile_nm(CommonUtil.getBaseProfileNm());
+			result.setFile_path(CommonUtil.getUserProfilePath());
+		}
+		
+		return result;
 	}
 	
 	public Integer Fix_Mem(User entity) throws Exception{
@@ -55,7 +73,7 @@ public class UserService {
 		if(!entity.getUpload_img().isEmpty()) { // 새로운 파일이 올라올 경우
 			User file_info = userRepository.File_Info(entity.getMem_id()); // base_profile인지 비교하기 위해서 가져옴
 			
-			if(file_info.getFile_nm() != "base_profile") { // 기본 프로필이 아니면
+			if(file_info.getFile_nm() != "base_profile" && file_info.getFile_nm() != null && file_info.getFile_nm() != "") { // 기본 프로필이 아니면
 				CommonUtil.Delete_Image(file_info.getFile_path(), file_info.getFile_nm()); // 프로필 삭제 					
 			}
 			

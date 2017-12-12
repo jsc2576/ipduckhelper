@@ -17,7 +17,7 @@ public class StarService {
 		
 		String file_nm = "";
 		if(entity.getUpload_img().isEmpty()) {
-			file_nm = "base_profile";
+			file_nm = CommonUtil.getBaseProfileNm();
 		}
 		else {
 			file_nm = CommonUtil.Upload_Image(entity.getUpload_img(), CommonUtil.getStarProfilePath());
@@ -33,11 +33,31 @@ public class StarService {
 	}
 	
 	public List<Star> Srch_Star_List(Star entity) throws Exception{
-		return starRepository.Srch_Star_List(entity);
+		
+		List<Star> result = starRepository.Srch_Star_List(entity);
+		
+		for(int i=0; i<result.size(); i++) {
+			if(result.get(i).getFile_nm().equals(null) || result.get(i).getFile_nm().equals("")) {
+				result.get(i).setFile_path(CommonUtil.getStarProfilePath());
+				result.get(i).setFile_nm(CommonUtil.getBaseProfileNm());
+			}
+		}
+		
+		return result;
 	}
 	
 	public List<Star> Srch_Star_Tag_List(Star entity) throws Exception{
-		return starRepository.Srch_Star_Tag_List(entity);
+		
+		List<Star> result = starRepository.Srch_Star_Tag_List(entity);
+		
+		for(int i=0; i<result.size(); i++) {
+			if(result.get(i).getFile_nm().equals(null) || result.get(i).getFile_nm().equals("")) {
+				result.get(i).setFile_path(CommonUtil.getStarProfilePath());
+				result.get(i).setFile_nm(CommonUtil.getBaseProfileNm());
+			}
+		}
+		
+		return result;
 	}
 	
 	public List<Star> Srch_Grp_List(Star entity) throws Exception{
@@ -56,7 +76,7 @@ public class StarService {
 		
 		if(!entity.getUpload_img().isEmpty()) {
 			Star file_info = starRepository.Star_File_Info(entity.getStar_mem_idx());
-			if(file_info.getFile_nm() != "base_profile") {
+			if(file_info.getFile_nm() != "base_profile" && file_info.getFile_nm() != "" && file_info.getFile_nm() != null) {
 				CommonUtil.Delete_Image(file_info.getFile_path(), file_info.getFile_nm());
 			}
 					
@@ -74,7 +94,7 @@ public class StarService {
 		if(!entity.getUpload_img().isEmpty()) {
 			Star file_info = starRepository.Grp_File_Info(entity.getGrp_idx());
 			
-			if(file_info.getFile_nm() != "base_profile") {
+			if(file_info.getFile_nm() != "base_profile" && file_info.getFile_nm() != "" && file_info.getFile_nm() != null) {
 				CommonUtil.Delete_Image(file_info.getFile_path(), file_info.getFile_nm());
 			}	
 			String file_nm = CommonUtil.Upload_Image(entity.getUpload_img(), CommonUtil.getStarProfilePath());
