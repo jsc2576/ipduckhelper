@@ -43,8 +43,8 @@ export default {
       this.$router.push({ name: 'ScheTdy' })
     },
     goRankList: function () {
-      alert('go to 순위')
-      // this.$router.push({ name: 'PostList' })
+      // alert('go to 순위')
+      this.$router.push({ name: 'RankSrch' })
     }
   }
 }

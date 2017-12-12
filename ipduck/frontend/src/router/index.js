@@ -6,6 +6,7 @@ import Signup from '@/components/Signup'
 import SignupDone from '@/components/SignupDone'
 import StarSrchDtl from '@/components/StarSrchDtl'
 import StarSrchRstList from '@/components/StarSrchRstList'
+import StarSrchRst from '@/components/StarSrchRst'
 import StarSrchRstDtl from '@/components/StarSrchRstDtl'
 import StarCrt from '@/components/StarCrt'
 import Cmpy from '@/components/Cmpy'
@@ -23,6 +24,11 @@ import MmDtl from '@/components/MmDtl'
 import MmCrt from '@/components/MmCrt'
 import MmSrch from '@/components/MmSrch'
 import ScheTdy from '@/components/ScheTdy'
+import ScheCrt from '@/components/ScheCrt'
+import ScheMth from '@/components/ScheMth'
+import ScheList from '@/components/ScheList'
+import ScheDtl from '@/components/ScheDtl'
+import RankSrch from '@/components/RankSrch'
 
 Vue.use(Router)
 
@@ -38,6 +44,7 @@ export default new Router({
     /* 상세검색 */ { path: '/star/srch/dtl/view', name: 'StarSrchDtl', component: StarSrchDtl },
     /* 검색결과리스트 */ { path: '/star/srch/rst/list/view', name: 'StarSrchRstList', component: StarSrchRstList },
     /* 검색결과상세 */ { path: '/star/srch/rst/dtl/view/:no', name: 'StarSrchRstDtl', component: StarSrchRstDtl },
+    /* 검색결과상세 */ { path: '/star/srch/rst/view', name: 'StarSrchRst', component: StarSrchRst },
     /* 연예인등록하기 */ { path: '/star/crt/view', name: 'StarCrt', component: StarCrt },
     /* 기획사정보상세 */ { path: '/cmpy/view/:no', name: 'Cmpy', component: Cmpy },
     /*  */ { path: '/post/list/view', name: 'PostList', component: PostList },
@@ -53,6 +60,11 @@ export default new Router({
     /*  */ { path: '/mm/dtl/view/:no', name: 'MmDtl', component: MmDtl },
     /*  */ { path: '/mm/crt/view/', name: 'MmCrt', component: MmCrt },
     /*  */ { path: '/mm/srch/view', name: 'MmSrch', component: MmSrch },
-    /*  */ { path: '/sche/tdy/view', name: 'ScheTdy', component: ScheTdy }
+    /*  */ { path: '/sche/tdy/view', name: 'ScheTdy', component: ScheTdy },
+    /*  */ { path: '/sche/crt/view', name: 'ScheCrt', component: ScheCrt },
+    /*  */ { path: '/sche/mth/view', name: 'ScheMth', component: ScheMth },
+    /*  */ { path: '/sche/list/view', name: 'ScheList', component: ScheList },
+    /*  */ { path: '/sche/dtl/view', name: 'ScheDtl', component: ScheDtl },
+    /*  */ { path: '/rank/srch/view', name: 'RankSrch', component: RankSrch }
   ]
 })

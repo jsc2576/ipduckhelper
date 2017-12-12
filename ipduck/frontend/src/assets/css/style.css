@@ -113,6 +113,7 @@ button.login{
     position: fixed;
     width: 100%;
     font-size: 0;
+    z-index: 3;
 }
 
 .navbar>li {
@@ -327,4 +328,15 @@ textarea.article{
 
 .click-able{
 	cursor:pointer;
+}
+
+div.schedule{
+    text-align: center;
+    font-family: "G13";
+    margin-top: 100px;
+}
+
+.sched_content{
+    font-size: 45px;
+    margin-left: 50px;
 }

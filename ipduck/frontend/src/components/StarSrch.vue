@@ -39,7 +39,7 @@ export default {
       } else {
         axios.post('/logout/do', {})
         .then(function (response) {
-          alert(JSON.stringify(response))
+          alert('로그아웃 되었습니다.')
           self.$session.destroy()
           self.$data.login_btn = '로그인'
           self.$router.push({ name: 'Main' })
@@ -57,21 +57,11 @@ export default {
     goMmList: function () {
       this.$router.push({ name: 'MmList' })
     },
-    goRankList: function () {
-      alert('go to 순위')
-      // this.$router.push({ name: 'PostList' })
+    goRankSrch: function () {
+      this.$router.push({ name: 'RankSrch' })
     },
     starSrch: function () {
       this.$router.push({ name: 'StarSrchRstList' })
-      /* axios.post('/star/srch/list/star/do.go', {
-        tag_nm: this.tag_nm
-      })
-      .then(function (response) {
-        alert(JSON.stringify(response))
-      })
-      .catch(function (error) {
-        alert(JSON.stringify(error))
-      }) */
     }
   }
 }
