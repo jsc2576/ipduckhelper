@@ -1,6 +1,6 @@
 <template>
 <ul class="navbar">
-	<li class="left"><a class="click-able" v-on:click.prevent="goMyInfo">Linkaden님, 안녕하세요!</a></li>	
+	<li class="left"><a class="click-able" v-on:click.prevent="goMyInfo">{{ getIntro() }}</a></li>	
 	<li class="right"><a v-on:click.prevent="goRankList" class="right click-able">검색 순위</a></li> 
 	<li class="right"><a v-on:click.prevent="goScheList" class="right click-able">스케쥴</a></li> 
 	<li class="right"><a v-on:click.prevent="goPostList" class="right click-able">연예인 갤러리</a></li> 
@@ -15,12 +15,20 @@ export default {
   name: 'main-nav',
   data () {
     return {
-      msg: ''
+      // this.$session.get('usr').mem_id: ''
+      mem_id: (this.$session.exists()) ? this.$session.get('usr').mem_id : '방문자'
     }
   },
   methods: {
+    getIntro: function () {
+      return this.$data.mem_id + '님, 안녕하세요!'
+    },
     goMyInfo: function () {
-      this.$router.push({ name: 'MyInfo' })
+      if (this.$session.exists()) {
+        this.$router.push({ name: 'MyInfo' })
+      } else {
+        this.$router.push({ name: 'Login' })
+      }
     },
     goMain: function () {
       this.$router.push({ name: 'Main' })

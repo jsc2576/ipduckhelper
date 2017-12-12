@@ -75,11 +75,7 @@ export default {
           file_nm: data.file_nm,
           file_path: data.file_path
         }
-        console.log(JSON.stringify(sObj))
-        self.$session.set('usr1', data)
-        console.log(JSON.stringify(self.$session.get('usr1')))
-        self.$session.set('usr2', JSON.stringify(sObj))
-        // lert(JSON.stringify(response.data))
+        self.$session.set('usr', sObj)
         self.$router.push({ name: 'Main' })
       })
       .catch(function (error) {

@@ -1,7 +1,7 @@
 <template>
 	<div class="main">
 		<p align = "right">	
-			<button class="click-able" v-on:click.prevent="goLogin">login</button> 
+			<button class="click-able" v-on:click.prevent="goLoginLogout">{{login_btn}}</button> 
 		</p>
 		
 		<h1 class="menu">입덕 도우미</h1>
@@ -22,18 +22,31 @@
 <script>
 // session 사용법
 // https://www.npmjs.com/package/vue-sessionstorage
-// import axios from 'axios'
+import axios from 'axios'
 
 export default {
   name: 'star-srch',
   data () {
     return {
-      tag_nm: ''
+      login_btn: (this.$session.exists()) ? '로그아웃' : '로그인'
     }
   },
   methods: {
-    goLogin: function () {
-      this.$router.push({ name: 'Login' })
+    goLoginLogout: function () {
+      let self = this
+      if (!self.$session.exists()) {
+        self.$router.push({ name: 'Login' })
+      } else {
+        axios.post('/logout/do.go', {})
+        .then(function (response) {
+          alert(JSON.stringify(response))
+          self.$session.destroy()
+          self.$data.login_btn = '로그인'
+          self.$router.push({ name: 'Main' })
+        }).catch(function (error) {
+          alert(JSON.stringify(error))
+        })
+      }
     },
     goStarSrchDtl: function () {
       this.$router.push({ name: 'StarSrchDtl' })
