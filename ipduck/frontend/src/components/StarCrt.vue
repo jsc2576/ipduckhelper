@@ -33,14 +33,19 @@
 					나이 <input v-model="star_mem_birth" type="text" class="search" style="width:70px"> &nbsp;
 					몸무게 <input v-model="star_mem_wght" type="text" class="search" style="width:70px"> &nbsp;
 					혈액형 <input v-model="star_mem_bld" type="text" class="search" style="width:70px"> &nbsp;
-					그룹/솔로 <select class="search" style="width:70px;min-height:35px;" v-model="grp_idx" v-on:click="getGrpNms">
-						  <option value="0">솔로</option>
-						  <option class="del2" disabled value="">-</option>
+					그룹/솔로 <select class="search" style="width:200px;min-height:35px;" v-model="grp_idx" v-on:click="getGrpNms">
+						  <option value="0" disabled >그룹/솔로</option>
+						  <option value="1">만들기</option>
 						  <option class="del2" disabled value="">-</option>
 						  <option v-for="grp in grp_nms" v-bind:value="grp.idx">
 						    {{ grp.nm }}
 						  </option>
 						</select>
+				    <div id="grp_nm" style="display : none">
+				    <br>
+					만들그룹명 <input v-model="grp_nm" type="text" class="search" style="width:70px"> &nbsp;
+					<button class="submit_button click-able" style="width:200px;font-size: 20px;" v-on:click.prevent="crtGrp" >생성</button>
+					</div>
 						<br><br>
 					데뷔날짜 <input type="text" class="search" style="width:250px"> &nbsp;
 					생년월일 <input type="text" class="search" style="width:250px"><br><br>
@@ -65,16 +70,42 @@ export default {
       image: '',
       cmpy_nms: [],
       cmpy_name: '',
+      grp_nm: '',
       grp: [],
       grp_idx: 0
       // /img/profile_none.png
     }
   },
+  watch: {
+    grp_idx: function () {
+      if (this.$data.grp_idx === '1') {
+        this.$el.querySelector('#grp_nm').style.display = 'inline'
+      } else {
+        this.$el.querySelector('#grp_nm').style.display = 'none'
+      }
+    }
+  },
   methods: {
+    crtGrp: function () {
+      // let self = this
+      axios.post('/crt/grp/do.admin', {
+        cmpy_nm: this.cmpy_name,
+        star_nm: this.grp_nm,
+        upload_img: null,
+        clb_site: ''
+      })
+      .then(function (response) {
+        console.log(JSON.stringify(response))
+      })
+      .catch(function (error) {
+        console.log(JSON.stringify(error))
+      })
+    },
     getGrpNms: function () {
       let self = this
       axios.post('/srch/names/grp/do.go', {})
       .then(function (response) {
+        console.log(JSON.stringify(response))
         var grpNms = response.data
         self.grp_nms = []
         let els = self.$el.querySelectorAll('.del2')
