@@ -14,7 +14,7 @@ public class AdministratorInterCeptor extends HandlerInterceptorAdapter{
 			throws Exception {
 		// TODO Auto-generated method stub
 		try {
-			if(String.valueOf(request.getSession().getAttribute("mem_stat")) == "2") {
+			if(String.valueOf(request.getSession().getAttribute("mem_stat")).equals("2")) {
 				return true;
 			}
 		}catch (Exception e) {

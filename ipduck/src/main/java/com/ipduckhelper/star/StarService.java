@@ -16,7 +16,7 @@ public class StarService {
 	public Integer Crt_Star_and_Grp(Star entity, boolean star_check) throws Exception{
 		
 		String file_nm = "";
-		if(entity.getUpload_img().isEmpty()) {
+		if(entity.getUpload_img() == null) {
 			file_nm = CommonUtil.getBaseProfileNm();
 		}
 		else {
