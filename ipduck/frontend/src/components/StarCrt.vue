@@ -4,14 +4,10 @@
 		<br>
 		<div class="search_result" style="padding:40px;">
 			연예인 등록하기<br>
-			<form>
-				<div class="star_result" v-if="!image">
+			<form enctype="multipart/form-data" method="post">
+				<div class="star_result">
 				    <h2>연예인 사진</h2>
-				    <input v-model="upload_img" class="click-able" type="file" value="사진을 업로드하세요" @change="onFileChange">
-				 </div>
-				 <div class="star_result" v-else>
-				    <img style="width: 200px; height:200px;" :src="image" />
-				    <button class="click-able" @click="removeImage">Remove image</button>
+				    <input id="file" v-model="upload_img" class="click-able" type="file" value="사진을 업로드하세요">
 				 </div>
 				<div class="content">
 				
@@ -141,11 +137,13 @@ export default {
       })
     },
     starCreate: function () {
-      const form = new FormData()
+      const config = {
+        headers: { 'content-type': 'multipart/form-data' }
+      }
+      let form = new FormData()
       let self = this
-      self.upload_img = self.image
       form.append('star_nm', self.star_nm)
-      form.append('upload_img', self.upload_img)
+      form.append('upload_img', document.getElementById('file').files[0])
       form.append('star_dbt_date', self.star_dbt_date)
       form.append('cmpy_nm', self.cmpy_nm)
       form.append('grp_idx', self.grp_idx)
@@ -153,34 +151,13 @@ export default {
       form.append('star_mem_wght', self.star_mem_wght)
       form.append('star_mem_hght', self.star_mem_hght)
       form.append('star_mem_birth', self.star_mem_birth)
-      axios.post('/crt/star/do.admin', form)
+      axios.post('/crt/star/do.admin', form, config)
       .then(function (response) {
         console.log(JSON.stringify(response))
       })
       .catch(function (error) {
         console.log(JSON.stringify(error))
       })
-    },
-    onFileChange: function (e) {
-      let files = e.target.files || e.dataTransfer.files
-      if (!files.length) {
-        return
-      }
-      this.createImage(files[0])
-    },
-    createImage: function (file) {
-      // /crt/star/do.admin
-      // let image = new Image()
-      let reader = new FileReader()
-      let vm = this
-      reader.onload = (e) => {
-        vm.image = e.target.result
-      }
-      reader.readAsDataURL(file)
-    },
-    removeImage: function (e) {
-      this.image = ''
-      e.preventDefault()
     }
   }
 }
