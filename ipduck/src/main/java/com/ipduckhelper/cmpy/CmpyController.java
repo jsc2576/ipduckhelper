@@ -23,7 +23,13 @@ public class CmpyController {
 	public Integer Crt_Cmpy(HttpServletRequest request, @RequestBody Cmpy entity) throws Exception{
 		return cmpyService.Crt_Cmpy(entity);
 	}
-	
+
+	@RequestMapping(value = "/srch/names/cmpy/do", method=RequestMethod.POST)
+	@ResponseBody
+	public List<Cmpy> Srch_Cmpy_Names(@RequestBody Cmpy entity) throws Exception{
+		return cmpyService.Srch_Cmpy_Names(entity);
+	}
+
 	@RequestMapping(value = "/srch/list/cmpy/do", method=RequestMethod.POST)
 	@ResponseBody
 	public List<Cmpy> Srch_Cmpy_List(@RequestBody Cmpy entity) throws Exception{

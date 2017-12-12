@@ -28,7 +28,11 @@ public class CmpyService {
 		
 		return cmpyRepository.Crt_Cmpy(entity);
 	}
-	
+
+	public List<Cmpy> Srch_Cmpy_Names(Cmpy entity) throws Exception{
+		return cmpyRepository.Srch_Cmpy_Names(entity);
+	}
+
 	public List<Cmpy> Srch_Cmpy_List(Cmpy entity) throws Exception{
 		return cmpyRepository.Srch_Cmpy_List(entity);
 	}

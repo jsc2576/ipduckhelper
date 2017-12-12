@@ -16,6 +16,9 @@
 			values ( #{cmpy_nm}, #{cmpy_rep}, LAST_INSERT_ID());
 	</insert>
 	
+	<select id="srch_cmpy_names" parameterType="com.ipduckhelper.cmpy.Cmpy" resultType="com.ipduckhelper.cmpy.Cmpy">
+		select CMPY_NM from CMPY_TBL;
+	</select>
 	<select id="srch_cmpy_list" parameterType="com.ipduckhelper.cmpy.Cmpy" resultType="com.ipduckhelper.cmpy.Cmpy">
 		select C.CMPY_NM, 
 			   C.CMPY_REP, 

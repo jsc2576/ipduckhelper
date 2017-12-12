@@ -19,7 +19,10 @@ public class CmpyRepository {
 		sqlSession.insert("com.ipduckhelper.cmpy.crt_cmpy_first", entity);
 		return sqlSession.insert("com.ipduckhelper.cmpy.crt_cmpy_second", entity);
 	}
-	
+
+	public List<Cmpy> Srch_Cmpy_Names(Cmpy entity) throws Exception{
+		return sqlSession.selectList("com.ipduckhelper.cmpy.srch_cmpy_names", entity);
+	}
 	public List<Cmpy> Srch_Cmpy_List(Cmpy entity) throws Exception{
 		return sqlSession.selectList("com.ipduckhelper.cmpy.srch_cmpy_list", entity);
 	}
