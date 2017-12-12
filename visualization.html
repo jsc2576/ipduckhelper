@@ -1,0 +1,54 @@
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load("current", {packages:["corechart"]});
+      google.charts.setOnLoadCallback(drawChart);
+      function drawChart() {
+
+        //연예인 좋아요 그리는 부분
+        var data_likes = new google.visualization.DataTable();
+        data_likes.addColumn('string','star');
+        data_likes.addColumn('number','likes');
+        
+        for(var i=0; i<10; i++)
+        {
+          var str = 'aaa';
+          data_likes.addRow([str, i]);
+        }
+
+        var options = {
+          title: '연예인 좋아요',
+          is3D: true,
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('star_likes'));
+        chart.draw(data_likes, options);
+        
+        //태그 현황 부분
+        var data_tags = new google.visualization.DataTable();
+        data_tags.addColumn('string','tags');
+        data_tags.addColumn('number','num');
+        
+        for(var i=0; i<10; i++)
+        {
+          var str = 'aaa';
+          data_tags.addRow([str, i]);
+        }
+
+        var options = {
+          title: '태그 현황',
+          is3D: true,
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('star_tags'));
+        chart.draw(data_tags, options);
+      }
+    </script>
+    <meta http-equiv="Content-Type" Content="text/html; charset=utf-8" />
+  </head>
+  <body>
+    <div id="star_likes" style="width: 900px; height: 500px;"></div>
+    <div id="star_tags" style="width: 900px; height: 500px;"></div>
+  </body>
+</html>
