@@ -3,6 +3,7 @@ package com.ipduckhelper.user;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
+
+import com.ipduckhelper.NaverUtil;
 
 @Controller
 public class UserController {
@@ -85,7 +88,7 @@ public class UserController {
 	 * @return
 	 * @throws Exception
 	 */
-	@RequestMapping(value = "/logout/do.go", method=RequestMethod.POST)
+	@RequestMapping(value = "/logout/do", method=RequestMethod.POST)
 	@ResponseBody
 	public Integer Logout(HttpServletRequest request) throws Exception{
 		
@@ -172,5 +175,26 @@ public class UserController {
 	@ResponseBody
 	public Integer Acvt_Mem(@RequestBody User entity) throws Exception{
 		return userService.Acvt_Mem(entity);
+	}
+	
+	@RequestMapping("/login/naver/do")
+	public void Request_Naver(HttpServletRequest request, HttpServletResponse response) throws Exception{
+		String token = NaverUtil.MakeToken();
+		request.getSession().setAttribute("state", token);
+		String naver_url = "https://nid.naver.com/oauth2.0/authorize?client_id=" + NaverUtil.getClientId()
+				+ "&response_type=code&redirect_uri=" + "http://223.194.44.34:8080/login/naver"
+				+ "&state="+token;
+		response.sendRedirect(naver_url);
+		
+	}
+	
+	@RequestMapping("/login/naver")
+	public void Response_Naver(HttpServletRequest request, HttpServletResponse response) throws Exception{
+		String get_state = request.getParameter("state");
+		String request_state = request.getSession().getAttribute("state").toString();
+		
+		if(get_state.equals(request_state)) {
+				
+		}
 	}
 }
