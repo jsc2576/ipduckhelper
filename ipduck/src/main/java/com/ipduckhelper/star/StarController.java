@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 @Controller
 public class StarController {
@@ -30,7 +31,8 @@ public class StarController {
 	 */
 	@RequestMapping(value = "/crt/star/do.admin", method=RequestMethod.POST)
 	@ResponseBody
-	public Integer Crt_Star(HttpServletRequest request, @RequestBody Star entity) throws Exception{
+	public Integer Crt_Star(HttpServletRequest request, @RequestBody Star entity, MultipartFile file) throws Exception{
+		entity.setUpload_img(file);
 		return starService.Crt_Star_and_Grp(entity, true);
 		// 참고 예시 : http://gangzzang.tistory.com/entry/스프링Spring-파일-업로드File-Upload
 		
