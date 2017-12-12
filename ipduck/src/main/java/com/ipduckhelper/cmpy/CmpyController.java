@@ -1,5 +1,6 @@
 package com.ipduckhelper.cmpy;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -26,8 +27,12 @@ public class CmpyController {
 
 	@RequestMapping(value = "/srch/names/cmpy/do", method=RequestMethod.POST)
 	@ResponseBody
-	public List<Cmpy> Srch_Cmpy_Names(@RequestBody Cmpy entity) throws Exception{
-		return cmpyService.Srch_Cmpy_Names(entity);
+	public List<String> Srch_Cmpy_Names(@RequestBody Cmpy entity) throws Exception{
+		List<Cmpy> list = cmpyService.Srch_Cmpy_Names(entity);
+		List<String> nameList = new ArrayList<String>();
+		for(int i=0;i<list.size();i++)
+			nameList.add(list.get(i).getCmpy_nm());
+		return nameList;
 	}
 
 	@RequestMapping(value = "/srch/list/cmpy/do", method=RequestMethod.POST)
