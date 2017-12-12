@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ipduckhelper.tag">
+
+	<insert id="crt_tag" parameterType="com.ipduckhelper.tag.Tag">
+		insert into TAG_TBL(TAG_NM)
+			values (#{tag_nm});
+	</insert>
+	
+	<select id="srch_tag_list" parameterType="com.ipduckhelper.tag.Tag" resultType="com.ipduckhelper.tag.Tag">
+		select *
+			from TAG_TBL
+			where TAG_NM 
+			like CONCAT('%', #{tag_nm}, '%');
+	</select>
+</mapper>

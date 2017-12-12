@@ -22,7 +22,7 @@ public class StarController {
 	
 	/**
 	 * 연예인 생성
-	 * need value : upload_img, star_nm, cmpy_nm, star_mem_hght, star_mem_bld, star_mem_wght, star_mem_birth, star_dbt_date
+	 * need value : upload_img, star_nm, cmpy_nm, star_mem_hght, star_mem_bld, star_mem_wght, star_mem_birth, star_dbt_date, tag_nm_list
 	 * @param request
 	 * @param entity
 	 * @return

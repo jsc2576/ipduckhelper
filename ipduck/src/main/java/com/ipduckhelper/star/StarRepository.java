@@ -18,8 +18,12 @@ public class StarRepository {
 	@Transactional(readOnly=false, rollbackFor= {Exception.class}, isolation=Isolation.REPEATABLE_READ)
 	public Integer Crt_Star(Star entity) throws Exception{
 		sqlSession.insert("com.ipduckhelper.star.crt_star_first", entity);
-		sqlSession.insert("com.ipduckhelper.star.crt_star_second", entity);
-		return sqlSession.insert("com.ipduckhelper.star.crt_star_third", entity);
+		Integer star_idx = sqlSession.insert("com.ipduckhelper.star.crt_star_second", entity);
+		
+		entity.setStar_idx(star_idx);
+
+		sqlSession.insert("com.ipduckhelper.star.crt_star_third", entity);
+		return sqlSession.insert("com.ipduckhelper.star.crt_star_forth", entity);
 	}
 	
 	@Transactional(readOnly=false, rollbackFor= {Exception.class}, isolation=Isolation.REPEATABLE_READ)

@@ -1,6 +1,7 @@
 package com.ipduckhelper.star;
 
 import java.io.Serializable;
+import java.util.List;
 
 import org.springframework.stereotype.Repository;
 import org.springframework.web.multipart.MultipartFile;
@@ -38,6 +39,7 @@ public class Star implements Serializable
 	private Integer offset;
 	
 	private String tag_nm;
+	private List<String> tag_nm_list;
 	
 	public Integer getStar_mem_idx() {
 		return star_mem_idx;
@@ -152,5 +154,11 @@ public class Star implements Serializable
 	}
 	public void setMem_id(String mem_id) {
 		this.mem_id = mem_id;
+	}
+	public List<String> getTag_nm_list() {
+		return tag_nm_list;
+	}
+	public void setTag_nm_list(List<String> tag_nm_list) {
+		this.tag_nm_list = tag_nm_list;
 	}
 }

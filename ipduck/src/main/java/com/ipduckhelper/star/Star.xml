@@ -21,6 +21,10 @@
 					TO_DATE(#{star_dbt_date}, 'YYYYMMDD'), 
 					#{cmpy_nm}, 
 					LAST_INSERT_ID());
+					
+		<selectKey keyProperty="post_idx" resultType="Integer" order="AFTER">
+			select LAST_INSERT_ID()
+		</selectKey> 
 	</insert>
 	
 	<insert id="crt_star_third" parameterType="com.ipduckhelper.star.Star">
@@ -36,6 +40,15 @@
 					#{star_mem_birth}, 
 					LAST_INSERT_ID(), 
 					#{grp_idx});
+	</insert>
+	
+	<insert id="crt_star_forth" parameterType="com.ipduckhelper.star.Star">
+		insert into STAR_TAG_TBL(STAR_IDX,
+								 TAG_NM)
+			values 
+			<foreach collection="tag_nm_list" item="tag" open="(" close=")" separator=",">
+				#{star_idx}, #{tag.value}
+			</foreach>
 	</insert>
 	
 	<insert id="crt_grp_first" parameterType="com.ipduckhelper.star.Star">
