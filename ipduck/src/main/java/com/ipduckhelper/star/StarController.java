@@ -78,7 +78,19 @@ public class StarController {
 	public List<Star> Srch_Star_Tag_List(@RequestBody Star entity) throws Exception{
 		return starService.Srch_Star_Tag_List(entity);
 	}
-	
+
+	/**
+	 * 모든 그룹 이름 리스트를 검색한다.
+	 * @param entity
+	 * @return
+	 * @throws Exception
+	 */
+	@RequestMapping(value = "/srch/names/grp/do.go", method=RequestMethod.POST)
+	@ResponseBody
+	public List<Star> Srch_Grp_Names(@RequestBody Star entity) throws Exception{
+		return starService.Srch_Grp_Names(entity);
+	}
+
 	/**
 	 * 그룹 이름 리스트를 검색한다.
 	 * need value : star_nm

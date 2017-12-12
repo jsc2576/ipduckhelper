@@ -1,5 +1,6 @@
 package com.ipduckhelper.star;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
@@ -27,7 +28,7 @@ public class StarRepository {
 		sqlSession.insert("com.ipduckhelper.star.crt_grp_second", entity);
 		return sqlSession.insert("com.ipduckhelper.star.crt_grp_third", entity);
 	}
-	
+
 	public List<Star> Srch_Star_List(Star entity) throws Exception{
 		return sqlSession.selectList("com.ipduckhelper.star.srch_star_list", entity);
 	}
@@ -35,9 +36,12 @@ public class StarRepository {
 	public List<Star> Srch_Star_Tag_List(Star entity) throws Exception{
 		return sqlSession.selectList("com.ipduckhelper.star.srch_star_tag_list", entity);
 	}
-	
+
 	public List<Star> Srch_Grp_List(Star entity) throws Exception{
 		return sqlSession.selectList("com.ipduckhelper.star.srch_grp_list", entity);
+	}
+	public List<Star> Srch_Grp_Names(Star entity) throws Exception{
+		return sqlSession.selectList("com.ipduckhelper.star.srch_grp_names", entity);
 	}
 	
 	public Star Srch_Star(Star entity) throws Exception{

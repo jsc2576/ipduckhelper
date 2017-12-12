@@ -37,7 +37,7 @@ export default {
       if (!self.$session.exists()) {
         self.$router.push({ name: 'Login' })
       } else {
-        axios.post('/logout/do.go', {})
+        axios.post('/logout/do', {})
         .then(function (response) {
           alert(JSON.stringify(response))
           self.$session.destroy()

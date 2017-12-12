@@ -59,6 +59,10 @@ public class StarService {
 		
 		return result;
 	}
+
+	public List<Star> Srch_Grp_Names(Star entity) throws Exception{
+		return starRepository.Srch_Grp_Names(entity);
+	}
 	
 	public List<Star> Srch_Grp_List(Star entity) throws Exception{
 		return starRepository.Srch_Grp_List(entity);

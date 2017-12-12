@@ -103,8 +103,16 @@
 			offset #{offset};
 	</select>
 	
+	<select id="srch_grp_names" parameterType="com.ipduckhelper.star.Star" resultType="com.ipduckhelper.star.Star">
+		select G.GRP_IDX,
+			   S.STAR_NM
+			from STAR_TBL S
+				inner join GRP_TBL G
+					on S.STAR_IDX = G.STAR_IDX
+			where S.STAR_TYP = 0;
+	</select>
 	<select id="srch_grp_list" parameterType="com.ipduckhelper.star.Star" resultType="com.ipduckhelper.star.Star">
-		select G.GRP_IDX
+		select G.GRP_IDX,
 			   S.STAR_NM
 			from STAR_TBL S
 				inner join GRP_TBL G
