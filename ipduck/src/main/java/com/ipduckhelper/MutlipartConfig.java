@@ -6,6 +6,7 @@ import org.springframework.boot.web.servlet.MultipartConfigFactory;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.multipart.MultipartResolver;
+import org.springframework.web.multipart.support.StandardServletMultipartResolver;
 
 @Configuration
 public class MutlipartConfig {
@@ -19,8 +20,7 @@ public class MutlipartConfig {
 
 	@Bean
 	public MultipartResolver multipartResolver() {
-	org.springframework.web.multipart.commons.CommonsMultipartResolver multipartResolver = new org.springframework.web.multipart.commons.CommonsMultipartResolver();
-	multipartResolver.setMaxUploadSize(512000000);
+	StandardServletMultipartResolver multipartResolver = new StandardServletMultipartResolver();
 	return multipartResolver;
 	}
 }
