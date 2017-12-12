@@ -57,8 +57,9 @@ public class CommonUtil {
 	 * @throws Exception
 	 */
 	public static String Upload_Image(MultipartFile image, String path) throws Exception{
-		String file_nm = image.getOriginalFilename() + "_" + CommonUtil.getDate() + "_" + CommonUtil.getRandom(CommonUtil.getFileRandomLength());
-		String file_path = Paths.get(path, file_nm).toString();
+		
+		String file_nm = image.getOriginalFilename().substring(0, image.getOriginalFilename().lastIndexOf(".")) + "_" + CommonUtil.getDate() + "_" + CommonUtil.getRandom(CommonUtil.getFileRandomLength()) + image.getOriginalFilename().substring(image.getOriginalFilename().lastIndexOf("."), image.getOriginalFilename().length());
+		String file_path = Paths.get(".", file_nm).toString();
 		
 		// 파일 생성
 		File save_profile = new File(file_path);
