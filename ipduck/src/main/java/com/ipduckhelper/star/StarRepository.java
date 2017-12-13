@@ -23,7 +23,13 @@ public class StarRepository {
 		entity.setStar_idx(star_idx);
 
 		sqlSession.insert("com.ipduckhelper.star.crt_star_third", entity);
-		return sqlSession.insert("com.ipduckhelper.star.crt_star_forth", entity);
+		try {
+			return sqlSession.insert("com.ipduckhelper.star.crt_star_forth", entity);	
+		}catch (Exception e) {
+			// TODO: handle exception
+			return 0;
+		}
+		
 	}
 	
 	@Transactional(readOnly=false, rollbackFor= {Exception.class}, isolation=Isolation.REPEATABLE_READ)
