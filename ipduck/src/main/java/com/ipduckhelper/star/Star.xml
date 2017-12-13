@@ -22,7 +22,7 @@
 					#{cmpy_nm}, 
 					LAST_INSERT_ID());
 					
-		<selectKey keyProperty="post_idx" resultType="Integer" order="AFTER">
+		<selectKey keyProperty="star_idx" resultType="Integer" order="AFTER">
 			select LAST_INSERT_ID()
 		</selectKey> 
 	</insert>
