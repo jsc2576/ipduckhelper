@@ -18,7 +18,7 @@
 							 FILE_IDX) 
 			values (#{star_nm}, 
 					1, 
-					TO_DATE(#{star_dbt_date}, 'YYYYMMDD'), 
+					DATE_FORMAT(#{star_dbt_date}, '%Y%m%d'), 
 					#{cmpy_nm}, 
 					LAST_INSERT_ID());
 					
