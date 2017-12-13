@@ -25,7 +25,11 @@ export default {
     },
     goMyInfo: function () {
       if (this.$session.exists()) {
-        this.$router.push({ name: 'MyInfo' })
+        if (this.$session.get('usr').mem_stat === 2) {
+          this.$router.push({ name: 'Admin' })
+        } else {
+          this.$router.push({ name: 'MyInfo' })
+        }
       } else {
         this.$router.push({ name: 'Login' })
       }

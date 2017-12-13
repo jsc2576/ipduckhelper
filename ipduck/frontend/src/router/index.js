@@ -29,6 +29,7 @@ import ScheMth from '@/components/ScheMth'
 import ScheList from '@/components/ScheList'
 import ScheDtl from '@/components/ScheDtl'
 import RankSrch from '@/components/RankSrch'
+import Admin from '@/components/Admin'
 
 Vue.use(Router)
 
@@ -65,6 +66,7 @@ export default new Router({
     /*  */ { path: '/sche/mth/view', name: 'ScheMth', component: ScheMth },
     /*  */ { path: '/sche/list/view', name: 'ScheList', component: ScheList },
     /*  */ { path: '/sche/dtl/view', name: 'ScheDtl', component: ScheDtl },
-    /*  */ { path: '/rank/srch/view', name: 'RankSrch', component: RankSrch }
+    /*  */ { path: '/rank/srch/view', name: 'RankSrch', component: RankSrch },
+    /*  */ { path: '/admin/manage', name: 'Admin', component: Admin }
   ]
 })

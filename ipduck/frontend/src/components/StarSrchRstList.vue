@@ -9,29 +9,13 @@
 		연예인
 	</div>
 	<div class="content">
+	
 		<a class="click-able" v-on:click.prevent="starSearchResultDetail">
 		<div class="srat_result" style="float:left">
 			<img src="/img/profile_none.png"><br>
 			연예인 이름
 		</div></a>
-
-		<a class="click-able" v-on:click.prevent="starSearchResultDetail">
-		<div class="srat_result" style="float:left">
-		<img src="/img/profile_none.png"><br>
-			연예인 이름
-		</div></a>
-
-		<a class="click-able" v-on:click.prevent="starSearchResultDetail">
-		<div class="srat_result" style="float:left">
-		<img src="/img/profile_none.png"><br>
-			연예인 이름
-		</div></a>
-
-		<a class="click-able" v-on:click.prevent="starSearchResultDetail">
-		<div class="srat_result" style="float:left">
-		<img src="/img/profile_none.png"><br>
-			연예인 이름
-		</div></a>
+		
 	</div>
 
 <!-- 검색된 갤러리 -->
@@ -54,16 +38,34 @@
 
 <script>
 import MainNav from '@/components/MainNav'
+import axios from 'axios'
 
 export default {
   name: 'star-srch-rst-list',
   components: { MainNav },
   data () {
     return {
-      msg: ''
+      msg: '',
+      star_list: []
     }
   },
+  created: function () {
+    this.getStar()
+  },
   methods: {
+    getStar: function () {
+      // let self = this
+      axios.post('/srch/list/star/tag/do.go', {
+        tag_nm: '',
+        offset: 0
+      })
+      .then(function (response) {
+        alert(JSON.stringify(response))
+      })
+      .catch(function (error) {
+        console.log(JSON.stringify(error))
+      })
+    },
     starSearchResultDetail: function () {
       this.$router.push({ name: 'StarSrchRstDtl', params: { no: 1 } })
     },
