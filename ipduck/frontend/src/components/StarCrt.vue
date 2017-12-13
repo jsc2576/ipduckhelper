@@ -57,8 +57,6 @@
 <script>
 import MainNav from '@/components/MainNav'
 import axios from 'axios'
-import FormData from 'form-data'
-// import fs from 'fs'
 
 export default {
   name: 'star-crt',
@@ -141,22 +139,16 @@ export default {
     starCreate: function () {
       let form = new FormData()
       let self = this
-      form.append('star_nm', self.star_nm, { type: 'application/json' })
-      form.append('upload_img', document.getElementById('file').files[0], { header: { 'Content-Type': 'multipart/form-data' } })
-      form.append('star_dbt_date', self.star_dbt_date, { header: { 'Content-Type': 'application/json' } })
-      form.append('cmpy_nm', self.cmpy_nm, { header: { 'Content-Type': 'text/html' } })
-      form.append('grp_idx', self.grp_idx, { header: { 'Content-Type': 'text/html' } })
-      form.append('star_mem_bld', self.star_mem_bld, { header: { 'Content-Type': 'text/html' } })
-      form.append('star_mem_wght', self.star_mem_wght, { header: { 'Content-Type': 'text/html' } })
-      form.append('star_mem_hght', self.star_mem_hght, { header: { 'Content-Type': 'text/html' } })
-      form.append('star_mem_birth', self.star_mem_birth, { header: { 'Content-Type': 'text/html' } })
-      axios.post('/crt/star/do.admin', form)
-      .then(function (response) {
-        console.log(JSON.stringify(response))
-      })
-      .catch(function (error) {
-        console.log(JSON.stringify(error))
-      })
+      form.append('star_nm', self.star_nm)
+      form.append('upload_img', document.getElementById('file').files[0])
+      form.append('star_dbt_date', self.star_dbt_date)
+      form.append('cmpy_nm', self.cmpy_nm)
+      form.append('grp_idx', self.grp_idx)
+      form.append('star_mem_bld', self.star_mem_bld)
+      form.append('star_mem_wght', self.star_mem_wght)
+      form.append('star_mem_hght', self.star_mem_hght)
+      form.append('star_mem_birth', self.star_mem_birth)
+      window.sendPost('/crt/star/do.admin', form)
     }
   }
 }

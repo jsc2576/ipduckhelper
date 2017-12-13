@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -31,35 +32,13 @@ public class StarController {
 	 */
 	@RequestMapping(value = "/crt/star/do.admin", method=RequestMethod.POST)
 	@ResponseBody
-	public Integer Crt_Star(HttpServletRequest request, @RequestPart("upload_img") MultipartFile file,
-														@RequestPart("star_nm") String star_nm,
-														@RequestPart("cmpy_nm") String cmpy_nm,
-														@RequestPart("star_mem_hght") Integer star_mem_hght,
-														@RequestPart("star_mem_bld") Integer star_mem_bld, 
-														@RequestPart("star_mem_wght") Integer star_mem_wght,
-														@RequestPart("star_mem_birth") String star_mem_birth,
-														@RequestPart("star_dbt_date") String star_dbt_date,
-														@RequestPart("tag_nm_list") List<String> tag_nm_list,
-														@RequestPart("grp_idx") Integer grp_idx) throws Exception{
-		Star entity = new Star();
-		entity.setUpload_img(file);
-		entity.setStar_nm(star_nm);
-		entity.setCmpy_nm(cmpy_nm);
-		entity.setStar_mem_hght(star_mem_hght);
-		entity.setStar_mem_bld(star_mem_bld);
-		entity.setStar_mem_wght(star_mem_wght);
-		entity.setStar_mem_birth(star_mem_birth);
-		entity.setStar_dbt_date(star_dbt_date);
-		entity.setTag_nm_list(tag_nm_list);
-		entity.setGrp_idx(grp_idx);
-		
-		return starService.Crt_Star_and_Grp(entity, true);
+	public Integer Crt_Star(HttpServletRequest request, @ModelAttribute Star entity) throws Exception{
+		int result = starService.Crt_Star_and_Grp(entity, true);
+		return result;
 		// 참고 예시 : http://gangzzang.tistory.com/entry/스프링Spring-파일-업로드File-Upload
 		
 		// 바인딩이 안되는 경우 http://private.tistory.com/59 를 보고 수정
 	}
-	
-	
 	/**
 	 * 그룹 생성
 	 * need value : upload_img, star_nm, cmpy_nm, clb_site

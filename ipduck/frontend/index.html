@@ -3,6 +3,7 @@
   <head>
 	<title>입덕 도우미</title>
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 	<script type="text/javascript" src="/js/chart.js"></script>
     <meta charset="utf-8">
@@ -11,4 +12,12 @@
     <div id="app"></div>
     <!-- built files will be auto injected -->
   </body>
+  <script>
+
+  window.sendPost = function (url, form) {
+	    var request = new XMLHttpRequest();
+	    request.open('POST', url);
+	    request.send(form);
+  }
+  </script>
 </html>
