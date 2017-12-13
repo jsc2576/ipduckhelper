@@ -14,11 +14,11 @@ public class CommonUtil {
 
 	private final static String pwd_key = "문자열1234";
 	private final static Integer file_random_length = 12; // 파일 뒤에 랜덤으로 붙는 숫자 자리수
-	private final static String user_profile_path = "./"; //유저 프로필 사진 저장 경로
-	private final static String star_profile_path = "./"; //연예인 프로필 사진 저장 경로
-	private final static String cmpy_profile_path = "./"; // 기획사 대표 프로필 사진 저장 경로
-	private final static String meme_path = "./meme";
-	private final static String Post_img_path = "./post_img";
+	private final static String user_profile_path = "/"; //유저 프로필 사진 저장 경로
+	private final static String star_profile_path = "/"; //연예인 프로필 사진 저장 경로
+	private final static String cmpy_profile_path = "/"; // 기획사 대표 프로필 사진 저장 경로
+	private final static String meme_path = "/";
+	private final static String Post_img_path = "/";
 	private final static String base_profile_nm = "base_profile.jpg";
 	
 	public static String getDate() {
