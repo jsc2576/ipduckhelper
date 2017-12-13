@@ -9,13 +9,13 @@
 		연예인
 	</div>
 	<div class="content">
-	
 		<a class="click-able" v-on:click.prevent="starSearchResultDetail">
-		<div class="srat_result" style="float:left">
-			<img src="/img/profile_none.png"><br>
-			연예인 이름
-		</div></a>
-		
+			<div v-for="star in star_list">
+				<img style="height: 100px;" v-bind:src="star.file_nm">
+				{{star.star_nm}}
+				<br>
+			</div>
+		</a>
 	</div>
 
 <!-- 검색된 갤러리 -->
@@ -54,13 +54,19 @@ export default {
   },
   methods: {
     getStar: function () {
-      // let self = this
-      axios.post('/srch/list/star/tag/do.go', {
-        tag_nm: '',
+      let self = this
+      axios.post('/srch/list/star/do.go', {
+        star_nm: '',
         offset: 0
       })
       .then(function (response) {
-        alert(JSON.stringify(response))
+        var starList = response.data
+        self.star_list = []
+        for (var i = 0; i < starList.length; i++) {
+          starList[i].file_nm = starList[i].file_path + starList[i].file_nm
+          self.star_list.push(starList[i])
+        }
+        // alert(JSON.stringify(response))
       })
       .catch(function (error) {
         console.log(JSON.stringify(error))
